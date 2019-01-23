@@ -3,29 +3,199 @@
 main {
     padding-top: 3rem;
     padding-bottom: 2rem;
-  }
-  
-  .widget-wrapper {
+}
+
+.widget-wrapper {
     padding-bottom: 2rem;
     border-bottom: 1px solid #e0e0e0;
     margin-bottom: 2rem;
-  }
-  
-  .extra-margins {
+}
+
+.extra-margins {
     margin-top: 1rem;
     margin-bottom: 2.5rem;
-  }
-  
-  .divider-new {
+}
+
+.divider-new {
     margin-top: 0;
-  }
-  
-  .navbar {
+}
+
+.navbar {
     background-color: #414a5c;
-  }
-  
-  footer.page-footer {
+}
+
+footer.page-footer {
     background-color: #414a5c;
     margin-top: 2rem;
-  }
-  
+}
+
+// NavBar
+$white: rgb(255, 255, 255);
+$black: rgb(0, 0, 0);
+$sidenavLinkColor:rgb(115, 115, 115);
+$sidenavBackground: rgb(26, 26, 26);
+body {
+    overflow-x: hidden;
+}
+
+#container-global {
+    background: $white;
+    transition: .45s;
+    header {
+        display: flex;
+        flex-direction: column;
+        height: 600px;
+        background: linear-gradient(rgba($black, .7), rgba($black, .3)), url("https://static.pexels.com/photos/4827/nature-forest-trees-fog.jpeg")no-repeat center center;
+        background-size: cover;
+        padding: 1em;
+        #mainNav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .open {
+                outline: 0;
+                background: none;
+                border: 0;
+                color: rgba($white, .7);
+                font-size: 1.5em;
+                cursor: pointer;
+                &:hover {
+                    color: darken($white, 60%);
+                }
+            }
+            .fa-search,
+            .fa-shopping-bag {
+                margin: .45em;
+                padding: .60em;
+                color: rgba($white, .7);
+                &:hover {
+                    color: darken($white, 60%);
+                }
+            }
+        }
+        .cta {
+            text-transform: uppercase;
+            margin: auto 0;
+            text-align: center;
+            color: rgba($white, .6);
+            h1 {
+                letter-spacing: 2px;
+                margin-bottom: .80em;
+            }
+            button {
+                background: 0;
+                color: $white;
+                border: solid 3px rgba($white, .5);
+                text-transform: uppercase;
+                padding: .80em 2em;
+                font-weight: bold;
+            }
+        }
+    }
+    main {
+        section {
+            figure {
+                margin: 0;
+                background: darken($white, 6%);
+                position: relative;
+                img {
+                    padding: 2em;
+                }
+                figcaption {
+                    position: inherit;
+                    bottom: 0;
+                    left: 0;
+                    background: $white;
+                    padding: 1.5em 2em;
+                    margin-right: 3em;
+                    a {
+                        text-decoration: none;
+                        color: $black;
+                        text-transform: uppercase;
+                        font-size: .85em;
+                        font-weight: bold;
+                    }
+                }
+                &:hover {
+                    background: darken($white, 10%);
+                }
+            }
+            .last {
+                padding: 0;
+                img {
+                    padding: 0;
+                    width: 100%;
+                }
+                figcaption {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    background: rgba($black, .6);
+                    color: rgba($white, .8);
+                    text-transform: uppercase;
+                    text-align: center;
+                    height: 100%;
+                    width: 100%;
+                    button {
+                        background: none;
+                        color: $white;
+                        text-transform: uppercase;
+                        padding: .50em 1.2em;
+                        border: solid 2px rgba($white, .5);
+                        margin-top: 1em;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        section:nth-of-type(2) {
+            margin-bottom: 3em;
+            figure {
+                background: $white;
+                cursor: pointer;
+                &:hover {
+                    background: darken($white, 10%);
+                }
+            }
+            button {
+                font-weight: bold;
+                border: none;
+                background: none;
+                border: solid 2px rgba($black, .5);
+                margin: 1em auto 0;
+                padding: .50em 1.4em;
+                cursor: pointer;
+            }
+        }
+    }
+    footer {
+        background: darken($white, 20%);
+        padding: 2em 0 .70em;
+        margin: 0;
+        height: 100%;
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            li {
+                text-transform: uppercase;
+                margin: 0 .80em;
+                padding: .50em;
+                font-weight: bold;
+                color: rgba($black, .4);
+                cursor: pointer;
+                &:hover {
+                    color: $black;
+                }
+            }
+        }
+        p {
+            text-align: center;
+            color: darken($white, 45%);
+            margin-bottom: auto;
+        }
+    }
+}

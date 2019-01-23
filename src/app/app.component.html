@@ -1,9 +1,41 @@
-<h1>NavBar</h1>
-<nav>
-  <a routerLink="/appartement-list" routerLinkActive="active">appartement-list</a>
-  <span style="margin-left: 1em; margin-right: 1em;"><a routerLink="/home" routerLinkActive="active">home</a></span>
-</nav>
+<script src="./home/home.component.js"></script>
 
+<!-- <a routerLink="/appartement-list" routerLinkActive="active">appartement-list</a>
+<span style="margin-left: 1em; margin-right: 1em;"><a routerLink="/home" routerLinkActive="active">home</a></span> -->
+
+<!-- <nav id="sideNav">
+    <button class="fa fa-times" id="close"></button>
+    <div>
+        <a href="#">home</a>
+        <a href="#">mens</a>
+        <a href="#">womens</a>
+        <a href="#">goods</a>
+        <a href="#">brands</a>
+        <a href="#">blog</a>
+        <a href="#">about</a>
+        <a href="#">contact</a>
+        <a href="#">shipping</a>
+    </div>
+</nav> -->
+
+<div id="container-global">
+    <header>
+        <nav id="mainNav">
+            <button class="fa fa-bars open"></button>
+            <div>
+                <a routerLink="/appartement-list" routerLinkActive="active">appartement-list</a>
+                <span style="margin-left: 1em; margin-right: 1em;"><a routerLink="/home" routerLinkActive="active">home</a></span>
+                <a href="#"><i class="fa fa-search"></i></a>
+                <a href="#"><i class="fa fa-shopping-bag"></i></a>
+            </div>
+        </nav>
+        <div class="cta">
+            <app-search-bar></app-search-bar>
+            <h1>Explorez vos opportunités</h1>
+            <button>Réservez dès maintenant</button>
+        </div>
+    </header>
+</div>
 
 <router-outlet></router-outlet>
 

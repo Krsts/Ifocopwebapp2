@@ -1,0 +1,38 @@
+<script src="./search-bar.component.js"></script>
+
+
+<!-- 
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+    <input name="first" ngModel required #first="ngModel">
+    <input name="last" ngModel>
+    <button>Submit</button>
+</form> -->
+<input [(ngModel)]="search" class="search" type="text" value=" " />
+<button (click)="onsearchrequest($event)" class="submit"></button>
+<p style="text-align:center">Votre recherche : {{ search }}</p>
+
+
+<!-- <div class="search-bar-body ">
+    <div class="wrapper">
+        <form>
+            
+            <input [(ngModel)]="search" class="search" type="text" value=" " />
+            <button (click)="onsearchrequest(event)" class="submit"></button>
+        </form>
+    </div>
+</div>
+ -->
+
+<!-- <p>Search Value: {{ search }}</p>
+<p>Valid: {{ ctrl.valid }}</p> -->
+
+
+<!-- 
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+    <input name="search" ngModel required #search="ngModel">
+    <button>Submit</button>
+</form> -->
+
+
+<!-- <input [(ngModel)]="search" class="search" #ctrl="ngModel" required>
+            <input [(NgModel)]="search" class="search" type="text" id="search" /> -->
