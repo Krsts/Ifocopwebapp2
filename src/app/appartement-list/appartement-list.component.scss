@@ -10,19 +10,19 @@ body {
 
 section {
     width: 100%;
-    padding: 0 7%;
+    padding: 0 0%;
     display: table;
     margin: 0;
     max-width: none;
     background-color: #373B44;
-    height: 50vh;
+    height: 30vh;
     &:nth-of-type(2n) {
         background-color: #FE4B74;
     }
 }
 
 .intro {
-    height: 90vh;
+    height: 30vh;
 }
 
 .content {
@@ -55,6 +55,14 @@ a {
     }
 }
 
+img {
+    border: 3px transparent solid;
+}
+
+:hover img{
+    border: 3px blue solid;
+}.pointer
+
 footer {
     padding: 1% 5%;
     text-align: center;
@@ -77,6 +85,8 @@ footer {
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
+    
+    
 }
 
 .item.list-group-item {
@@ -115,6 +125,8 @@ footer {
 
 .item.list-group-item img {
     float: left;
+    margin: 6px;
+    
 }
 
 .item.list-group-item:after {
