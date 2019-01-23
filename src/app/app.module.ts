@@ -9,6 +9,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
+import { AppartementDetailComponent } from './appartement-detail/appartement-detail.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FooterComponent } from './footer/footer.component';
     PageNotFoundComponent,
     SearchBarComponent,
     FooterComponent,
+    AppartementDetailComponent,
   ],
   imports: [
     BrowserModule,
