@@ -11,6 +11,11 @@ export class AppartementListComponent implements OnInit {
   appartements: Appartement[];
 
   AppartementTitle: string;
+  langs: string[] = [
+    'English',
+    'French',
+    'German',
+  ]
 
   constructor(private appartementService: AppartementService) { }
 

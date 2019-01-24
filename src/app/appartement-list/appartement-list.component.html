@@ -16,21 +16,23 @@
 
 <!-- <p [[(ngModel)]="AppartementTitle" ]></p> -->
 
-
+<!-- 
 <section class="intro">
     <div class="content">
         <h1>You can create full screen sections without javascript.</h1>
         <p>The height is set to 90vh, that means 90% height.</p>
     </div>
-</section>
+</section> -->
 
 <section>
-    <div class="content">
-        <h1>Resize your browser and see how they adapt.</h1>
+    <div >
+        <tr class="content" *ngFor="let lang of langs; let i = index">
+            <td> {{lang}}></td>
+        </tr>
     </div>
 </section>
 
-<section>
+<!-- <section>
     <div class="content">
         <h1>It's amazing and fast.</h1>
     </div>
@@ -45,7 +47,7 @@
     <div class="content">
         <h1 class="d-inline">See the <a href="http://caniuse.com/#feat=viewport-units">browser support.</a></h1>
     </div>
-</section>
+</section> -->
 
 <!-- <footer>
     Made by <a href="https://www.twitter.com/ckor">@ckor</a>
