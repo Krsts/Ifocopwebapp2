@@ -1,3 +1,19 @@
+<!-- <app-appartement-item></app-appartement-item> -->
+<!-- <div class="row">
+    <div class="col-md-5">
+      <app-appartement-list-item></app-appartement-list-item>
+    </div>
+    <div class="col-md-7">
+      <app-appartmeent-detail
+        *ngIf="selectedAppartement; else infoText"
+        [appartmeent]="selectedAppartement">
+      </app-appartmeent-detail>
+      <ng-template #infoText>
+        <p>Please selected an appartement</p>
+      </ng-template>
+    </div>
+  </div> -->
+
 <section class="intro">
     <div class="content">
         <h1>You can create full screen sections without javascript.</h1>
@@ -19,8 +35,11 @@
 
 <section>
     <div class="content">
-
-        <img src="./../../assets/img/x420 4.3/3 x420 4.3.jpg" alt="" class="img-flui">
+        <a routerLink="/home" routerLinkActive="active">
+        <img src="./../../assets/img/x420 4.3/3 x420 4.3.jpg" alt="" class="img-fluid">
+    </a>
+</div>
+<div class="content">
         <h1 class="d-inline">See the <a href="http://caniuse.com/#feat=viewport-units">browser support.</a></h1>
     </div>
 </section>
@@ -30,7 +49,7 @@
   </footer> -->
 
 
-
+<!-- 
 <div class="container-fluid">
     <div class="well well-sm">
         <strong>Display</strong>
@@ -162,4 +181,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->

@@ -10,6 +10,10 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { AppartementDetailComponent } from './appartement-detail/appartement-detail.component';
+import { AppartementFormComponent } from './appartement-form/appartement-form.component';
+import { AppartementListItemComponent } from './appartement-list-item/appartement-list-item.component';
+import { AppartementsComponent } from './appartements/appartements.component';
+
 
 @NgModule({
   declarations: [
@@ -20,11 +24,15 @@ import { AppartementDetailComponent } from './appartement-detail/appartement-det
     SearchBarComponent,
     FooterComponent,
     AppartementDetailComponent,
+    AppartementFormComponent,
+    AppartementListItemComponent,
+    AppartementsComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
