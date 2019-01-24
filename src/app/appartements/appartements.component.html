@@ -1,14 +1,18 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-5">
     <app-appartement-list-item></app-appartement-list-item>
   </div>
   <div class="col-md-7">
-    <!-- <app-appartement-detail
+    <app-appartement-detail
       *ngIf="selectedAppartement; else infoText"
       [appartement]="selectedAppartement">
-    </app-appartement-detail> -->
-    <ng-template #infoText>
+    </app-appartement-detail>
+     <ng-template #infoText>
       <p>Please selected an appartement</p>
     </ng-template>
   </div>
-</div>
+</div> -->
+
+<app-appartement-list-item *ngFor="let appartement of appartements" [appartement]="appartement">
+  <p>{{appartement.nom}}</p>
+</app-appartement-list-item>
