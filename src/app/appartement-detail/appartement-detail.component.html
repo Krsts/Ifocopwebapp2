@@ -2,7 +2,7 @@
     <div class="modal-container">
         <div class="l-product">
             <div class="l-product__container">
-                <div class="l-product__title">Biscotti mix carton (91628)</div>
+                <div class="l-product__title">{{title}}</div>
 
                 <main class="l-product__main">
                     <div class="l-product__image">
@@ -12,8 +12,8 @@
                         <div class="c-price">
 
                             <div class="c-price__row">
-                                <div class="c-price__index c-price__index--xl">Price per CT
-                                    <div class="c-price__date">from 2017-01-01 <br /> to 2017-12-31</div>
+                                <div class="c-price__index c-price__index--xl">Prix de location
+                                    <div class="c-price__date">{{datededepart | date:'short'}} <br /> {{datedefin | date:'short'}}</div>
                                 </div>
                                 <div class="c-price__value c-price__value--xl c-price__value--b">66.88 CHF</div>
                             </div>
