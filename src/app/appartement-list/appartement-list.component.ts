@@ -22,5 +22,7 @@ export class AppartementListComponent implements OnInit {
   ngOnInit() {
     this.appartements = this.appartementService.getAppartement();
     console.log(this.appartements);
+    console.log(this.appartements)
   }
+  
 }

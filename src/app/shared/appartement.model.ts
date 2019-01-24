@@ -1,3 +1,13 @@
+// export class Appartement {
+//     nom : string;
+//     ville : string;
+//     img1 : string;
+// }
+
+
+
+
+
 export class Appartement {
 constructor(
     public nom: string,

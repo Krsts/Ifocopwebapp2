@@ -1,6 +1,8 @@
-import { AppartementService } from './../services/appartement.service';
-import { Appartement } from './../shared/appartement.model';
+import { AppartementJson } from './../shared/appartement-json.model';
+// import { AppartementService } from './../services/appartement.service';
+// import { Appartement } from './../shared/appartement.model';
 import { Component, OnInit, Input } from '@angular/core';
+
 
 
 @Component({
@@ -9,14 +11,37 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./appartement-list-item.component.scss']
 })
 export class AppartementListItemComponent implements OnInit {
-@Input() appartement: Appartement;
+// @Input() appartement: Appartement;
 
-  constructor(private appartementService: AppartementService) { }
+appartements: AppartementJson[];
+
+  // constructor(private appartementService: AppartementService) { }
+    constructor () {
+
+    }
 
   ngOnInit() {
+    this.appartements = [
+      {
+        nom : "Mon Appartement",
+        ville : "Paris",
+    },
+      {
+        nom : "Ton Appartement",
+        ville : "Nantes",
+    },
+      {
+        nom : "Son Appartement",
+        ville : "Lyon",
+    },
+      {
+        nom : "Nos Appartements",
+        ville : "Toulouse",
+    },
+  ]
   }
 
-  onSelected() {
-    this.appartementService.appartementSelected.emit(this.appartement);
-  }
+  // onSelected() {
+  //   this.appartementService.appartementSelected.emit(this.appartement);
+  // }
 }
