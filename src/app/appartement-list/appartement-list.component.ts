@@ -10,10 +10,12 @@ import { AppartementService } from '../services/appartement.service';
 export class AppartementListComponent implements OnInit {
   appartements: Appartement[];
 
+  AppartementTitle: string;
+
   constructor(private appartementService: AppartementService) { }
 
   ngOnInit() {
     this.appartements = this.appartementService.getAppartement();
+    console.log(this.appartements);
   }
-
 }
