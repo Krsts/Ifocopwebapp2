@@ -1,5 +1,7 @@
+// import { DataService } from './../services/Data.service';
 import { AppartementJson } from './../shared/appartement-json.model';
 import { Component, OnInit } from '@angular/core';
+
 // import {Appartement } from '../shared/appartement.model';
 // import { AppartementService } from '../services/appartement.service';
 
@@ -22,7 +24,9 @@ export class AppartementListComponent implements OnInit {
 appartements:AppartementJson[];
 
   // constructor(private appartementService: AppartementService) { }
-  constructor() { }
+  constructor() { 
+    // console.log(JSON.stringify(this.data.storage));
+  }
 
   ngOnInit() {
     // this.appartements = this.appartementService.getAppartement();

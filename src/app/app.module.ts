@@ -1,3 +1,5 @@
+
+import { AppartementsDb } from './services/appartements.db';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -14,6 +16,9 @@ import { AppartementFormComponent } from './appartement-form/appartement-form.co
 import { AppartementListItemComponent } from './appartement-list-item/appartement-list-item.component';
 import { AppartementsComponent } from './appartements/appartements.component';
 
+import { FilterPipeTab } from './services/filter-tab.pipe';
+import {FilterPipeJson} from './services/filter-json.pipe';
+import { DataService } from './services/Data.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +32,8 @@ import { AppartementsComponent } from './appartements/appartements.component';
     AppartementFormComponent,
     AppartementListItemComponent,
     AppartementsComponent,
-
+    FilterPipeTab,
+    FilterPipeJson,
   ],
   imports: [
     BrowserModule,

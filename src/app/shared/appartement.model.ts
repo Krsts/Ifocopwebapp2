@@ -1,14 +1,10 @@
+
 // export class Appartement {
 //     nom : string;
 //     ville : string;
 //     img1 : string;
 // }
-
-
-
-
-
-export class Appartement {
+export class Appartement{
 constructor(
     public nom: string,
     // public adresse : string,
@@ -38,4 +34,5 @@ constructor(
     // public img3?: string,
     // public img4?: string,
     )  {}
+   
 }

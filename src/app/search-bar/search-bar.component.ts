@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-// import { request } from 'http';
-import { NgForm } from '@angular/forms';
+import { FilterPipeJson } from './../services/filter-json.pipe';
+import { AppartementsDb } from './../services/appartements.db';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-search-bar',
@@ -9,20 +9,23 @@ import { NgForm } from '@angular/forms';
 })
 export class SearchBarComponent implements OnInit {
 
+// appartements = AppartementsDb;
+searchinput:string = '';
 
-  search: string;
-
-  onsearchrequest(event: any) {
-    this.search += event.target.value + ' | ';
-    console.log(this.search);
+  @Output() search= new EventEmitter<string>();
+  
+  onSearch(){
+    this.search.emit(this.searchinput);
   }
-  // searchrequest($event) {
-  //     return ($event.text);
+  // onsearchrequest(event: any) {
+  //   this.search += event.target.value + ' | ';
+  //   console.log(this.search);
   // }
-
   constructor() { }
 
   ngOnInit() {
-  }
-
 }
+}
+  // searchrequest($event) {
+  //     return ($event.text);
+  // }

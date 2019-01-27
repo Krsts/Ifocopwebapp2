@@ -2,7 +2,7 @@ import { AppartementJson } from './../shared/appartement-json.model';
 // import { AppartementService } from './../services/appartement.service';
 // import { Appartement } from './../shared/appartement.model';
 import { Component, OnInit, Input } from '@angular/core';
-import { booleanLiteral } from 'babel-types';
+
 
 @Component({
   selector: 'app-appartement-list-item',
@@ -12,11 +12,11 @@ import { booleanLiteral } from 'babel-types';
 export class AppartementListItemComponent implements OnInit {
 // @Input() appartement: Appartement;
 
-@Input() appartement: AppartementJson[];
+// @Input() appartement: AppartementJson[];
+@Input() appartement: any;
+
 
 colorSwitch : boolean;
-
-
 
   // constructor(private appartementService: AppartementService) { }
     constructor () {}

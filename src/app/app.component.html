@@ -2,39 +2,28 @@
 <div id="container-global">
     <header>
         <nav id="mainNav">
-            <button class="fa fa-bars open"></button>
+            <a class="navbar-brad"href='#'><button class="fa fa-bars open"></button></a>
             <div>
                 <a routerLink="/appartement-list" routerLinkActive="active">appartement-list</a>
                 <span style="margin-left: 1em; margin-right: 1em;"><a routerLink="/home" routerLinkActive="active">home</a></span>
                 <span style="margin-left: 1em; margin-right: 1em;"><a routerLink="/appartement-detail">Détails</a></span>
-                <a href="#"><i class="fa fa-search"></i></a>
                 <a href="#"><i class="fa fa-shopping-bag"></i></a>
             </div>
         </nav>
         <div class="cta">
-            <app-search-bar></app-search-bar>
+            <app-search-bar
+            (search)='searchfetch($event)'>
+        </app-search-bar>
+        <!-- <a [routerLink]="['/appartement-list', {x: 'searchfetch($event)'}]"><button>Research</button></a>
+        <h1>{{query}}</h1>   -->
+
             <h1>Explorez vos opportunités</h1>
-            <button>Réservez dès maintenant</button>
+            <a [routerLink]="['/appartement-list']" routerLinkActive="router-link-active" ><button>Réservez dès maintenant</button></a>
         </div>
+        
     </header>
 </div>
-
 <router-outlet></router-outlet>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

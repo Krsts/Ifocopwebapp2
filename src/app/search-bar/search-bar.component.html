@@ -7,9 +7,13 @@
     <input name="last" ngModel>
     <button>Submit</button>
 </form> -->
-<input [(ngModel)]="search" class="search" type="text" value=" " />
+<input (keyup)="onSearch()" [(ngModel)]="searchinput" class="search" type="text" placeholder="Tapez votre recherche" />
+<a href="#"><i class="fa fa-search"></i></a>
 <button (click)="onsearchrequest($event)" class="submit"></button>
-<p style="text-align:center">Votre recherche : {{ search }}</p>
+<p style="text-align:center">Votre recherche : {{ searchinput }}</p>
+<app-appartement-list-item *ngFor="let appartement of appartements | filter : searchText"
+[appartement]="appartement"></app-appartement-list-item>
+
 
 
 <!-- <div class="search-bar-body ">
