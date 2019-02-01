@@ -1,7 +1,11 @@
 // import { DataService } from './services/Data.service';
-import { Component, OnInit } from '@angular/core';
+import { AppartementListComponent } from './appartement-list/AppartementListComponent';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
+import { DataService } from './services/Data.service';
+
+
 
 
 @Component({
@@ -9,30 +13,28 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'ifocopwebapp2';
+  query: string;
 
   // , private data: DataService
-  constructor(private router: Router ) {
+  constructor(private router: Router, private dataService: DataService ) {
   }
-  query:string;
+
   ngOnInit() {
-    // this.data.storage = {
-    //   "firstname": "Nic",
-    //   "lastname": "Raboy",
-    //   "event": "this.query"
-    // }
-    $(document).ready(function()
-    {
-      console.log("123");
-    }
-    )}
+
+    $(document).ready(function() {
+      console.log('Document ready');
+    }); }
+
     searchfetch($event: any) {
-      this.query=$event;
-      if($event === ""){
-      this.router.navigate(['./home'], $event)
-    }else{
-      this.router.navigate(['./appartement-list'], $event)
+      this.dataService.setStorage($event);
+      console.log($event);
+      this.query = $event;
+      if ($event === '') {
+      this.router.navigate(['./home'], $event);
+    } else {
+      this.router.navigate(['./appartement-list'], $event);
     }
     }
 }

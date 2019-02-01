@@ -1,6 +1,10 @@
-import { FilterPipeJson } from './../services/filter-json.pipe';
-import { AppartementsDb } from './../services/appartements.db';
-import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+// import { FilterPipeJson } from './../services/filter-json.pipe';
+// import { AppartementsDb } from './../services/appartements.db';
+import { Component, OnInit, Output, EventEmitter, ViewChild} from '@angular/core';
+import { AppartementListComponent } from '../appartement-list/AppartementListComponent';
+import { DataService } from '../services/Data.service';
+
+
 
 @Component({
   selector: 'app-search-bar',
@@ -10,22 +14,31 @@ import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 export class SearchBarComponent implements OnInit {
 
 // appartements = AppartementsDb;
-searchinput:string = '';
+searchinput?: any;
 
-  @Output() search= new EventEmitter<string>();
-  
-  onSearch(){
-    this.search.emit(this.searchinput);
-  }
-  // onsearchrequest(event: any) {
-  //   this.search += event.target.value + ' | ';
-  //   console.log(this.search);
+  @Output() search = new EventEmitter<string>();
+
+  @ViewChild(AppartementListComponent)
+  private appartementList: AppartementListComponent;
+
+  // callFilter() {
+  // console.log(this.searchinput);
+  // this.appartementList.filterAppartements(this.searchinput);
   // }
-  constructor() { }
+
+// Call Filter to DataService
+
+// onSearch() {
+  //   this.search.emit(this.searchinput);
+  // }
+  constructor(private dataService: DataService) { }
+
+  callFilter() {
+    this.dataService.setStorage(this.searchinput);
+    // console.log(this.dataService.getStorage());
+  }
 
   ngOnInit() {
 }
+
 }
-  // searchrequest($event) {
-  //     return ($event.text);
-  // }

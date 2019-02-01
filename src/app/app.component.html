@@ -2,7 +2,7 @@
 <div id="container-global">
     <header>
         <nav id="mainNav">
-            <a class="navbar-brad"href='#'><button class="fa fa-bars open"></button></a>
+            <a class="navbar-brad" href='#'><button class="fa fa-bars open"></button></a>
             <div>
                 <a routerLink="/appartement-list" routerLinkActive="active">appartement-list</a>
                 <span style="margin-left: 1em; margin-right: 1em;"><a routerLink="/home" routerLinkActive="active">home</a></span>
@@ -11,26 +11,17 @@
             </div>
         </nav>
         <div class="cta">
-            <app-search-bar
-            (search)='searchfetch($event)'>
-        </app-search-bar>
-        <!-- <a [routerLink]="['/appartement-list', {x: 'searchfetch($event)'}]"><button>Research</button></a>
-        <h1>{{query}}</h1>   -->
-
+            <!-- (search)='searchfetch($event)' -->
+            <app-search-bar></app-search-bar>
             <h1>Explorez vos opportunités</h1>
-            <a [routerLink]="['/appartement-list']" routerLinkActive="router-link-active" ><button>Réservez dès maintenant</button></a>
+            <a [routerLink]="['/appartement-list']" routerLinkActive="router-link-active"><button>Réservez dès maintenant</button></a>
         </div>
-        
     </header>
 </div>
 <router-outlet></router-outlet>
-
-
-
+<app-footer></app-footer>
 
 <!-- <app-home></app-home> -->
-
-
 <!-- <a routerLink="/appartement-list" routerLinkActive="active">appartement-list</a>
 <span style="margin-left: 1em; margin-right: 1em;"><a routerLink="/home" routerLinkActive="active">home</a></span> -->
 

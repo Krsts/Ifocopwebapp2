@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-appartements',
   templateUrl: './appartements.component.html',
   styleUrls: ['./appartements.component.scss'],
-  
+
 })
 export class AppartementsComponent implements OnInit {
 appartements: AppartementJson[];
@@ -16,28 +16,24 @@ appartements: AppartementJson[];
   ngOnInit() {
     this.appartements = [
       {
-        nom : "Mon Appartement",
-        ville : "Paris",
+        nom : 'Mon Appartement',
+        ville : 'Paris',
     },
       {
-        nom : "Ton Appartement",
-        ville : "Nantes",
+        nom : 'Ton Appartement',
+        ville : 'Nantes',
     },
       {
-        nom : "Son Appartement",
-        ville : "Lyon",
+        nom : 'Son Appartement',
+        ville : 'Lyon',
     },
       {
-        nom : "Nos Appartements",
-        ville : "Toulouse",
+        nom : 'Nos Appartements',
+        ville : 'Toulouse',
     },
-  ]
+  ];
   }
-   }
-  
-
-
-
+  }
 
 
 // import { Appartement } from './../shared/appartement.model';

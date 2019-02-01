@@ -1,4 +1,4 @@
-export class AppartementJson {
-    nom : string;
-    ville : string;
+export interface AppartementJson {
+    nom: string;
+    ville: string;
 }

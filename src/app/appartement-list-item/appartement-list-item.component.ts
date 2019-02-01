@@ -3,7 +3,6 @@ import { AppartementJson } from './../shared/appartement-json.model';
 // import { Appartement } from './../shared/appartement.model';
 import { Component, OnInit, Input } from '@angular/core';
 
-
 @Component({
   selector: 'app-appartement-list-item',
   templateUrl: './appartement-list-item.component.html',
@@ -15,27 +14,22 @@ export class AppartementListItemComponent implements OnInit {
 // @Input() appartement: AppartementJson[];
 @Input() appartement: any;
 
-
-colorSwitch : boolean;
-
   // constructor(private appartementService: AppartementService) { }
     constructor () {}
 
   ngOnInit() {
-    this.colorSwitch = true;
   }
 
 
-  alternatecolor() {
-    this.colorSwitch = !this.colorSwitch;
-    if (this.colorSwitch === false){
-      this.colorSwitch = !this.colorSwitch;
-    return "#FE4B74";}
-    else{
-      this.colorSwitch = !this.colorSwitch;
-      return "green";}
-    
-  }
+  // alternatecolor() {
+  //   this.colorSwitch = !this.colorSwitch;
+  //   if (this.colorSwitch === false) {
+  //     this.colorSwitch = !this.colorSwitch;
+  //   return "#FE4B74";}
+  //   else{
+  //     this.colorSwitch = !this.colorSwitch;
+  //     return "green";}
+  // }
   // onSelected() {
   //   this.appartementService.appartementSelected.emit(this.appartement);
   // }

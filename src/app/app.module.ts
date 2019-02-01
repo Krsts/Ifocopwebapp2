@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { AppartementListComponent } from './appartement-list/appartement-list.component';
+
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { FormsModule } from '@angular/forms';
@@ -19,6 +19,7 @@ import { AppartementsComponent } from './appartements/appartements.component';
 import { FilterPipeTab } from './services/filter-tab.pipe';
 import {FilterPipeJson} from './services/filter-json.pipe';
 import { DataService } from './services/Data.service';
+import { AppartementListComponent } from './appartement-list/AppartementListComponent';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { DataService } from './services/Data.service';
     AppRoutingModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

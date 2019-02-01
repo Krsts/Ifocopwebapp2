@@ -1,0 +1,50 @@
+ {
+     "appartement": [{
+         "id": "",
+         "nom": "",
+         "adresse": "",
+         "code Postal": "",
+         "ville": "",
+         "superficie totale": "",
+         "nombre_de_pièces": "",
+         "capacité": "",
+         "superficie": "",
+         "tarif demi journée": "",
+         "tarif journée": "",
+         "supplément repas": "",
+         "supplément location matériel": "",
+         "descriptif": "",
+         "wifi": "",
+         "parking privé": "",
+         "types d'événements accpétes": "",
+         "fumeur": "",
+         "img1": "",
+         "img2": "",
+         "img3": ""
+     }],
+
+     "appartement2": [{
+         "id": "",
+         "nom": "",
+         "adresse": "",
+         "code Postal": "",
+         "ville": "",
+         "superficie totale": "",
+         "nombre_de_pièces": "",
+         "capacité": "",
+         "superficie": "",
+         "tarif demi journée": "",
+         "tarif journée": "",
+         "supplément repas": "",
+         "supplément location matériel": "",
+         "descriptif": "",
+         "wifi": "",
+         "parking privé": "",
+         "types d'événements accpétes": "",
+         "fumeur": "",
+         "img1": "",
+         "img2": "",
+         "img3": ""
+     }]
+
+ }

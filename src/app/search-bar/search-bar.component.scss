@@ -55,7 +55,7 @@ input {
     max-width: 600px;
     height: 66px;
     border: 1px solid darken(white, 30%);
-    border-radius: 20px 0 0 20px;
+    border-radius: 20px 20px 20px 20px;
 }
 
 .submit {
@@ -68,4 +68,23 @@ input {
     display: inline-block;
     width: 150px;
     height: 66px;
+}
+
+.search-icon {
+    padding: auto;
+    font-size: 28px;
+    width: 60%;
+    max-width: 60px;
+    height: 66px;
+    margin-left: 5px;
+    margin-top: 48px;
+    display: inline-flex;
+    // border: 1px solid darken(white, 30%);
+    // border-radius: 20px 20px 20px 20px;
+}
+
+.fa-search:before {
+    // content: "";
+    margin-left: 4px;
+    font-size: 66px;
 }
