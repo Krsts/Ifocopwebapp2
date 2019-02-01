@@ -33,9 +33,15 @@ searchinput?: any;
   // }
   constructor(private dataService: DataService) { }
 
+  onEnter() {
+    this.callFilter();
+  }
+
   callFilter() {
+    if (this.searchinput !== '') {
+    }
     this.dataService.setStorage(this.searchinput);
-    // console.log(this.dataService.getStorage());
+    console.log(this.dataService.getStorage());
   }
 
   ngOnInit() {

@@ -1,6 +1,9 @@
 <script src="./home/home.component.js"></script>
 <div id="container-global">
     <header>
+
+        <!--                MAIN NAV            -->
+
         <nav id="mainNav">
             <a class="navbar-brad" href='#'><button class="fa fa-bars open"></button></a>
             <div>
@@ -10,6 +13,10 @@
                 <a href="#"><i class="fa fa-shopping-bag"></i></a>
             </div>
         </nav>
+
+        <!--                / MAIN NAV          -->
+
+
         <div class="cta">
             <!-- (search)='searchfetch($event)' -->
             <app-search-bar></app-search-bar>
@@ -19,6 +26,7 @@
     </header>
 </div>
 <router-outlet></router-outlet>
+<hr>
 <app-footer></app-footer>
 
 <!-- <app-home></app-home> -->
