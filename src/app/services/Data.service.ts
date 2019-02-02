@@ -12,6 +12,10 @@ export class DataService {
         this.storage = x;
     }
     getStorage() {
+        if(this.storage === ''){
+            return 'empty search';
+        } else {
         return this.storage;
+    }
     }
 }

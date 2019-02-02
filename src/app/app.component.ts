@@ -8,6 +8,7 @@ import { DataService } from './services/Data.service';
 
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -25,6 +26,10 @@ export class AppComponent implements OnInit {
 
     $(document).ready(function() {
       console.log('Document ready');
+
+      $( "#button" ).click(function() {
+        $( "#item" ).toggle();
+    });
     }); }
 
     searchfetch($event: any) {
