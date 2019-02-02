@@ -9,7 +9,7 @@ import { DataService } from '../services/Data.service';
   styleUrls: ['./appartement-list.component.scss']
 })
 
-export class AppartementListComponent implements OnInit {
+export class AppartementListComponent implements OnInit, OnChanges {
 
   appartements: AppartementJson[];
   appartementsModel: AppartementJson[];
@@ -17,14 +17,20 @@ export class AppartementListComponent implements OnInit {
   constructor(private dataService: DataService) {
     // console.log(JSON.stringify(this.data.storage));
   }
+
+  public searchData = this.dataService.getStorage();
+
 //   ngOnChanges(changes: SimpleChanges) {
 //     // tslint:disable-next-line:forin
 //     for (const propName in changes) {
 //       const changedProp: SimpleChange = changes[propName];
 //       const newVal = JSON.stringify(changedProp.currentValue);
-//         console.log('changes works');    }
-//   }
+//         console.log('changes works');    }}
 
+public ngOnChanges(changes: SimpleChanges): void {
+  console.log('searchData :', this.searchData);
+  this.filterAppartements();
+}
 
 filterAppartements() {
   for (let i = 0; i < this.appartementsModel.length; i++) {
@@ -42,6 +48,7 @@ filterAppartements() {
 // set name(value: string) {
 //     this.critere = value;
 // }
+
   ngOnInit() {
     // this.appartements = this.appartementService.getAppartement();
     // console.log(this.appartements);
