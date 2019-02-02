@@ -49,8 +49,9 @@ this.router.navigate(["/", "appartement-list"]));
   callFilter() {
     if (this.searchinput !== 'empty search') {
       this.dataService.setStorage(this.searchinput);
-      this.router.navigateByUrl('/appartement-list', {skipLocationChange: true}).then(()=>
-      this.router.navigate(["/", "appartement-list"])); 
+      // this.router.navigateByUrl('/appartement-list', {skipLocationChange: true}).then(()=>
+      // this.router.navigate(["/", "appartement-list"])); 
+      this.router.navigate(['/', 'appartement-list'])
       // console.log(`callFilter getStorage() : ${this.dataService.getStorage()}`);
     } else {
       // console.log("empty search bar !")

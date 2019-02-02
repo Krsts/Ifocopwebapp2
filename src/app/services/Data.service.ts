@@ -1,21 +1,31 @@
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
+
 
 @Injectable()
 export class DataService {
 
     storage: string;
 
-    constructor() {
+    constructor(private router: Router) {
     }
 
     setStorage(x) {
         this.storage = x;
     }
     getStorage() {
-        if(this.storage === ''){
+        if (this.storage === '') {
             return 'empty search';
+        }
+        else if (this.storage === "!détail" || this.storage === "!detail") {
+            this.router.navigate(["/", "appartement-detail"]);
+            return null;
+        }
+        else if (this.storage === "!list") {
+            this.router.navigate(["/", "    appartement-list"]);
+            return null;
         } else {
-        return this.storage;
-    }
+            return this.storage;
+        }
     }
 }

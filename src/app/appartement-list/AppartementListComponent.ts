@@ -63,8 +63,8 @@ export class AppartementListComponent implements OnInit, OnChanges {
       } else {
         this.appartements = [];
         for (let i = 0; i < this.appartementsModel.length; i++) {
-          if (this.appartementsModel[i].nom.startsWith(this.dataService.getStorage()) ||
-            this.appartementsModel[i].ville.startsWith(this.dataService.getStorage())) {
+          if (this.appartementsModel[i].nom.includes(this.dataService.getStorage()) ||
+            this.appartementsModel[i].ville.includes(this.dataService.getStorage())) {
             this.appartements.push(this.appartementsModel[i]);
             // console.log(this.appartements);
           }
