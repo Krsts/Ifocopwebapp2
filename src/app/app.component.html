@@ -16,7 +16,7 @@
                     <mat-icon matBadge="{{this.dataService.getStorageLength()}}" matBadgeOverlap="false" matBadgeColor="success">mood</mat-icon>
                 </a>
                 <mat-menu #userMenu="matMenu">
-                    <a routerLink="/appartement-list" routerLinkActive="active"><button mat-menu-item>Profil</button></a>
+                    <a routerLink="/appartement-list" routerLinkActive="active"><button mat-menu-item>{{ getuserInfo()}} {{ getConnectionStatus() }}</button></a>
                     <a routerLink="/home" routerLinkActive="active"><button mat-menu-item><span matBadge="{{this.dataService.getStorageLength()}}" matBadgeOverlap="false">Messages</span></button></a>
                     <a routerLink="/appartement-detail" routerLinkActive="active"><button mat-menu-item>Réservations</button></a>
                 </mat-menu>

@@ -23,6 +23,15 @@ export class AppComponent implements OnInit {
   constructor(private router: Router, private dataService: DataService ) {
   }
 
+  user = "Bertrand";
+  getConnectionStatus():string {
+    return "Connecté";
+  }
+
+  getuserInfo(): string{
+    return `Bonjour ${this.user}, vous êtes : `;
+  }
+
   setList(v?){
     if(v){
     this.dataService.setStorage(v);

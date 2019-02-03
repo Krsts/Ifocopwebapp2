@@ -125,7 +125,7 @@ setInterval( ()=> {
     //   console.log(typeof (this.appartements));
     //   console.log(this.appartements);
     // }
-  }, 1000)
+  }, 100)
 
 
 
