@@ -22,10 +22,18 @@ export class DataService {
             return null;
         }
         else if (this.storage === "!list") {
-            this.router.navigate(["/", "    appartement-list"]);
-            return null;
+            this.router.navigate(["/", "appartement-list"]);
+            return '';
         } else {
             return this.storage;
+        } 
+    }
+
+    getStorageLength(): number {
+        if (typeof(this.storage) === 'string'){
+            return this.storage.length;
+        } else {
+            return 0;
         }
     }
 }

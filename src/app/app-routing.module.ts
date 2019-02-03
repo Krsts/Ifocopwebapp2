@@ -9,8 +9,8 @@ import { AppartementListComponent } from './appartement-list/AppartementListComp
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'appartement-list', component: AppartementListComponent},
-  { path: 'appartement-detail', component: AppartementDetailComponent},
-  {path: '', redirectTo: '/appartement-list', pathMatch: 'full'},
+  {path: 'appartement-detail', component: AppartementDetailComponent},
+  {path: '', redirectTo: 'appartement-list', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent},
 ];
 

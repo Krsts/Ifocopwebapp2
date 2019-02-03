@@ -41,13 +41,13 @@ export class SearchBarComponent implements OnInit {
   onEnter() {
     this.callFilter();
     // this.router.navigate(['/', 'appartement-list'], { queryParams: { order: this.dataService.getStorage() } })
-    this.router.navigateByUrl('/appartement-list', {skipLocationChange: true}).then(()=>
-this.router.navigate(["/", "appartement-list"])); 
+//     this.router.navigateByUrl('/appartement-list', {skipLocationChange: true}).then(()=>
+// this.router.navigate(["/", "appartement-list"])); 
   }
 
 
   callFilter() {
-    if (this.searchinput !== 'empty search') {
+    if (this.searchinput !== 'empty search' ) {
       this.dataService.setStorage(this.searchinput);
       // this.router.navigateByUrl('/appartement-list', {skipLocationChange: true}).then(()=>
       // this.router.navigate(["/", "appartement-list"])); 

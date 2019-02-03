@@ -9,6 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./appartement-list-item.component.scss']
 })
 export class AppartementListItemComponent implements OnInit {
+  
 // @Input() appartement: Appartement;
 
 // @Input() appartement: AppartementJson[];

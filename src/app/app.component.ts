@@ -15,13 +15,23 @@ import { DataService } from './services/Data.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'ifocopwebapp2';
+  
+  title = 'DayMeeting';
   query: string;
 
   // , private data: DataService
   constructor(private router: Router, private dataService: DataService ) {
   }
 
+  setList(v?){
+    if(v){
+    this.dataService.setStorage(v);
+  }
+  else{
+    return '';
+  }
+  }
+  
   ngOnInit() {
 
     $(document).ready(function() {
@@ -32,14 +42,14 @@ export class AppComponent implements OnInit {
     });
     }); }
 
-    searchfetch($event: any) {
-      this.dataService.setStorage($event);
-      console.log($event);
-      this.query = $event;
-      if ($event === '') {
-      this.router.navigate(['./home'], $event);
-    } else {
-      this.router.navigate(['./appartement-list'], $event);
-    }
-    }
+    // searchfetch($event: any) {
+    //   this.dataService.setStorage($event);
+    //   console.log($event);
+    //   this.query = $event;
+    //   if ($event === '') {
+    //   this.router.navigate(['./home'], $event);
+    // } else {
+    //   this.router.navigate(['./appartement-list'], $event);
+    // }
+    // }
 }

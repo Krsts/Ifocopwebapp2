@@ -1,21 +1,43 @@
 <script src="./home/home.component.js"></script>
+
 <div id="container-global">
+
     <header>
+        <!--  -->
+        <div class="nav-div" style="display: inline-block;">
+            <button mat-button [matMenuTriggerFor]="menu">Navigation</button>
+            <mat-menu #menu="matMenu">
+                <a routerLink="/appartement-list" routerLinkActive="active"><button (click)="setList('!list')" mat-menu-item>Liste des
+                        Appartements</button></a>
+                <a routerLink="/home" routerLinkActive="active"><button (click)="setList('empty search')"  mat-menu-item>Page d'accueil</button></a>
+                <a routerLink="/appartement-detail" routerLinkActive="active"><button (click)="setList('!detail')" mat-menu-item>Détails</button></a>
+            </mat-menu>
+            <span style="float:right; margin-right: 24px;"> <a [matMenuTriggerFor]="userMenu">
+                    <mat-icon matBadge="{{this.dataService.getStorageLength()}}" matBadgeOverlap="false" matBadgeColor="success">mood</mat-icon>
+                </a>
+                <mat-menu #userMenu="matMenu">
+                    <a routerLink="/appartement-list" routerLinkActive="active"><button mat-menu-item>Profil</button></a>
+                    <a routerLink="/home" routerLinkActive="active"><button mat-menu-item><span matBadge="{{this.dataService.getStorageLength()}}" matBadgeOverlap="false">Messages</span></button></a>
+                    <a routerLink="/appartement-detail" routerLinkActive="active"><button mat-menu-item>Réservations</button></a>
+                </mat-menu>
+            </span>
+        </div>
+
+        <!--  -->
 
         <!--                MAIN NAV            -->
 
-        
 
-        <nav id="mainNav">
-                <app-navbar style="position:left"></app-navbar>
+
+        <nav id="mainNav" style="display:inline-block">
+
+            <!-- <app-navbar style="position:left"></app-navbar> -->
             <!-- <a class="navbar-brad"><button id="button" class="fa fa-bars open"></button></a> -->
             <!-- <div id="item">Item</div> -->
             <div>
-                    
-                <a routerLink="/appartement-list" routerLinkActive="active">appartement-list</a>
-                <span style="margin-left: 1em; margin-right: 1em;"><a routerLink="/home" routerLinkActive="active">home</a></span>
-                <span style="margin-left: 1em; margin-right: 1em;"><a routerLink="/appartement-detail">Détails</a></span>
-                <a href="#"><i class="fa fa-shopping-bag"></i></a>
+                <!-- <span style="margin-left: 1em; margin-right: 1em;">home</a></span> -->
+                <!-- <span style="margin-left: 1em; margin-right: 1em;"><a routerLink="/appartement-detail">Détails</span> -->
+                <!-- <a href="#"><i class="fa fa-shopping-bag"></i></a> -->
             </div>
         </nav>
 
@@ -24,8 +46,8 @@
 
         <div class="cta">
             <!-- (search)='searchfetch($event)' -->
-           
-              <app-search-bar></app-search-bar>
+
+            <app-search-bar></app-search-bar>
             <h1>Explorez vos opportunités</h1>
             <a [routerLink]="['/appartement-list']" routerLinkActive="router-link-active"><button>Réservez dès
                     maintenant</button></a>

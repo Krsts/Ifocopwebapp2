@@ -24,7 +24,7 @@ export class AppartementListComponent implements OnInit, OnChanges {
 
 
 
-  constructor(private dataService: DataService, private route: ActivatedRoute,private router: Router) {
+  constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router) {
     // console.log(JSON.stringify(this.data.storage));
   }
 
@@ -54,23 +54,37 @@ export class AppartementListComponent implements OnInit, OnChanges {
 
 
   filterAppartements() {
-    setInterval(() => {
+    // setInterval(() => {
       // console.log(typeof(this.dataService.getStorage()))
-      if (this.dataService.getStorage() === 'empty search') {
+      if (this.dataService.getStorage() === undefined){
+          this.appartements = this.appartementsModel
+      }
+      else if (this.dataService.getStorage() === 'empty search') {
+        this.appartements = this.appartementsModel
         this.router.navigate(["/", "home"]);
-        // this.appartements = this.appartementsModel;
         
-      } else {
+      }
+      else if (this.dataService.getStorage() !== null) {
         this.appartements = [];
         for (let i = 0; i < this.appartementsModel.length; i++) {
-          if (this.appartementsModel[i].nom.includes(this.dataService.getStorage()) ||
-            this.appartementsModel[i].ville.includes(this.dataService.getStorage())) {
+          if (this.appartementsModel[i].nom.toUpperCase().includes(this.dataService.getStorage().toUpperCase()) ||
+            this.appartementsModel[i].ville.toUpperCase().includes(this.dataService.getStorage().toUpperCase())) {
             this.appartements.push(this.appartementsModel[i]);
-            // console.log(this.appartements);
+          } else {
+            
+            // if(this.dataService.getStorage() === "!list"){
+            //   this.appartements = this.appartementsModel;
+            //   return
+            // }
+            // else{
+            //   this.appartements = [];
+            //   return
+            // }
           }
+          // this.appartements = this.appartementsModel;
         }
       }
-    }, 100);
+    // }, 100);
   }
 
 
@@ -103,14 +117,15 @@ export class AppartementListComponent implements OnInit, OnChanges {
       },
     ];
     this.appartements = [];
-
-    if (this.dataService.getStorage()) {
+setInterval( ()=> {
+    // if (this.dataService.getStorage() !== '') {
       this.filterAppartements();
-    } else {
-      this.appartements = this.appartementsModel;
-      console.log(typeof (this.appartements));
-      console.log(this.appartements);
-    }
+    // } else {
+    //   this.appartements = this.appartementsModel;
+    //   console.log(typeof (this.appartements));
+    //   console.log(this.appartements);
+    // }
+  }, 1000)
 
 
 
