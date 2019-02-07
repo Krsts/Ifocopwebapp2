@@ -15,16 +15,17 @@ export class SearchBarComponent implements OnInit {
   // appartements = AppartementsDb;
   searchinput?: string;
 
-  ngAfterViewChecked(): void {
-    //Called after every check of the component's view. Applies to components only.
-    //Add 'implements AfterViewChecked' to the class.
+  // ngAfterViewChecked(): void {
+    // Called after every check of the component's view. Applies to components only.
+    // Add 'implements AfterViewChecked' to the class.
     // this.appartementList.filterAppartements();
-  }
+  // }
 
-  @Output() search = new EventEmitter<string>();
+  // @Output()
+  // search = new EventEmitter<string>();
 
-  @ViewChild(AppartementListComponent)
-  private appartementList: AppartementListComponent;
+  // @ViewChild(AppartementListComponent)
+  // private appartementList: AppartementListComponent;
 
   // callFilter() {
   // console.log(this.searchinput);
@@ -41,17 +42,17 @@ export class SearchBarComponent implements OnInit {
   onEnter() {
     this.callFilter();
     // this.router.navigate(['/', 'appartement-list'], { queryParams: { order: this.dataService.getStorage() } })
-//     this.router.navigateByUrl('/appartement-list', {skipLocationChange: true}).then(()=>
-// this.router.navigate(["/", "appartement-list"])); 
+    //     this.router.navigateByUrl('/appartement-list', {skipLocationChange: true}).then(()=>
+    // this.router.navigate(["/", "appartement-list"]));
   }
 
 
   callFilter() {
-    if (this.searchinput !== 'empty search' ) {
+    if (this.searchinput !== 'empty search') {
       this.dataService.setStorage(this.searchinput);
       // this.router.navigateByUrl('/appartement-list', {skipLocationChange: true}).then(()=>
-      // this.router.navigate(["/", "appartement-list"])); 
-      this.router.navigate(['/', 'appartement-list'])
+      // this.router.navigate(["/", "appartement-list"]));
+      this.router.navigate(['/', 'appartement-list']);
       // console.log(`callFilter getStorage() : ${this.dataService.getStorage()}`);
     } else {
       // console.log("empty search bar !")

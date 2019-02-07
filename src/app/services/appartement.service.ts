@@ -9,9 +9,9 @@ export class AppartementService {
 appartementSelected = new EventEmitter<Appartement>();
 
 private appartement: Appartement[] =  [
-    new Appartement('Mon Appartement', 'Paris'),
-    new Appartement('Deuxieme Appartement', 'Lyon'),
-    new Appartement('Troisieme Appartement', 'Toulouse'),
+    // new Appartement('Mon Appartement', 'Paris'),
+    // new Appartement('Deuxieme Appartement', 'Lyon'),
+    // new Appartement('Troisieme Appartement', 'Toulouse'),
   ];
 
   getAppartement() {

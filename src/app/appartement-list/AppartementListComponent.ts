@@ -17,6 +17,7 @@ import { Router } from '@angular/router';
 export class AppartementListComponent implements OnInit, OnChanges {
 
 
+  searchInput: string;
   order: string;
   appartements: AppartementJson[];
   appartementsModel: AppartementJson[];
@@ -56,22 +57,20 @@ export class AppartementListComponent implements OnInit, OnChanges {
   filterAppartements() {
     // setInterval(() => {
       // console.log(typeof(this.dataService.getStorage()))
-      if (this.dataService.getStorage() === undefined){
-          this.appartements = this.appartementsModel
-      }
-      else if (this.dataService.getStorage() === 'empty search') {
-        this.appartements = this.appartementsModel
-        this.router.navigate(["/", "home"]);
-        
-      }
-      else if (this.dataService.getStorage() !== null) {
+      if (this.dataService.getStorage() === undefined) {
+          this.appartements = this.appartementsModel;
+      } else if (this.dataService.getStorage() === 'empty search') {
+        this.appartements = this.appartementsModel;
+        this.router.navigate(['/', 'home']);
+
+      } else if (this.dataService.getStorage() !== null) {
         this.appartements = [];
         for (let i = 0; i < this.appartementsModel.length; i++) {
           if (this.appartementsModel[i].nom.toUpperCase().includes(this.dataService.getStorage().toUpperCase()) ||
             this.appartementsModel[i].ville.toUpperCase().includes(this.dataService.getStorage().toUpperCase())) {
             this.appartements.push(this.appartementsModel[i]);
           } else {
-            
+
             // if(this.dataService.getStorage() === "!list"){
             //   this.appartements = this.appartementsModel;
             //   return
@@ -88,7 +87,7 @@ export class AppartementListComponent implements OnInit, OnChanges {
   }
 
 
-  searchInput: string;
+
 
   // set name(value: string) {
   //     this.critere = value;
@@ -117,7 +116,7 @@ export class AppartementListComponent implements OnInit, OnChanges {
       },
     ];
     this.appartements = [];
-setInterval( ()=> {
+setInterval( () => {
     // if (this.dataService.getStorage() !== '') {
       this.filterAppartements();
     // } else {
@@ -125,7 +124,7 @@ setInterval( ()=> {
     //   console.log(typeof (this.appartements));
     //   console.log(this.appartements);
     // }
-  }, 100)
+  }, 100);
 
 
 
@@ -138,11 +137,11 @@ setInterval( ()=> {
     // console.log(this.route.snapshot.params['order']);
     // this.route.queryParams.subscribe(params => { this.order = params['order']; console.log(`params : ${params}`);
 
-    console.log(this.route.params.subscribe(params => this.order = params["order"]))
+    console.log(this.route.params.subscribe(params => this.order = params['order']));
     // this.order = params.order;
     console.log(`my order is : ${this.order}`);
     // ( params => this.searchInput=params['searchInput'])
-  };
+  }
 }
     // this.filterAppartements();
 

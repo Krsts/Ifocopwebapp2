@@ -7,19 +7,28 @@
         <div class="nav-div" style="display: inline-block;">
             <button mat-button [matMenuTriggerFor]="menu">Navigation</button>
             <mat-menu #menu="matMenu">
-                <a routerLink="/appartement-list" routerLinkActive="active"><button (click)="setList('!list')" mat-menu-item>Liste des
-                        Appartements</button></a>
-                <a routerLink="/home" routerLinkActive="active"><button (click)="setList('empty search')"  mat-menu-item>Page d'accueil</button></a>
-                <a routerLink="/appartement-detail" routerLinkActive="active"><button (click)="setList('!detail')" mat-menu-item>Détails</button></a>
+                <a routerLink="/appartement-list" routerLinkActive="active"><button (click)="setList('!list')" mat-menu-item>Liste
+            des
+            Appartements</button></a>
+                <a routerLink="/home" routerLinkActive="active"><button (click)="setList('empty search')" mat-menu-item>Page
+            d'accueil</button></a>
+                <a routerLink="/appartement-detail" routerLinkActive="active"><button (click)="setList('!detail')"
+            mat-menu-item>Détails</button></a>
             </mat-menu>
-            <span style="float:right; margin-right: 24px;"> <a [matMenuTriggerFor]="userMenu">
-                    <mat-icon matBadge="{{this.dataService.getStorageLength()}}" matBadgeOverlap="false" matBadgeColor="success">mood</mat-icon>
-                </a>
-                <mat-menu #userMenu="matMenu">
-                    <a routerLink="/appartement-list" routerLinkActive="active"><button mat-menu-item>{{ getuserInfo()}} {{ getConnectionStatus() }}</button></a>
-                    <a routerLink="/home" routerLinkActive="active"><button mat-menu-item><span matBadge="{{this.dataService.getStorageLength()}}" matBadgeOverlap="false">Messages</span></button></a>
-                    <a routerLink="/appartement-detail" routerLinkActive="active"><button mat-menu-item>Réservations</button></a>
-                </mat-menu>
+            <span style="float:right; margin-right: 24px;">
+        <a [matMenuTriggerFor]="userMenu">
+          <mat-icon matBadge="{{this.dataService.getStorageLength()}}" matBadgeOverlap="false" matBadgeColor="success">{{userIcon}}</mat-icon>
+        </a>
+        <mat-menu #userMenu="matMenu">
+          <button mat-menu-item [hidden]="this.userService.getStatus()" (click)="this.userService.goToSignUp()">S'enregistrer</button>
+          <button (click)="toggleStatus()" mat-menu-item>{{ getuserInfo()}} {{ getConnectionStatus() }}</button>
+          <button mat-menu-item (click)="this.userService.goToProfile()"><span matBadge="{{this.dataService.getStorageLength()}}"
+              matBadgeOverlap="false">Profil</span></button>
+            <button mat-menu-item [hidden]="!this.userService.getStatus()" (click)="this.userService.goToAppartementForm()">Ajoutez
+            Votre Appartement</button>
+
+            <a routerLink="/user-profile" routerLinkActive="active"><button mat-menu-item>Réservations</button></a>
+            </mat-menu>
             </span>
         </div>
 
@@ -50,29 +59,10 @@
             <app-search-bar></app-search-bar>
             <h1>Explorez vos opportunités</h1>
             <a [routerLink]="['/appartement-list']" routerLinkActive="router-link-active"><button>Réservez dès
-                    maintenant</button></a>
+          maintenant</button></a>
         </div>
     </header>
 </div>
 <router-outlet></router-outlet>
 <hr>
 <app-footer></app-footer>
-
-<!-- <app-home></app-home> -->
-<!-- <a routerLink="/appartement-list" routerLinkActive="active">appartement-list</a>
-<span style="margin-left: 1em; margin-right: 1em;"><a routerLink="/home" routerLinkActive="active">home</a></span> -->
-
-<!-- <nav id="sideNav">
-    <button class="fa fa-times" id="close"></button>
-    <div>
-        <a href="#">home</a>
-        <a href="#">mens</a>
-        <a href="#">womens</a>
-        <a href="#">goods</a>
-        <a href="#">brands</a>
-        <a href="#">blog</a>
-        <a href="#">about</a>
-        <a href="#">contact</a>
-        <a href="#">shipping</a>
-    </div>
-</nav> -->

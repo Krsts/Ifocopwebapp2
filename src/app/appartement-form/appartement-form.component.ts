@@ -1,4 +1,6 @@
+
 import { Component, OnInit } from '@angular/core';
+
 
 
 @Component({
@@ -7,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./appartement-form.component.scss']
 })
 export class AppartementFormComponent implements OnInit {
-
 
   constructor() { }
 

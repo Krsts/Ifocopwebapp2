@@ -16,21 +16,19 @@ export class DataService {
     getStorage() {
         if (this.storage === '') {
             return 'empty search';
-        }
-        else if (this.storage === "!détail" || this.storage === "!detail") {
-            this.router.navigate(["/", "appartement-detail"]);
+        } else if (this.storage === '!détail' || this.storage === '!detail') {
+            this.router.navigate(['/', 'appartement-detail']);
             return null;
-        }
-        else if (this.storage === "!list") {
-            this.router.navigate(["/", "appartement-list"]);
+        } else if (this.storage === '!list') {
+            this.router.navigate(['/', 'appartement-list']);
             return '';
         } else {
             return this.storage;
-        } 
+        }
     }
 
     getStorageLength(): number {
-        if (typeof(this.storage) === 'string'){
+        if (typeof (this.storage) === 'string') {
             return this.storage.length;
         } else {
             return 0;
