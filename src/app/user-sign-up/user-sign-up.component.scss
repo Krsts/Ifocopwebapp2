@@ -1,20 +1,23 @@
-* {
-    font-size: 18px;
-}
+// * {
+//     font-size: 24px;
+// }
 
 .container {
     display: flex;
     flex-direction: column;
 }
 
-.container>mat-form-field {
-    font-size: 18px;
-}
+// .container>mat-form-field {
+//     font-size: 18px;
+// }
 
-.container>mat-checkbox {
-    font-size: 18px;
-}
+// .container>mat-checkbox {
+//     font-size: 18px;
+// }
 
-.example-container>* {
-    width: 100%;
+mat-form-field{
+    width: 400px;
+}
+mat-card-title{
+    text-align: center;
 }

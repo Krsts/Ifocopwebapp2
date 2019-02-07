@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class SearchBarComponent implements OnInit {
 
   // appartements = AppartementsDb;
-  searchinput?: string;
+  searchinput: string;
 
   // ngAfterViewChecked(): void {
     // Called after every check of the component's view. Applies to components only.
@@ -46,16 +46,15 @@ export class SearchBarComponent implements OnInit {
     // this.router.navigate(["/", "appartement-list"]));
   }
 
-
+  // if (this.searchinput !== 'empty search')
   callFilter() {
-    if (this.searchinput !== 'empty search') {
+     {
+       console.log(this.searchinput)
       this.dataService.setStorage(this.searchinput);
       // this.router.navigateByUrl('/appartement-list', {skipLocationChange: true}).then(()=>
       // this.router.navigate(["/", "appartement-list"]));
       this.router.navigate(['/', 'appartement-list']);
       // console.log(`callFilter getStorage() : ${this.dataService.getStorage()}`);
-    } else {
-      // console.log("empty search bar !")
     }
   }
 

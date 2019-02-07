@@ -7,23 +7,27 @@
         <div class="nav-div" style="display: inline-block;">
             <button mat-button [matMenuTriggerFor]="menu">Navigation</button>
             <mat-menu #menu="matMenu">
-                <a routerLink="/appartement-list" routerLinkActive="active"><button (click)="setList('!list')" mat-menu-item>Liste
-            des
-            Appartements</button></a>
-                <a routerLink="/home" routerLinkActive="active"><button (click)="setList('empty search')" mat-menu-item>Page
-            d'accueil</button></a>
-                <a routerLink="/appartement-detail" routerLinkActive="active"><button (click)="setList('!detail')"
+                <a routerLink="/appartement-list" routerLinkActive="active"><button 
+                    (click)="this.dataService.setStorage(!list)"
+                    mat-menu-item>Liste des Appartements</button></a>
+                <a routerLink="/home" routerLinkActive="active"><button (click)="this.dataService.setStorage('empty search')" mat-menu-item>Page d'accueil</button></a>
+                <a routerLink="/appartement-detail" routerLinkActive="active"><button (click)="this.dataService.setStorage(!detail)"
             mat-menu-item>Détails</button></a>
             </mat-menu>
             <span style="float:right; margin-right: 24px;">
-        <a [matMenuTriggerFor]="userMenu">
-          <mat-icon matBadge="{{this.dataService.getStorageLength()}}" matBadgeOverlap="false" matBadgeColor="success">{{userIcon}}</mat-icon>
+        <a [matMenuTriggerFor]="userMenu" *ngIf="this.userService.getStatus()">
+          <mat-icon  matBadge="{{this.dataService.getStorageLength()}}" matBadgeOverlap="false" matBadgeColor="success" >{{userIcon}}</mat-icon>
         </a>
+        <a [matMenuTriggerFor]="userMenu" *ngIf="!this.userService.getStatus()">
+                <mat-icon >{{userIcon}}</mat-icon>
+              </a>
         <mat-menu #userMenu="matMenu">
           <button mat-menu-item [hidden]="this.userService.getStatus()" (click)="this.userService.goToSignUp()">S'enregistrer</button>
-          <button (click)="toggleStatus()" mat-menu-item>{{ getuserInfo()}} {{ getConnectionStatus() }}</button>
-          <button mat-menu-item (click)="this.userService.goToProfile()"><span matBadge="{{this.dataService.getStorageLength()}}"
-              matBadgeOverlap="false">Profil</span></button>
+          <button (click)="this.userService.toggleStatus()" mat-menu-item>{{ getuserInfo()}}</button>
+          <button 
+          [hidden]="!this.userService.getStatus()" 
+          mat-menu-item (click)="this.userService.goToProfile()"><span  matBadge="{{this.dataService.getStorageLength()}}"
+              matBadgeOverlap="false">Profil/messages</span></button>
             <button mat-menu-item [hidden]="!this.userService.getStatus()" (click)="this.userService.goToAppartementForm()">Ajoutez
             Votre Appartement</button>
 
@@ -31,13 +35,8 @@
             </mat-menu>
             </span>
         </div>
-
         <!--  -->
-
         <!--                MAIN NAV            -->
-
-
-
         <nav id="mainNav" style="display:inline-block">
 
             <!-- <app-navbar style="position:left"></app-navbar> -->

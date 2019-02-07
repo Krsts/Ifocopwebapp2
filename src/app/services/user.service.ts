@@ -13,12 +13,17 @@ export class UserService {
   }
 
   getLoginStatus() {
-    if (this.status === true) {
+    if (this.status) {
       return 'connecté';
     } else {
       return 'déconnecté';
     }
   }
+
+  toggleStatus() {
+    this.setLoginStatus();
+    this.leaveProfile();
+  } 
 
   setLoginStatus() {
     this.status = !this.status;
@@ -28,6 +33,7 @@ export class UserService {
   goToProfile() {
     if (this.status) {
       this.router.navigate(['/', 'user-profile']);
+      return (console.log('Non Connecté'));
     } else {
       return (console.log('Non Connecté'));
     }

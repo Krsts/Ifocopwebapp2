@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 
 @Injectable()
-export class DataService {
+export class DataService{
 
     storage: string;
 
@@ -13,19 +13,23 @@ export class DataService {
     setStorage(x) {
         this.storage = x;
     }
+    
     getStorage() {
         if (this.storage === '') {
             return 'empty search';
-        } else if (this.storage === '!détail' || this.storage === '!detail') {
+        } else if (this.storage === '!détail') {
             this.router.navigate(['/', 'appartement-detail']);
-            return null;
+            // return this.storage;
+            
         } else if (this.storage === '!list') {
             this.router.navigate(['/', 'appartement-list']);
-            return '';
-        } else {
-            return this.storage;
+            // return this.storage;
+            
+        } 
+            // this.setStorage('empty search');
+        return this.storage;
         }
-    }
+    
 
     getStorageLength(): number {
         if (typeof (this.storage) === 'string') {
@@ -34,4 +38,5 @@ export class DataService {
             return 0;
         }
     }
+
 }
