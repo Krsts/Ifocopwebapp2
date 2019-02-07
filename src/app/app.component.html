@@ -31,7 +31,7 @@
             <button mat-menu-item [hidden]="!this.userService.getStatus()" (click)="this.userService.goToAppartementForm()">Ajoutez
             Votre Appartement</button>
 
-            <a routerLink="/user-profile" routerLinkActive="active"><button mat-menu-item>Réservations</button></a>
+            <a routerLink="/user-profile" routerLinkActive="active"><button mat-menu-item [hidden]="!this.userService.getStatus()">Réservations</button></a>
             </mat-menu>
             </span>
         </div>

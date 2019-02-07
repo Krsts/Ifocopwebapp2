@@ -13,22 +13,14 @@ import { Router } from '@angular/router';
   templateUrl: './appartement-list.component.html',
   styleUrls: ['./appartement-list.component.scss']
 })
-
 export class AppartementListComponent implements OnInit {
-
-
   searchInput: string;
   order: string;
   appartements: AppartementJson[];
   appartementsModel: AppartementJson[];
   // constructor(private appartementService: AppartementService) { }
-
-
-
   constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router) {
-
   }
-
   // ngAfterContentChecked(): void {
   //   // this.filterAppartements();
   // }
@@ -36,8 +28,6 @@ export class AppartementListComponent implements OnInit {
   public searchData = this.dataService.getStorage();
 
   filterAppartements() {
-    // setInterval(() => {
-    // console.log(typeof(this.dataService.getStorage()))
     if (this.dataService.getStorage() === undefined) {
       this.appartements = this.appartementsModel;
     } else if (this.dataService.getStorage() === '!list') {
@@ -46,7 +36,7 @@ export class AppartementListComponent implements OnInit {
     } else if (this.dataService.getStorage() === 'empty search') {
       this.appartements = this.appartementsModel;
       // this.router.url === '/appartement-list'
-      //   if (this.router.url === '/appartement-list'){
+      // if (this.router.url === '/appartement-list'){
       this.router.navigate(['/', 'home']);
     } else if (this.dataService.getStorage() !== null) {
       this.appartements = [];
