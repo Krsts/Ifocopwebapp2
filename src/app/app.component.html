@@ -8,10 +8,10 @@
             <button mat-button [matMenuTriggerFor]="menu">Navigation</button>
             <mat-menu #menu="matMenu">
                 <a routerLink="/appartement-list" routerLinkActive="active"><button 
-                    (click)="this.dataService.setStorage(!list)"
+                    (click)="this.dataService.setStorage('!list')"
                     mat-menu-item>Liste des Appartements</button></a>
                 <a routerLink="/home" routerLinkActive="active"><button (click)="this.dataService.setStorage('empty search')" mat-menu-item>Page d'accueil</button></a>
-                <a routerLink="/appartement-detail" routerLinkActive="active"><button (click)="this.dataService.setStorage(!detail)"
+                <a routerLink="/appartement-detail" routerLinkActive="active"><button (click)="this.dataService.setStorage('!detail')"
             mat-menu-item>Détails</button></a>
             </mat-menu>
             <span style="float:right; margin-right: 24px;">
