@@ -16,9 +16,9 @@ export class SearchBarComponent implements OnInit {
   searchinput: string;
 
   // ngAfterViewChecked(): void {
-    // Called after every check of the component's view. Applies to components only.
-    // Add 'implements AfterViewChecked' to the class.
-    // this.appartementList.filterAppartements();
+  // Called after every check of the component's view. Applies to components only.
+  // Add 'implements AfterViewChecked' to the class.
+  // this.appartementList.filterAppartements();
   // }
 
   // @Output()
@@ -48,8 +48,9 @@ export class SearchBarComponent implements OnInit {
 
   // if (this.searchinput !== 'empty search')
   callFilter() {
-     {
-       console.log(this.searchinput)
+    {
+      console.log(this.searchinput);
+
       this.dataService.setStorage(this.searchinput);
       // this.router.navigateByUrl('/appartement-list', {skipLocationChange: true}).then(()=>
       // this.router.navigate(["/", "appartement-list"]));

@@ -7,32 +7,49 @@
         <div class="nav-div" style="display: inline-block;">
             <button mat-button [matMenuTriggerFor]="menu">Navigation</button>
             <mat-menu #menu="matMenu">
-                <a routerLink="/appartement-list" routerLinkActive="active"><button 
-                    (click)="this.dataService.setStorage('!list')"
-                    mat-menu-item>Liste des Appartements</button></a>
-                <a routerLink="/home" routerLinkActive="active"><button (click)="this.dataService.setStorage('empty search')" mat-menu-item>Page d'accueil</button></a>
+                <a routerLink="/appartement-list" routerLinkActive="active"><button (click)="this.dataService.setStorage('!list')"
+            mat-menu-item>Liste des Appartements</button></a>
+                <a routerLink="/home" routerLinkActive="active"><button (click)="this.dataService.setStorage('empty search')"
+            mat-menu-item>Page d'accueil</button></a>
                 <a routerLink="/appartement-detail" routerLinkActive="active"><button (click)="this.dataService.setStorage('!detail')"
             mat-menu-item>Détails</button></a>
+
+
+                <!-- Mat Menu Open -->
             </mat-menu>
+
             <span style="float:right; margin-right: 24px;">
         <a [matMenuTriggerFor]="userMenu" *ngIf="this.userService.getStatus()">
-          <mat-icon  matBadge="{{this.dataService.getStorageLength()}}" matBadgeOverlap="false" matBadgeColor="success" >{{userIcon}}</mat-icon>
+          <mat-icon matBadge="{{this.dataService.getStorageLength()}}" matBadgeOverlap="false" matBadgeColor="success">{{userIcon}}</mat-icon>
         </a>
         <a [matMenuTriggerFor]="userMenu" *ngIf="!this.userService.getStatus()">
-                <mat-icon >{{userIcon}}</mat-icon>
-              </a>
+          <mat-icon>{{userIcon}}</mat-icon>
+        </a>
+
+         <!-- Login -->
         <mat-menu #userMenu="matMenu">
+          <mat-form-field [hidden]="this.userService.getStatus()" [ngStyle]="{'font-size.px': 18}" (click)="$event.stopPropagation()">
+            <input matInput placeholder="Utilisateur" [(ngModel)]="Bertrand" >
+          </mat-form-field>
+
+          <mat-form-field [hidden]="this.userService.getStatus()" [ngStyle]="{'font-size.px': 18}" (click)="$event.stopPropagation()">
+            <input matInput placeholder="Mot de passe" [(ngModel)]="Bertrand">
+            
+          </mat-form-field>
+          <!-- Login -->
+
           <button mat-menu-item [hidden]="this.userService.getStatus()" (click)="this.userService.goToSignUp()">S'enregistrer</button>
           <button (click)="this.userService.toggleStatus()" mat-menu-item>{{ getuserInfo()}}</button>
-          <button 
-          [hidden]="!this.userService.getStatus()" 
-          mat-menu-item (click)="this.userService.goToProfile()"><span  matBadge="{{this.dataService.getStorageLength()}}"
-              matBadgeOverlap="false">Profil/messages</span></button>
+
+          <button [hidden]="!this.userService.getStatus()" mat-menu-item (click)="this.userService.goToProfile()"><span
+              matBadge="{{this.dataService.getStorageLength()}}" matBadgeOverlap="false">Profil/messages</span></button>
             <button mat-menu-item [hidden]="!this.userService.getStatus()" (click)="this.userService.goToAppartementForm()">Ajoutez
             Votre Appartement</button>
 
             <a routerLink="/user-profile" routerLinkActive="active"><button mat-menu-item [hidden]="!this.userService.getStatus()">Réservations</button></a>
             </mat-menu>
+            <!-- Mat Menu Close -->
+
             </span>
         </div>
         <!--  -->
@@ -65,3 +82,28 @@
 <router-outlet></router-outlet>
 <hr>
 <app-footer></app-footer>
+
+
+<!-- 
+<span *ngIf="!this.userService.getStatus()" style="float:right; margin-right: 24px; max-width:320px;">
+        <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Login
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Entrez votre nom d'utilisateur et votre mot de passe
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+
+                    <mat-form-field>
+                        <input matInput placeholder="Utilisateur">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput placeholder="Mot de passe">
+                    </mat-form-field>
+                </mat-expansion-panel>
+            </mat-accordion>
+</span> -->

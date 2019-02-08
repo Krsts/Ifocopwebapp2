@@ -1,5 +1,6 @@
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
+import { UserService } from './user.service';
 
 
 @Injectable()
@@ -8,7 +9,7 @@ export class DataService {
     storage: string;
     storageList: string[];
 
-    constructor(private router: Router) {
+    constructor(private router: Router, private userService: UserService) {
     }
 
     setStorage(x) {
@@ -21,7 +22,7 @@ export class DataService {
         console.log(`Straoge list : ${this.storageList}`);
     }
 
-    navigate() {
+    filterCommands() {
         if (this.storage !== undefined) {
             if (this.storageList[0] === '') {
                 return 'empty search';
@@ -29,11 +30,17 @@ export class DataService {
                 this.router.navigate(['/', 'appartement-detail']);
             } else if (this.storageList[0] === '!list') {
                 this.router.navigate(['/', 'appartement-list']);
+            } else if (this.storageList[0] === '!setusername') {
+                this.userService.setUserName(this.storageList[1]);
             }
+            // else if (this.storageList[0] === '!setuserdata' && this.storageList[2]) {
+            //     this.userService.setUserData(this.storageList[1], this.storageList[2]);
+            //     console.log(this.userService.getUserData());
+            // }
         }
     }
     getStorage() {
-        this.navigate();
+        this.filterCommands();
         // this.setStorage('empty search');
         return this.storage;
     }

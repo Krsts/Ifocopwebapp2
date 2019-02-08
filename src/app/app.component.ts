@@ -15,8 +15,14 @@ export class AppComponent implements OnInit {
 
   title = 'DayMeeting';
   query: string;
-  user: string;
+  // user: string;
   userIcon: string;
+
+
+  // userData: {
+  //   userName: string,
+  //   passWord: string
+  // };
 
   // , private data: DataService
   constructor(private router: Router, private dataService: DataService, private userService: UserService) {
@@ -25,11 +31,11 @@ export class AppComponent implements OnInit {
   // tslint:disable-next-line:use-life-cycle-interface
   ngAfterContentChecked(): void {
 
-      if (this.userService.getLoginStatus() === 'connecté') {
-        this.userIcon = 'mood';
-      } else {
-        this.userIcon = 'mood_bad';
-      }
+    if (this.userService.getLoginStatus() === 'connecté') {
+      this.userIcon = 'mood';
+    } else {
+      this.userIcon = 'mood_bad';
+    }
   }
 
 
@@ -43,12 +49,16 @@ export class AppComponent implements OnInit {
   //   return this.userService.getLoginStatus();
   // }
 
+
   getuserInfo(): string {
+
+
     if (!this.userService.getStatus()) {
       return 'Bonjour Invité | Se Connecter';
 
     } else {
-      return `Bonjour ${this.user} | Se Déconnecter`;
+      return `Bonjour ${this.userService.getUserData('userName')} | Se Déconnecter`;
+      // return `Bonjour ${this.userService.getUserName} | Se Déconnecter`;
     }
 
   }
@@ -61,10 +71,22 @@ export class AppComponent implements OnInit {
   //   }
   // }
 
+  // this.userService.setUserData(this.userData.userName, this.userData.passWord);
 
   ngOnInit() {
+
+    // this.userData = {
+    //   userName: 'Marco',
+    //   passWord: 'Polo',
+    // };
+    // this.userService.setUserName(this.userData.userName);
+
+
+
     this.userIcon = 'mood_bad';
-    this.user = 'Bertrand';
+    // this.userService.setUserName(this.userData.userName);
+
+
     $(document).ready(function () {
       console.log('Document ready');
 

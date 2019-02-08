@@ -59,11 +59,11 @@ img {
     border: 3px transparent solid;
 }
 
-:hover img{
+:hover img {
     border: 3px blue solid;
-}.pointer
+}
 
-footer {
+.pointer footer {
     padding: 1% 5%;
     text-align: center;
     background-color: #373B44;
@@ -85,8 +85,6 @@ footer {
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
-    
-    
 }
 
 .item.list-group-item {
@@ -126,7 +124,6 @@ footer {
 .item.list-group-item img {
     float: left;
     margin: 6px;
-    
 }
 
 .item.list-group-item:after {

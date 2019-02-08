@@ -1,12 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
+  userData: {
+    userName: 'Pierre',
+    passWord: 'Jean',
+  };
+
   status: Boolean = false;
+  // userName = this.userData.userName;
+  userName = 'Bertrand';
+
 
   getStatus() {
     return this.status;
@@ -23,7 +32,7 @@ export class UserService {
   toggleStatus() {
     this.setLoginStatus();
     this.leaveProfile();
-  } 
+  }
 
   setLoginStatus() {
     this.status = !this.status;
@@ -33,7 +42,7 @@ export class UserService {
   goToProfile() {
     if (this.status) {
       this.router.navigate(['/', 'user-profile']);
-      return (console.log('Non Connecté'));
+      return (console.log('Connecté'));
     } else {
       return (console.log('Non Connecté'));
     }
@@ -54,5 +63,30 @@ export class UserService {
       this.router.navigate(['/', 'appartement-form']);
     }
   }
+
+  setUserName(x) {
+    this.userName = x;
+  }
+
+  getUserData(...values) {
+    if ('userName' in values) {
+      return this.userData.userName;
+    } else {
+      return 'Bertrand Default';
+    }
+
+  }
+
+  UserName() {
+    return this.userName;
+  }
+
+
+  // setUserData(userName, passWord) {
+  //   this.userData.userName = userName;
+  //   this.userData.passWord = passWord;
+  // }
   constructor(private router: Router) { }
+
 }
+
