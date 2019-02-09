@@ -68,8 +68,14 @@ export class UserService {
     this.userName = x;
   }
 
-  getUserData(...values) {
-    if ('userName' in values) {
+  // setUserData(...values) {
+  //   if('userName' in values){
+  //     this.userData.userName
+  //   }
+  // }
+
+  getUserData() {
+    if (this.userData.userName !== undefined) {
       return this.userData.userName;
     } else {
       return 'Bertrand Default';

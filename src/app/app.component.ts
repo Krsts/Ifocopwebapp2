@@ -5,7 +5,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
 import { DataService } from './services/Data.service';
-import { SelectControlValueAccessor } from '@angular/forms';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,26 +19,22 @@ export class AppComponent implements OnInit {
   userIcon: string;
 
 
-  // userData: {
-  //   userName: string,
-  //   passWord: string
-  // };
+  userData: {
+    userName: string,
+    passWord: string
+  };
 
-  // , private data: DataService
   constructor(private router: Router, private dataService: DataService, private userService: UserService) {
   }
 
   // tslint:disable-next-line:use-life-cycle-interface
   ngAfterContentChecked(): void {
-
     if (this.userService.getLoginStatus() === 'connecté') {
       this.userIcon = 'mood';
     } else {
       this.userIcon = 'mood_bad';
     }
   }
-
-
 
   // getConnectionStatus(): string {
   //   if (this.userService.getLoginStatus() === 'connecté') {
@@ -51,14 +47,12 @@ export class AppComponent implements OnInit {
 
 
   getuserInfo(): string {
-
-
     if (!this.userService.getStatus()) {
       return 'Bonjour Invité | Se Connecter';
-
     } else {
-      return `Bonjour ${this.userService.getUserData('userName')} | Se Déconnecter`;
-      // return `Bonjour ${this.userService.getUserName} | Se Déconnecter`;
+      // return `Bonjour ${this.userData.userName} | Se Déconnecter`;
+      return `Bonjour Framboise | Se Déconnecter`;
+      // return `Bonjour ${this.userService.getUserName()} | Se Déconnecter`;
     }
 
   }
@@ -74,15 +68,15 @@ export class AppComponent implements OnInit {
   // this.userService.setUserData(this.userData.userName, this.userData.passWord);
 
   ngOnInit() {
+    // if (this.userData.userName === undefined) {
+    //   this.userData.userName = 'Framboise';
+    // }
 
     // this.userData = {
     //   userName: 'Marco',
     //   passWord: 'Polo',
     // };
     // this.userService.setUserName(this.userData.userName);
-
-
-
     this.userIcon = 'mood_bad';
     // this.userService.setUserName(this.userData.userName);
 
