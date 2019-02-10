@@ -1,10 +1,16 @@
-// * {
-//     font-size: 24px;
-// }
+* {
+    font-size: 24px;
+}
 
 .container {
     display: flex;
     flex-direction: column;
+
+}
+
+.container > * {
+    width: 100%;
+    font-size: 24px;
 }
 
 // .container>mat-form-field {
@@ -17,7 +23,24 @@
 
 mat-form-field{
     width: 400px;
+    font-size: 18px;
 }
 mat-card-title{
     text-align: center;
+}
+
+input[type=date], input[type=datetime-local], input[type=email], input[type=number], input[type=password], input[type=search-md], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], textarea.md-textarea {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    outline: 0;
+    height: 2.1rem;
+    width: 100%;
+    font-size: 2rem;
+    box-shadow: none;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    transition: all .3s;
 }

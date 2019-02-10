@@ -1,5 +1,8 @@
+import { UserLoggingService } from './../services/user-logging.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Validators, FormGroup, FormControl } from '@angular/forms';
+import { User } from '../shared/user.model';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -9,48 +12,39 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 })
 export class UserSignUpComponent implements OnInit {
 
-    userRegistrationForm: FormGroup;
+    posts: any;
 
-    // confirmValidParentMatcher = new ConfirmValidParentMatcher();
-
-    // errors = errorMessages;
-
-    // onSubmit(f: NgForm) {
-    //   console.log(f.value);  // { first: '', last: '' }
-    //   console.log(f.valid);  // false
-    // }
-
-    constructor(private formBuilder: FormBuilder) { this.createForm(); }
-
-    createForm() {
-        this.userRegistrationForm = this.formBuilder.group({
-            fullName: ['', [
-                Validators.required,
-                Validators.minLength(1),
-                Validators.maxLength(128)
-            ]],
-            emailGroup: this.formBuilder.group({
-                email: ['', [
-                    Validators.required,
-                    Validators.email
-                ]],
-                confirmEmail: ['', Validators.required]
-            },
-                // { validator: CustomValidators.childrenEqual}
-            ),
-            passwordGroup: this.formBuilder.group({
-                password: ['', [
-                    Validators.required,
-                    // Validators.pattern(regExps.password)
-                ]],
-                confirmPassword: ['', Validators.required]
-            },
-                // { validator: CustomValidators.childrenEqual}
-            )
-        });
+    constructor(private userLoggingService: UserLoggingService, http: HttpClient) {
+        // http.get('https://jsonplaceholder.typicode.com/posts')
+        //     .subscribe(
+        //         (response) => {
+        //             this.posts = response;
+        //         },
+        //         (error) => console.log(error));
     }
+    // userForm: FormGroup;
+    user: User;
+    // userName: FormControl;
+    // email: FormControl;
+    // password: FormControl;
 
+    onSubmit() {
+        this.userLoggingService.addUser(this.user)
+            .subscribe(
+                (response) =>
+                    console.log(response),
+                (error) => console.log(error));
+    }
     ngOnInit() {
+        //
+        this.user = {
+            userName: 'Babar',
+            name: 'Durand',
+            firstName: 'Bertrand',
+            address: '123 soleil',
+            email: '456@mail.com',
+            phone: '1234590',
+            password: 'secretstory',
+        };
     }
-
 }
