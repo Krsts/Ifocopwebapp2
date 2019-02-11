@@ -18,16 +18,16 @@ import { AppartementFormComponent } from './appartement-form/appartement-form.co
 import { AppartementListItemComponent } from './appartement-list-item/appartement-list-item.component';
 import { AppartementsComponent } from './appartements/appartements.component';
 
-
 import { DataService } from './services/Data.service';
 import { AppartementListComponent } from './appartement-list/AppartementListComponent';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
 import { UsersListComponent } from './users-list/users-list.component';
-
+import { CalendarComponent } from './calendar/calendar.component';
+import { IgxDatePickerModule } from 'igniteui-angular';
 
 @NgModule({
   declarations: [
@@ -45,6 +45,7 @@ import { UsersListComponent } from './users-list/users-list.component';
     NavbarComponent,
     UserProfileComponent,
     UserSignUpComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,8 +55,10 @@ import { UsersListComponent } from './users-list/users-list.component';
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    IgxDatePickerModule
   ],
   providers: [DataService, UserLoggingService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

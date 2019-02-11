@@ -173,15 +173,6 @@ body {
                     background: darken($white, 10%);
                 }
             }
-            button {
-                font-weight: bold;
-                border: none;
-                background: none;
-                border: solid 2px rgba($black, .5);
-                margin: 1em auto 0;
-                padding: .50em 1.4em;
-                cursor: pointer;
-            }
         }
     }
     footer {
@@ -249,10 +240,13 @@ body {
     margin-left: 0;
 }
 
+.photo {
+    max-height: 100px;
+}
+
 // .figcaption {
 //     display: none;
 // }
-
 // a {
 //     display: inline-block;
 //     padding: 0;

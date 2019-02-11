@@ -1,4 +1,3 @@
-// import { DataService } from './services/Data.service';
 import { UserService } from './services/user.service';
 import { AppartementListComponent } from './appartement-list/AppartementListComponent';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -36,15 +35,6 @@ export class AppComponent implements OnInit {
     }
   }
 
-  // getConnectionStatus(): string {
-  //   if (this.userService.getLoginStatus() === 'connecté') {
-  //     this.userIcon = 'mood';
-  //   } else {
-  //     this.userIcon = 'mood_bad';
-  //   }
-  //   return this.userService.getLoginStatus();
-  // }
-
 
   getuserInfo(): string {
     if (!this.userService.getStatus()) {
@@ -56,30 +46,8 @@ export class AppComponent implements OnInit {
     }
 
   }
-
-  // setList(v?: string) {
-  //   if (v) {
-  //     this.dataService.setStorage(v);
-  //   } else {
-  //     this.dataService.setStorage('!list');
-  //   }
-  // }
-
-  // this.userService.setUserData(this.userData.userName, this.userData.passWord);
-
   ngOnInit() {
-    // if (this.userData.userName === undefined) {
-    //   this.userData.userName = 'Framboise';
-    // }
-
-    // this.userData = {
-    //   userName: 'Marco',
-    //   passWord: 'Polo',
-    // };
-    // this.userService.setUserName(this.userData.userName);
     this.userIcon = 'mood_bad';
-    // this.userService.setUserName(this.userData.userName);
-
 
     $(document).ready(function () {
       console.log('Document ready');
