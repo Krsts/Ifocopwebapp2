@@ -1,4 +1,68 @@
 <div class="container">
+    <form [formGroup]="appartementForm" (ngSubmit)="onSubmitAppartement()">
+        Nom: <input formControlName="nom" placeholder="Titre de l'appartement" />
+
+        addresse : <input formControlName="addresse" placeholder="Addresse" /> Nom: <input formControlName="name"
+            placeholder="Nom" />
+
+        codePostal: <input formControlName="codePostal" placeholder="Code Postal" />
+        ville: <input formControlName="Paris" placeholder="Paris" />
+        superficie (m²): <input formControlName="superficie" placeholder="Superficie en m²" />
+        étage: <input formControlName="étage" placeholder="étage" />
+        nombre de pièces: <input formControlName="nombre_de_pièces" placeholder="Nombre de pièces" />
+        Nombre maximum de personnes: <input formControlName="capacité" placeholder="Nombre de personnes acceptées" />
+        Salle1: <input formControlName="salle1" placeholder="Salle n°1" />
+        Tarif pour la demi journée: <input formControlName="tarif_demi_journée_salle_1"
+            placeholder="Tarif pour la demi journée" />
+        Tarif pour la journée entière: <input formControlName="tarif_journée_salle_1"
+            placeholder="Tarif pour la journée complète" />
+        Tarif pour la soirée: <input formControlName="tarif_soirée_salle_1" placeholder="Tarif pour la soirée" />
+
+
+        Supplément restauration: <input formControlName="supplément_restauration"
+            placeholder="Supplément Restauration" />
+        <div>
+            Wifi: <input type="radio" formControlName="wifi" value="Oui"> Oui
+            <input type="radio" formControlName="wifi" value="Non"> Non
+        </div>
+        <div>
+            Animaux acceptés: <input type="radio" formControlName="animaux_acceptés" value="Oui"> Oui
+            <input type="radio" formControlName="animaux_acceptés" value="Non"> Non
+        </div>
+        <div>
+            Diffusion de Musique: <input type="radio" formControlName="diffusion_de_musique" value="Oui"> Oui
+            <input type="radio" formControlName="diffusion_de_musique" value="Non"> Non
+        </div>
+        <div>
+            Accès aux transports en commun: <input type="radio" formControlName="transports_en_commun" value="Oui"> Oui
+            <input type="radio" formControlName="transports_en_commun" value="Non"> Non
+        </div>
+        <div>
+            Accessible pour les personnes handicapées: <input type="radio" formControlName="accès_handicapé" value="Oui"> Oui 
+            <input type="radio" formControlName="accès_handicapé" value="Non"> Non
+        </div>
+        <div>
+            Parking Privé: <input type="radio" formControlName="parking_privé" value="Oui"> Oui 
+            <input type="radio" formControlName="parking_privé" value="Non"> Non
+        </div>
+        <div>
+            Fumeur: <input type="radio" formControlName="fumeur" value="Oui"> Oui 
+            <input type="radio" formControlName="fumeur" value="Non"> Non
+        </div>
+        Descriptif de l'appartement: <input type="text-area" formControlName="descriptif" placeholder="Description de l'appartement" />
+        Type d'événemnts acceptés: <input formControlName="type_devenements_acceptés" placeholder="Evénements acceptés" />
+        prestations annexes: <input formControlName="prestations_annexes" placeholder="Prestations Annexes" />
+        <div class='photos-upload-container'>
+        Image: <input type="file" formControlName="img1">
+        Image: <input type="file" formControlName="img2">
+        Image: <input type="file" formControlName="img3">
+        Image: <input type="file" formControlName="img4">
+        Image: <input type="file" formControlName="img5">
+    </div>
+        <button type="submit">Submit</button>
+    </form>
+
+<!-- <div class="container">
     <mat-form-field>
         <input matInput placeholder="Nom">
     </mat-form-field>
@@ -25,11 +89,11 @@
         <textarea matInput placeholder="Description facultative"></textarea>
     </mat-form-field>
 
-    <!-- <mat-checkbox color="primary" formControlName="hideRequired">Je souhaite mettre en location mon appartement</mat-checkbox> -->
+    <mat-checkbox color="primary" formControlName="hideRequired">Je souhaite mettre en location mon appartement</mat-checkbox>
 
     <mat-form-field>
         <mat-select placeholder="Select">
             <mat-option value="option">Option</mat-option>
         </mat-select>
     </mat-form-field>
-</div>
+</div> -->

@@ -1,68 +1,67 @@
 
-export class Appartement {
-    constructor(
-        public id: number,
-        public nom: string,
-        public adresse: string,
-        public codePostal: string,
-        public ville: string,
-        public superficie: number,
-        public étage: number,
-        public nombre_de_pieces: number,
-        public capacité: string,
+export interface Appartement {
 
-        public salles: [{
-            salle1: {
-                superficie: string,
-                tarif_demi_journée: number,
-                tarif_journée: number,
-                tarif_soirée: number,
-            },
-            salle2?: {
-                superficie: string,
-                tarif_demi_journée: number,
-                tarif_journée: number,
-                tarif_soirée: number,
-            },
-            salle3?: {
-                superficie: string,
-                tarif_demi_journée: number,
-                tarif_journée: number,
-                tarif_soirée: number,
-            },
-            salle4?: {
-                superficie: string,
-                tarif_demi_journée: number,
-                tarif_journée: number,
-                tarif_soirée: number,
-            },
-            toutes_les_salles?: {
-                superficie: string,
-                tarif_demi_journée: number,
-                tarif_journée: number,
-                tarif_soirée: number,
-            }
-        }],
+    // id: number;
+    nom: string;
+    adresse: string;
+    codePostal: string;
+    ville: string;
+    superficie: number;
+    étage: number;
+    nombre_de_pièces: number;
+    capacité: string;
 
-        public supplément_restauration: number,
-        public supplément_location_de_matériel: number,
-        public wifi: boolean,
-        public animaux_accpetés: boolean,
-        public diffusion_de_musique: boolean,
-        public transports_en_commun: string[],
-        public acces_handicapé: boolean,
-        public parking_public: boolean,
-        public parking_privé: boolean,
-        public descriptif: boolean,
-        public type_devenements_accpetés: string[],
-        public prestations_annexes: string[],
-        public fumeur: boolean,
-        public img1: string,
-        public img2?: string,
-        public img3?: string,
-        public img4?: string,
-        public img5?: string
+    salles: [{
+        salle1: {
+            nom: string;
+            superficie: string;
+            tarif_demi_journée: number;
+            tarif_journée: number;
+            tarif_soirée: number;
+        };
+        // salle2?: {
+        //     superficie: string;
+        //     tarif_demi_journée: number;
+        //     tarif_journée: number;
+        //     tarif_soirée: number;
+        // };
+        // salle3?: {
+        //     superficie: string;
+        //     tarif_demi_journée: number;
+        //     tarif_journée: number;
+        //     tarif_soirée: number;
+        // };
+        // salle4?: {
+        //     superficie: string;
+        //     tarif_demi_journée: number;
+        //     tarif_journée: number;
+        //     tarif_soirée: number;
+        // };
+        // toutes_les_salles?: {
+        //     superficie: string;
+        //     tarif_demi_journée: number;
+        //     tarif_journée: number;
+        //     tarif_soirée: number;
+        // }
+    }];
 
-    ) { }
+    supplément_restauration: number;
+    supplément_location_de_matériel: number;
+    wifi: boolean;
+    animaux_accpetés: boolean;
+    diffusion_de_musique: boolean;
+    transports_en_commun: string[];
+    acces_handicapé: boolean;
+    parking_: boolean;
+    parking_privé: boolean;
+    descriptif: boolean;
+    type_devenements_accpetés: string[];
+    prestations_annexes: string[];
+    fumeur: boolean;
+    img1: string;
+    img2?: string;
+    img3?: string;
+    img4?: string;
+    img5?: string;
 
 }

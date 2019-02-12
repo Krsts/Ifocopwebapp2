@@ -23,36 +23,47 @@ export class AppartementFormComponent implements OnInit {
     étage: new FormControl('3'),
     nombre_de_pièces: new FormControl('3', [Validators.required]),
     capacité: new FormControl('10'),
-    salle1: new FormControl(''),
-    superficie_salle_1: new FormControl(''),
-    tarif_demi_journée_salle_1: new FormControl(''),
-    tarif_journée_journée_salle_1: new FormControl(''),
-    tarif_soirée_salle1: new FormControl(''),
+    salle1_nom: new FormControl('Salle 1'),
+    superficie_salle_1: new FormControl('50'),
+    tarif_demi_journée_salle_1: new FormControl('30'),
+    tarif_journée_journée_salle_1: new FormControl('50'),
+    tarif_soirée_salle_1: new FormControl('40'),
     // salle2: new FormControl(''),
     // salle3: new FormControl(''),
     // salle4: new FormControl(''),
 
-    supplément_restauration: new FormControl(),
-    supplément_location_de_matériel: new FormControl(),
-    wifi: new FormControl(),
-    animaux_accpetés: new FormControl(),
-    diffusion_de_musqiue: new FormControl(),
-    transports_en_commun: new FormControl(),
-    accès_handicapé: new FormControl(),
-    parking_privé: new FormControl(),
-    descriptif: new FormControl(),
-    type_devenements_acceptés: new FormControl(),
-    prestations_annexes: new FormControl(),
-    fumeur: new FormControl(),
+    supplément_restauration: new FormControl('35'),
+    supplément_location_de_matériel: new FormControl('20'),
+    wifi: new FormControl(true),
+    animaux_accpetés: new FormControl(true),
+    diffusion_de_musqiue: new FormControl(true),
+    transports_en_commun: new FormControl(true),
+    accès_handicapé: new FormControl(true),
+    parking_privé: new FormControl(true),
+    descriptif: new FormControl('Le meilleur appartement de la ville'),
+    type_devenements_acceptés: new FormControl('En tout bien tout honneur'),
+    prestations_annexes: new FormControl('Massage'),
+    fumeur: new FormControl(false),
     img1: new FormControl(),
-    img2: new FormControl(),
-    img3: new FormControl(),
-    img4: new FormControl(),
-    img5: new FormControl()
+    img2: new FormControl(null),
+    img3: new FormControl(null),
+    img4: new FormControl(null),
+    img5: new FormControl(null)
   });
 
   onSubmitAppartement() {
-    return 0;
+    this.appartement = {
+      nom: this.appartementForm.get('nom').value,
+      adresse: this.appartementForm.get('adresse').value,
+      codePostal: this.appartementForm.get('codePostal').value,
+      ville: this.appartementForm.get('ville').value,
+      superficie: this.appartementForm.get('superficie').value,
+      étage: this.appartementForm.get('étage').value,
+      nombre_de_pièces: this.appartementForm.get('nombre_de_pièces').value,
+      capacité: this.appartementForm.get('capacité').value,
+      // salle: this.appartementForm.get('salle1_nom'),
+    };
+    return console.log('Not ready yet');
   }
 
   constructor() { }
