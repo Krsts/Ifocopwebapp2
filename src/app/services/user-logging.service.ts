@@ -21,11 +21,9 @@ export class UserLoggingService {
   findAll(): User[] {
     return this.users;
   }
-
   find(userName: string): User {
     return this.users[this.getSelectedIndex(userName)];
   }
-
   private getSelectedIndex(userName: string) {
     for (let i = 0; i < this.users.length; i++) {
       if (this.users[i].userName === userName) {
@@ -34,7 +32,6 @@ export class UserLoggingService {
     }
     return -1;
   }
-
   addUser(user: User) {
     return this.http.post(this.baseUrl, user);
   }

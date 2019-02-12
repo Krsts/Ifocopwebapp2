@@ -18,26 +18,33 @@
 
             <span style="float:right; margin-right: 24px;">
         <a [matMenuTriggerFor]="userMenu" *ngIf="this.userService.getStatus()">
-          <mat-icon matBadge="{{this.dataService.getStorageLength()}}" matBadgeOverlap="false" matBadgeColor="success">{{userIcon}}</mat-icon>
+          <mat-icon style="color:rgb(199, 196, 26)" matBadge="{{this.dataService.getStorageLength()}}" matBadgeOverlap="false"
+            matBadgeColor="success">{{userIcon}}</mat-icon>
         </a>
         <a [matMenuTriggerFor]="userMenu" *ngIf="!this.userService.getStatus()">
-          <mat-icon>{{userIcon}}</mat-icon>
+          <mat-icon style="color:red">{{userIcon}}</mat-icon>
         </a>
 
-         <!-- Login -->
+        <!-- Login -->
         <mat-menu #userMenu="matMenu">
           <mat-form-field [hidden]="this.userService.getStatus()" [ngStyle]="{'font-size.px': 18}" (click)="$event.stopPropagation()">
-            <input matInput placeholder="Utilisateur" [(ngModel)]="Bertrand" >
+            <input matInput placeholder="Utilisateur" [formControl]="userNameFormControl">
+            <!-- <mat-error *ngIf="!userNameFormControl.hasError('required')">
+              Veuillez entrer votre nom d'utilisateur
+            </mat-error> -->
           </mat-form-field>
 
           <mat-form-field [hidden]="this.userService.getStatus()" [ngStyle]="{'font-size.px': 18}" (click)="$event.stopPropagation()">
-            <input matInput placeholder="Mot de passe" [(ngModel)]="Bertrand">
-            
+            <input matInput placeholder="Mot de passe" [formControl]="passwordFormControl">
+            <!-- <mat-error *ngIf="!paswordFormControl.hasError('required')">
+              Veuillez entrer votre mot de passe
+            </mat-error> -->
           </mat-form-field>
+          <button *ngIf="!this.userService.getStatus()" mat-button (click)="OnLoginSubmit()">Se Conecter</button>
           <!-- Login -->
 
-          <button mat-menu-item [hidden]="this.userService.getStatus()" (click)="this.userService.goToSignUp()">S'enregistrer</button>
-          <button (click)="this.userService.toggleStatus()" mat-menu-item>{{ getuserInfo()}}</button>
+          <button mat-menu-item [hidden]="this.userService.getStatus()" (click)="this.userService.goToSignUp()"><b>S'enregistrer</b></button>
+          <button (click)="this.userService.toggleStatus()" mat-menu-item><b>{{ getuserInfo()}}</b></button>
 
           <button [hidden]="!this.userService.getStatus()" mat-menu-item (click)="this.userService.goToProfile()"><span
               matBadge="{{this.dataService.getStorageLength()}}" matBadgeOverlap="false">Profil/messages</span></button>

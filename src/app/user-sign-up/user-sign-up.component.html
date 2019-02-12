@@ -1,1 +1,9 @@
-<button class="btn btn-primary" (click)='onSubmit()'>Submit User</button>
+<div class="container">
+    <form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+        Username: <input formControlName="userName" placeholder="Nom d'utilisateur" /> Courriel : <input formControlName="email" placeholder="Courriel" /> Nom: <input formControlName="name" placeholder="Nom" /> Prénom: <input formControlName="firstName"
+            placeholder="Prénom" /> Addresse: <input formControlName="address" placeholder="addresse" /> Téléphone: <input formControlName="phone" placeholder="Téléphone" /> Mot de passe: <input formControlName="password" placeholder="Mot de passe" />
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<!-- <button class="btn btn-primary" (click)='onSubmit()'>Submit User</button> -->

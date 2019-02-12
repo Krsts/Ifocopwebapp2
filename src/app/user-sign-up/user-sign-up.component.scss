@@ -5,10 +5,9 @@
 .container {
     display: flex;
     flex-direction: column;
-
 }
 
-.container > * {
+.container>* {
     width: 100%;
     font-size: 24px;
 }
@@ -16,20 +15,38 @@
 // .container>mat-form-field {
 //     font-size: 18px;
 // }
-
 // .container>mat-checkbox {
 //     font-size: 18px;
 // }
-
-mat-form-field{
+mat-form-field {
     width: 400px;
     font-size: 18px;
 }
-mat-card-title{
+
+mat-card-title {
     text-align: center;
 }
 
-input[type=date], input[type=datetime-local], input[type=email], input[type=number], input[type=password], input[type=search-md], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], textarea.md-textarea {
+form {
+    align-content: center;
+}
+
+input {
+    display: block;
+}
+
+input[type=date],
+input[type=datetime-local],
+input[type=email],
+input[type=number],
+input[type=password],
+input[type=search-md],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=time],
+input[type=url],
+textarea.md-textarea {
     background-color: transparent;
     border: none;
     border-bottom: 1px solid #ccc;

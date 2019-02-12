@@ -11,9 +11,7 @@ import { HttpClient } from '@angular/common/http';
     styleUrls: ['./user-sign-up.component.scss']
 })
 export class UserSignUpComponent implements OnInit {
-
     posts: any;
-
     constructor(private userLoggingService: UserLoggingService, http: HttpClient) {
         // http.get('https://jsonplaceholder.typicode.com/posts')
         //     .subscribe(
@@ -28,6 +26,29 @@ export class UserSignUpComponent implements OnInit {
     // email: FormControl;
     // password: FormControl;
 
+    userForm = new FormGroup({
+        userName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+        name: new FormControl('', [Validators.required, Validators.minLength(1)]),
+        firstName: new FormControl('', [Validators.minLength(3)]),
+        address: new FormControl(),
+        email: new FormControl('', [Validators.required, Validators.email]),
+        phone: new FormControl(),
+        password: new FormControl('', [Validators.required])
+    });
+
+    onFormSubmit() {
+        // console.log('userName:' + this.userForm.get('userName').value);
+        this.user = {
+            userName: this.userForm.get('userName').value,
+            name: this.userForm.get('name').value,
+            firstName: this.userForm.get('firstName').value,
+            address: this.userForm.get('address').value,
+            email: this.userForm.get('email').value,
+            phone: this.userForm.get('phone').value,
+            password: this.userForm.get('password').value
+        };
+        this.onSubmit();
+    }
     onSubmit() {
         this.userLoggingService.addUser(this.user)
             .subscribe(

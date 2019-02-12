@@ -4,6 +4,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
 import { DataService } from './services/Data.service';
+import { Validators, FormGroup, FormControl } from '@angular/forms';
+import { UserLoggingService } from './services/user-logging.service';
+
+
 
 @Component({
   selector: 'app-root',
@@ -23,6 +27,15 @@ export class AppComponent implements OnInit {
     passWord: string
   };
 
+
+  userNameFormControl = new FormControl('', [
+    Validators.required,
+  ]);
+  passwordFormControl = new FormControl('', [
+    Validators.required,
+  ]);
+
+
   constructor(private router: Router, private dataService: DataService, private userService: UserService) {
   }
 
@@ -35,7 +48,6 @@ export class AppComponent implements OnInit {
     }
   }
 
-
   getuserInfo(): string {
     if (!this.userService.getStatus()) {
       return 'Bonjour Invité | Se Connecter';
@@ -46,6 +58,8 @@ export class AppComponent implements OnInit {
     }
 
   }
+
+
   ngOnInit() {
     this.userIcon = 'mood_bad';
 
