@@ -28,6 +28,7 @@ import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { IgxDatePickerModule } from 'igniteui-angular';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { IgxDatePickerModule } from 'igniteui-angular';
     UserProfileComponent,
     UserSignUpComponent,
     CalendarComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
