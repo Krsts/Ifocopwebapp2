@@ -21,7 +21,7 @@ export class AppartementDetailComponent implements OnInit {
   constructor(private appartementService: AppartementService) { }
 
   ngOnInit() {
-    this.appartements = this.appartementService.getAppartement();
+    this.appartementService.getAllappartements();
     console.log(this.appartements);
   }
 }

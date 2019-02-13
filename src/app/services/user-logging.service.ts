@@ -18,10 +18,15 @@ export class UserLoggingService {
     return this.http.get<User[]>(this.baseUrl);
   }
 
+  // getuser(user) {
+  //   return this.http.get<User[]>(this.baseUrl, user);
+  // }
+
   findAll(): User[] {
     return this.users;
   }
   find(userName: string): User {
+    this.users = this.findAll();
     return this.users[this.getSelectedIndex(userName)];
   }
   private getSelectedIndex(userName: string) {

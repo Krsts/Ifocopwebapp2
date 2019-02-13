@@ -11,14 +11,14 @@ export interface Appartement {
     nombre_de_pièces: number;
     capacité: string;
 
-    salles: [{
-        salle1: {
-            nom: string;
-            superficie: string;
-            tarif_demi_journée: number;
-            tarif_journée: number;
-            tarif_soirée: number;
-        };
+    // salles: [{
+    //     salle1: {
+    //         nom: string;
+    //         superficie: string;
+    //         tarif_demi_journée: number;
+    //         tarif_journée: number;
+    //         tarif_soirée: number;
+    //     };
         // salle2?: {
         //     superficie: string;
         //     tarif_demi_journée: number;
@@ -43,19 +43,19 @@ export interface Appartement {
         //     tarif_journée: number;
         //     tarif_soirée: number;
         // }
-    }];
+    // }];
 
     supplément_restauration: number;
     supplément_location_de_matériel: number;
     wifi: boolean;
-    animaux_accpetés: boolean;
+    animaux_acceptés: boolean;
     diffusion_de_musique: boolean;
     transports_en_commun: string[];
-    acces_handicapé: boolean;
-    parking_: boolean;
+    accès_handicapé: boolean;
+    parking_public: boolean;
     parking_privé: boolean;
     descriptif: boolean;
-    type_devenements_accpetés: string[];
+    type_devenements_acceptés: string[];
     prestations_annexes: string[];
     fumeur: boolean;
     img1: string;

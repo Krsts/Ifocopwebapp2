@@ -11,20 +11,9 @@ import { HttpClient } from '@angular/common/http';
     styleUrls: ['./user-sign-up.component.scss']
 })
 export class UserSignUpComponent implements OnInit {
-    posts: any;
     constructor(private userLoggingService: UserLoggingService, http: HttpClient) {
-        // http.get('https://jsonplaceholder.typicode.com/posts')
-        //     .subscribe(
-        //         (response) => {
-        //             this.posts = response;
-        //         },
-        //         (error) => console.log(error));
     }
-    // userForm: FormGroup;
     user: User;
-    // userName: FormControl;
-    // email: FormControl;
-    // password: FormControl;
 
     userForm = new FormGroup({
         userName: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -37,7 +26,6 @@ export class UserSignUpComponent implements OnInit {
     });
 
     onFormSubmit() {
-        // console.log('userName:' + this.userForm.get('userName').value);
         this.user = {
             userName: this.userForm.get('userName').value,
             name: this.userForm.get('name').value,
@@ -47,9 +35,7 @@ export class UserSignUpComponent implements OnInit {
             phone: this.userForm.get('phone').value,
             password: this.userForm.get('password').value
         };
-        this.onSubmit();
-    }
-    onSubmit() {
+
         this.userLoggingService.addUser(this.user)
             .subscribe(
                 (response) =>
@@ -57,7 +43,7 @@ export class UserSignUpComponent implements OnInit {
                 (error) => console.log(error));
     }
     ngOnInit() {
-        //
+
         this.user = {
             userName: 'Babar',
             name: 'Durand',
