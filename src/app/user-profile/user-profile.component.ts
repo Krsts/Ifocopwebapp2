@@ -19,6 +19,7 @@ export class UserProfileComponent implements OnInit {
   // userInfo = this.userLoggingService.getuser('Babar');
 
   ngOnInit() {
+    console.log(this.userLoggingService.find('Babar'));
     // this.user.userName = 'YoloCall';
     // this.user.password = 'mdp';
     // console.log(this.userProfileInfo);
@@ -28,6 +29,8 @@ export class UserProfileComponent implements OnInit {
       this.user = data['users'];
     },
       errorCode => console.log(errorCode));
+
   }
+
 }
 
