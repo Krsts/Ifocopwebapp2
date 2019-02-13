@@ -13,16 +13,21 @@ export class UserProfileComponent implements OnInit {
 
   }
 
-user: User;
+  private user: User[];
 
   userProfileInfo = this.userLoggingService.getAllUsers();
   // userInfo = this.userLoggingService.getuser('Babar');
 
   ngOnInit() {
-    this.user.userName = 'YoloCall';
-    this.user.password = 'mdp';
-    console.log(this.userProfileInfo);
+    // this.user.userName = 'YoloCall';
+    // this.user.password = 'mdp';
+    // console.log(this.userProfileInfo);
     // console.log(this.userLoggingService.getuser(this.user));
     // console.log(this.userInfo);
+    this.userLoggingService.getAllUsers().subscribe(data => {
+      this.user = data['users'];
+    },
+      errorCode => console.log(errorCode));
   }
 }
+

@@ -1,1 +1,6 @@
-<h4>{{userProfileInfo}}</h4>
+<h5 *ngFor="let u of user; index as i">
+        {{showUser(u)}}
+
+</h5>
+
+<!-- <button (click)="showUsers()" class="btn btn-primary"></button> -->
