@@ -25,7 +25,10 @@
             <img src="assets/images/{{product.photo}}" width="50">
         </td> -->
         <td>
-            <a [routerLink]="['/user-profile', { userName:user.userName }]">userProfile</a>
+            <a [routerLink]="['/user-profile', user.userName]">User Profile
+                <!-- {{ product.name }} -->
+            </a>
+            <!-- <a [routerLink]="['/user-profile', { userName:user.userName }]">userProfile</a> -->
         </td>
     </tr>
 </table>

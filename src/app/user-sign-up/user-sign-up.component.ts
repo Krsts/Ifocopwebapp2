@@ -37,12 +37,18 @@ export class UserSignUpComponent implements OnInit {
             phone: this.userForm.get('phone').value,
             password: this.userForm.get('password').value
         };
-
-        this.userLoggingService.addUser(this.user)
-            .subscribe(
-                (response: {}) => (console.log(response),
-                    this.router.navigate(['/', 'users-list'])),
-                (error) => console.log(error));
+        this.userLoggingService.getUserByUserName({ 'userName': this.user.userName }).subscribe(data => {
+            console.log(data);
+            if (data.length > 0) {
+                window.alert('Nom d\'utilisateur déjà existant');
+            } else {
+                this.userLoggingService.addUser(this.user)
+                    .subscribe(
+                        (response: {}) => (console.log(response),
+                            this.router.navigate(['/', 'users-list'])),
+                        (error) => console.log(error));
+            }
+        }, errorCode => console.log(errorCode));
     }
     ngOnInit() {
 

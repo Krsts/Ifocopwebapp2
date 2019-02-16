@@ -18,8 +18,6 @@ export class UsersListComponent implements OnInit {
   private user;
   constructor(private userLoggingService: UserLoggingService, private http: HttpClient) { }
 
-
-
   ngOnInit() {
     //
     this.userLoggingService.getAllUsers().subscribe((data: {}) => {
