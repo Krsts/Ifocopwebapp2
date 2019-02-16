@@ -26,7 +26,7 @@ app.use(function (req, res, next) {
     next();
 })
 
-// Utilisateurs
+// USERS //
 
 app.post('/users-list', (req, res) => {
     var user = new User({
@@ -43,11 +43,42 @@ app.post('/users-list', (req, res) => {
     }, (e) => {
         res.status(400).send(e);
     });
-
-
 }),
 
-    // Appartements
+    app.get('/users-list/', (req, res) => {
+
+        User.find().then((users) => {
+            res.send(
+                users
+            )
+        }, (e) => {
+            res.status(400).send(e);
+        });
+    }),
+
+    app.get('/users-list/:userName', (req, res) => {
+        User.find({ userName: req.params.userName }).then((users) => {
+            res.send(
+                users
+            )
+        }, (e) => {
+            res.status(400).send(e);
+        });
+    }),
+
+    app.get('/users-list/:userName/:password', (req, res) => {
+        User.find({ userName: req.params.userName, password: req.params.password }).then((users) => {
+            res.send(
+                users
+            )
+        }, (e) => {
+            res.status(400).send(e);
+        });
+    }),
+
+    //-- USERS --//
+
+    // APPARTEMENTS //
 
     app.post('/appartement-list', (req, res) => {
         var appartement = new Appartement({
@@ -77,7 +108,6 @@ app.post('/users-list', (req, res) => {
             img3: req.body.img3,
             img4: req.body.img4,
             img5: req.body.img5
-
         });
 
         appartement.save().then((doc) => {
@@ -87,7 +117,36 @@ app.post('/users-list', (req, res) => {
         });
     });
 
-// app.put('/users-list/:id', (req, res) => {
+app.get('/appartement-list/:nom', (req, res) => {
+    console.log(req.params);
+    Appartement.find(req.params).then((appartements) => {
+        res.send(
+            appartements
+        )
+    }, (e) => {
+        res.status(400).send(e);
+    });
+}),
+
+    app.get('/appartement-list', (req, res) => {
+        Appartement.find().then((appartements) => {
+            res.send({
+                appartements
+            })
+        }, (e) => {
+            res.status(400).send(e);
+        });
+    }),
+
+    app.listen(3000, () => {
+        console.log('Started on port 3000');
+    }),
+
+    module.exports = {
+        app
+    }
+
+    // app.put('/users-list/:id', (req, res) => {
 //     User.findOneAndUpdate({
 //             "userName": req.params.userName
 //         }), {
@@ -127,32 +186,3 @@ app.post('/users-list', (req, res) => {
 //             res.status(400).send(e);
 //         });
 //     }),
-
-
-app.get('/users-list', (req, res) => {
-    User.find().then((users) => {
-        res.send({
-            users
-        })
-    }, (e) => {
-        res.status(400).send(e);
-    });
-}),
-
-    app.get('/appartement-list', (req, res) => {
-        Appartement.find().then((appartements) => {
-            res.send({
-                appartements
-            })
-        }, (e) => {
-            res.status(400).send(e);
-        });
-    }),
-
-    app.listen(3000, () => {
-        console.log('Started on port 3000');
-    }),
-
-    module.exports = {
-        app
-    }

@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Appartement } from '../shared/appartement.model';
 import { AppartementService } from '../services/appartement.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 
@@ -88,16 +89,24 @@ export class AppartementFormComponent implements OnInit {
     this.onSubmit();
   }
   onSubmit() {
-    this.appartementService.addAppartement(this.appartement)
-      .subscribe(
-        (response) =>
-          console.log(response),
-        (error) => console.log(error));
+    this.appartementService.getAppartementByName({ 'nom': this.appartement.nom }).subscribe(data => {
+      console.log(data);
+      if (data.length > 0) {
+        window.alert('Nom d\'appartement déjà existant');
+      } else {
+        this.appartementService.addAppartement(this.appartement)
+          .subscribe(
+            (response: {}) =>
+              console.log(response),
+            (error) => console.log(error));
+        this.router.navigate(['/', 'appartement-detail']);
+      }
+    }, errorCode => console.log(errorCode));
   }
   // return console.log('Not ready yet');
 
 
-  constructor(private appartementService: AppartementService, http: HttpClient) { }
+  constructor(private appartementService: AppartementService, http: HttpClient, private router: Router) { }
 
   ngOnInit() {
   }

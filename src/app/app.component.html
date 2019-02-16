@@ -7,53 +7,70 @@
         <div class="nav-div" style="display: inline-block;">
             <button mat-button [matMenuTriggerFor]="menu">Navigation</button>
             <mat-menu #menu="matMenu">
-                <a routerLink="/appartement-list" routerLinkActive="active"><button (click)="this.dataService.setStorage('!list')"
-            mat-menu-item>Liste des Appartements</button></a>
-                <a routerLink="/home" routerLinkActive="active"><button (click)="this.dataService.setStorage('empty search')"
-            mat-menu-item>Page d'accueil</button></a>
-                <a routerLink="/appartement-detail" routerLinkActive="active"><button (click)="this.dataService.setStorage('!detail')"
-            mat-menu-item>Détails</button></a>
+                <a routerLink="/appartement-list" routerLinkActive="active"><button
+                        (click)="this.dataService.setStorage('!list')" mat-menu-item>Liste des Appartements</button></a>
+                <a routerLink="/home" routerLinkActive="active"><button
+                        (click)="this.dataService.setStorage('empty search')" mat-menu-item>Page d'accueil</button></a>
+                <a routerLink="/appartement-detail" routerLinkActive="active"><button
+                        (click)="this.dataService.setStorage('!detail')" mat-menu-item>Détails</button></a>
+                <a routerLink="/users-list" routerLinkActive="active"><button
+                        (click)="this.dataService.setStorage('!detail')" mat-menu-item>Users</button></a>
                 <!-- Mat Menu Open -->
             </mat-menu>
 
             <span style="float:right; margin-right: 24px;">
-        <a [matMenuTriggerFor]="userMenu" *ngIf="this.userService.getStatus()">
-          <mat-icon style="color:rgb(199, 196, 26)" matBadge="{{this.dataService.getStorageLength()}}" matBadgeOverlap="false"
-            matBadgeColor="success">{{userIcon}}</mat-icon>
-        </a>
-        <a [matMenuTriggerFor]="userMenu" *ngIf="!this.userService.getStatus()">
-          <mat-icon style="color:red">{{userIcon}}</mat-icon>
-        </a>
+                <a [matMenuTriggerFor]="userMenu" *ngIf="this.userService.getStatus()">
+                    <mat-icon style="color:rgb(199, 196, 26)" matBadge="{{this.dataService.getStorageLength()}}"
+                        matBadgeOverlap="false" matBadgeColor="success">{{userIcon}}</mat-icon>
+                </a>
+                <a [matMenuTriggerFor]="userMenu" *ngIf="!this.userService.getStatus()">
+                    <mat-icon style="color:red">{{userIcon}}</mat-icon>
+                </a>
+                <mat-menu #userMenu="matMenu">
+                    <!-- Login -->
+                    <form [formGroup]="userLoginForm" novalidate onkeyup.enter="onLoginSubmit()">
 
-        <!-- Login -->
-        <mat-menu #userMenu="matMenu">
-          <mat-form-field [hidden]="this.userService.getStatus()" [ngStyle]="{'font-size.px': 18}" (click)="$event.stopPropagation()">
-            <input matInput placeholder="Utilisateur" [formControl]="userNameFormControl">
-            <!-- <mat-error *ngIf="!userNameFormControl.hasError('required')">
+                        <mat-form-field [hidden]="this.userService.getStatus()" [ngStyle]="{'font-size.px': 18}"
+                            (click)="$event.stopPropagation()">
+                            <input matInput placeholder="Utilisateur" type="text" formControlName="userName" value="">
+                            <!-- <mat-error *ngIf="!userNameFormControl.hasError('required')">
               Veuillez entrer votre nom d'utilisateur
             </mat-error> -->
-          </mat-form-field>
+                        </mat-form-field>
 
-          <mat-form-field [hidden]="this.userService.getStatus()" [ngStyle]="{'font-size.px': 18}" (click)="$event.stopPropagation()">
-            <input matInput placeholder="Mot de passe" [formControl]="passwordFormControl">
-            <!-- <mat-error *ngIf="!paswordFormControl.hasError('required')">
+                        <mat-form-field [hidden]="this.userService.getStatus()" [ngStyle]="{'font-size.px': 18}"
+                            (click)="$event.stopPropagation()">
+                            <input matInput placeholder="Mot de passe" type="password" formControlName="password"
+                                value="">
+                            <!-- <mat-error *ngIf="!paswordFormControl.hasError('required')">
               Veuillez entrer votre mot de passe
             </mat-error> -->
-          </mat-form-field>
-          <button *ngIf="!this.userService.getStatus()" mat-button (click)="OnLoginSubmit()">Se Conecter</button>
-          <!-- Login -->
+                        </mat-form-field>
+                        <button *ngIf="!this.userService.getStatus()" mat-raised-button
+                            [disabled]="userLoginForm.invalid" (click)="onLoginSubmit()">Se Connecter</button>
+                    </form>
 
-          <button mat-menu-item [hidden]="this.userService.getStatus()" (click)="this.userService.goToSignUp()"><b>S'enregistrer</b></button>
-          <button (click)="this.userService.toggleStatus()" mat-menu-item><b>{{ getuserInfo()}}</b></button>
 
-          <button [hidden]="!this.userService.getStatus()" mat-menu-item (click)="this.userService.goToProfile()"><span
-              matBadge="{{this.dataService.getStorageLength()}}" matBadgeOverlap="false">Profil/messages</span></button>
-            <button mat-menu-item [hidden]="!this.userService.getStatus()" (click)="this.userService.goToAppartementForm()">Ajoutez
-            Votre Appartement</button>
+                    <!-- <button *ngIf="!this.userService.getStatus()" mat-button (click)="onLoginSubmit()">Se Conecter</button> -->
+                    <!-- Login -->
 
-            <a routerLink="/user-profile" routerLinkActive="active"><button mat-menu-item [hidden]="!this.userService.getStatus()">Réservations</button></a>
-            </mat-menu>
-            <!-- Mat Menu Close -->
+                    <button mat-menu-item [hidden]="this.userService.getStatus()"
+                        (click)="this.userService.goToSignUp()"><b>S'enregistrer</b></button>
+                    <button *ngIf="this.userService.getStatus()" (click)="this.userService.setUserName(undefined)"
+                        mat-menu-item><b>Se Deconnecter</b></button>
+
+                    <button [hidden]="!this.userService.getStatus()" mat-menu-item
+                        (click)="this.userService.goToProfile()"><span
+                            matBadge="{{this.dataService.getStorageLength()}}" matBadgeOverlap="false">Bonjour
+                            {{userName}}/messages</span></button>
+                    <button mat-menu-item [hidden]="!this.userService.getStatus()"
+                        (click)="this.userService.goToAppartementForm()">Ajoutez
+                        Votre Appartement</button>
+
+                    <a routerLink="/user-profile" routerLinkActive="active"><button mat-menu-item
+                            [hidden]="!this.userService.getStatus()">Réservations</button></a>
+                </mat-menu>
+                <!-- Mat Menu Close -->
 
             </span>
         </div>

@@ -1,6 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { User } from './../shared/user.model';
 import { Component, OnInit } from '@angular/core';
 import { UserLoggingService } from '../services/user-logging.service';
+import { Observable } from 'rxjs';
+import * as _ from 'lodash';
+
+
 
 @Component({
   selector: 'app-users-list',
@@ -9,40 +14,30 @@ import { UserLoggingService } from '../services/user-logging.service';
 })
 export class UsersListComponent implements OnInit {
 
-  private users: User[];
-  private user: User;
-  u: any;
-  constructor(private userLoggingService: UserLoggingService) { }
+  private users;
+  private user;
+  constructor(private userLoggingService: UserLoggingService, private http: HttpClient) { }
+
+
+
+  ngOnInit() {
+    //
+    this.userLoggingService.getAllUsers().subscribe((data: {}) => {
+      this.users = data;
+      console.log(data);
+    },
+      errorCode => console.log(errorCode));
+    //
+    this.userLoggingService.getUserByUserNameAndPassword({ 'userName': 'azd', 'password': 'zef' }).subscribe((data: {}) => {
+      this.user = data;
+      console.log(data);
+    }, errorCode => console.log(errorCode));
+  }
+
+}
 
   // showUsers() {
   //   for (let i = 0; i < this.users.length; i++) {
   //     console.log('123' + this.users[i].userName);
   //   }
   // }
-  showUser(u) {
-    if (u.userName.length > 0) {
-      return u;
-    }
-  }
-
-  ngOnInit() {
-    this.userLoggingService.getAllUsers().subscribe(data => {
-      this.users = data['users'];
-    },
-      errorCode => console.log(errorCode));
-    this.u = this.users.map(obj => {
-      const us = {};
-      us[obj.userName] = obj.userName;
-      us[obj.firstName] = obj.firstName;
-      us[obj.email] = obj.email;
-      us[obj.password] = obj.password;
-      us[obj.address] = obj.address;
-      us[obj.name] = obj.name;
-      console.log(us);
-      return us;
-    });
-    console.log(this.user);
-  }
-
-}
-

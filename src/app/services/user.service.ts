@@ -7,14 +7,9 @@ import { Router } from '@angular/router';
 })
 export class UserService {
 
-  userData: {
-    userName: 'Pierre',
-    passWord: 'Jean',
-  };
-
   status: Boolean = false;
   // userName = this.userData.userName;
-  userName = 'Bertrand';
+  userName: string;
 
 
   getStatus() {
@@ -29,14 +24,18 @@ export class UserService {
     }
   }
 
-  toggleStatus() {
-    this.setLoginStatus();
+  toggleStatus(toStatus: boolean) {
+    this.status = toStatus;
+    // this.setLoginStatus(toStatus);
+    this.setUserName(undefined);
     this.leaveProfile();
   }
 
-  setLoginStatus() {
-    this.status = !this.status;
-    return this.getLoginStatus();
+  setLoginStatus(arg?) {
+    if (arg) {
+      this.status = arg;
+      return this.getLoginStatus();
+    }
   }
 
   goToProfile() {
@@ -64,8 +63,14 @@ export class UserService {
     }
   }
 
-  setUserName(x) {
-    this.userName = x;
+  setUserName(userName) {
+    if (userName === undefined) {
+      this.status = false;
+    } else {
+      this.userName = userName;
+      this.setLoginStatus(userName);
+      this.status = true;
+    }
   }
 
   // setUserData(...values) {
@@ -74,16 +79,16 @@ export class UserService {
   //   }
   // }
 
-  getUserData() {
-    if (this.userData.userName !== undefined) {
-      return this.userData.userName;
-    } else {
-      return 'Bertrand Default';
-    }
+  // getUserData() {
+  //   if (this.userData.userName !== undefined) {
+  //     return this.userData.userName;
+  //   } else {
+  //     return 'Bertrand Default';
+  //   }
 
-  }
+  // }
 
-  UserName() {
+  getUserName() {
     return this.userName;
   }
 

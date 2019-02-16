@@ -1,6 +1,11 @@
-<h5 *ngFor="let u of user; index as i">
-        {{showUser(u)}}
-
-</h5>
-
-<!-- <button (click)="showUsers()" class="btn btn-primary"></button> -->
+<div class="container-fluid" *ngIf="this.userService.getStatus()">
+<ul>
+        <li>{{name}}</li>
+        <li>{{firstName}}</li>
+        <li>{{address}}</li>
+        <li>{{email}}</li>
+        <li>{{phone}}</li>
+        <li>{{password}}</li>
+        
+</ul>
+</div>

@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
 import { User } from '../shared/user.model';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -11,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
     styleUrls: ['./user-sign-up.component.scss']
 })
 export class UserSignUpComponent implements OnInit {
-    constructor(private userLoggingService: UserLoggingService, http: HttpClient) {
+    constructor(private userLoggingService: UserLoggingService, http: HttpClient, private router: Router) {
     }
     user: User;
 
@@ -38,8 +40,8 @@ export class UserSignUpComponent implements OnInit {
 
         this.userLoggingService.addUser(this.user)
             .subscribe(
-                (response) =>
-                    console.log(response),
+                (response: {}) => (console.log(response),
+                    this.router.navigate(['/', 'users-list'])),
                 (error) => console.log(error));
     }
     ngOnInit() {

@@ -18,6 +18,10 @@ export class AppartementService {
     return this.http.get<Appartement[]>(this.baseUrl);
   }
 
+  getAppartementByName(appartement: Object): Observable<Appartement[]> {
+    return this.http.get<Appartement[]>(this.baseUrl + '/' + appartement['nom']);
+  }
+
   findAll(): Appartement[] {
     return this.appartements;
   }
