@@ -78,16 +78,16 @@ export class AppComponent implements OnInit {
     }, errorCode => console.log(errorCode));
   }
 
-  getuserInfo(): string {
-    if (!this.userService.getStatus()) {
-      return 'Bonjour Invité | Se Connecter';
-    } else {
-      // return `Bonjour ${this.userData.userName} | Se Déconnecter`;
-      return `Bonjour Framboise | Se Déconnecter`;
-      // return `Bonjour ${this.userService.getUserName()} | Se Déconnecter`;
-    }
+  // getuserInfo(): string {
+  // if (!this.userService.getStatus()) {
+  // return 'Bonjour Invité | Se Connecter';
+  // } else {
+  // return `Bonjour ${this.userData.userName} | Se Déconnecter`;
+  // return `Bonjour Framboise | Se Déconnecter`;
+  // return `Bonjour ${this.userService.getUserName()} | Se Déconnecter`;
+  // }
+  // }
 
-  }
   ngOnInit() {
     this.userIcon = 'mood_bad';
 

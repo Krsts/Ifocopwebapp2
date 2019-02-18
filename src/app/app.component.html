@@ -14,7 +14,7 @@
                 <a routerLink="/appartement-detail" routerLinkActive="active"><button
                         (click)="this.dataService.setStorage('!detail')" mat-menu-item>Détails</button></a>
                 <a routerLink="/users-list" routerLinkActive="active"><button
-                        (click)="this.dataService.setStorage('!detail')" mat-menu-item>Users</button></a>
+                        (click)="this.dataService.setStorage('!user-profile')" mat-menu-item>Users</button></a>
                 <!-- Mat Menu Open -->
             </mat-menu>
 
@@ -63,14 +63,13 @@
                         (click)="this.userService.goToProfile()"><span
                             matBadge="{{this.dataService.getStorageLength()}}" matBadgeOverlap="false">Bonjour
                             {{userName}}/messages</span></button>
-                    <button mat-menu-item [hidden]="!this.userService.getStatus()"
-                        (click)="this.userService.goToAppartementForm()">Ajoutez
+            <button mat-menu-item [hidden]="!this.userService.getStatus()" (click)="this.userService.goToAppartementForm()">Ajoutez
                         Votre Appartement</button>
 
-                    <a routerLink="/user-profile" routerLinkActive="active"><button mat-menu-item
+            <a routerLink="/user-profile" routerLinkActive="active"><button mat-menu-item
                             [hidden]="!this.userService.getStatus()">Réservations</button></a>
-                </mat-menu>
-                <!-- Mat Menu Close -->
+            </mat-menu>
+            <!-- Mat Menu Close -->
 
             </span>
         </div>

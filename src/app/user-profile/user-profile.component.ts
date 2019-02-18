@@ -25,6 +25,7 @@ export class UserProfileComponent implements OnInit {
   }
   ngOnInit() {
     this.userChecker = this.userService.getUserName();
+    console.log(this.userChecker)
     this.route.params
       // tslint:disable-next-line:max-line-length
       .subscribe(userName => { console.log(userName); this.userChecker = userName['userName']; }, errorCode => console.log(errorCode));
