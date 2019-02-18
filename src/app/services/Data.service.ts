@@ -19,7 +19,7 @@ export class DataService {
 
     setList() {
         this.storageList = this.storage.split(' ');
-        console.log(`Storage list : ${this.storageList}`);
+        // console.log(`Storage list : ${this.storageList}`);
     }
 
     filterCommands() {

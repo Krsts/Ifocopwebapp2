@@ -49,7 +49,7 @@ export class SearchBarComponent implements OnInit {
   // if (this.searchinput !== 'empty search')
   callFilter() {
     {
-      console.log(this.searchinput);
+      // console.log(this.searchinput);
 
       this.dataService.setStorage(this.searchinput);
       // this.router.navigateByUrl('/appartement-list', {skipLocationChange: true}).then(()=>

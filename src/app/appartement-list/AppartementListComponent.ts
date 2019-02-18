@@ -76,10 +76,11 @@ export class AppartementListComponent implements OnInit {
     // console.log(this.appartements)
     this.appartementService.getAllappartements().subscribe((data: {}) => {
       this.appartementsModel = data['appartements'];
-      console.log(data);
+      // console.log(data);
     },
       errorCode => console.log(errorCode));
 
+    this.appartements = this.appartementsModel;
 
     // this.appartementsModel = [
     //   {
@@ -99,7 +100,7 @@ export class AppartementListComponent implements OnInit {
     //     ville: 'Toulouse',
     //   },
     // ];
-    this.appartements = [];
+    // this.appartements = [];
     setInterval(() => {
       // if (this.dataService.getStorage() !== '') {
       this.filterAppartements();
