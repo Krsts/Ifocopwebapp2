@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
+import { AppartementService } from '../services/appartement.service';
 
 
 
@@ -17,9 +18,10 @@ export class AppartementListComponent implements OnInit {
   searchInput: string;
   order: string;
   appartements: AppartementJson[];
-  appartementsModel: AppartementJson[];
+  // appartementsModel: AppartementJson[];
+  appartementsModel;
   // constructor(private appartementService: AppartementService) { }
-  constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router) {
+  constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router,private appartementService: AppartementService) {
   }
   // ngAfterContentChecked(): void {
   //   // this.filterAppartements();
@@ -72,24 +74,31 @@ export class AppartementListComponent implements OnInit {
     // this.appartements = this.appartementService.getAppartement();
     // console.log(this.appartements);
     // console.log(this.appartements)
-    this.appartementsModel = [
-      {
-        nom: 'Mon Appartement',
-        ville: 'Paris',
-      },
-      {
-        nom: 'Ton Appartement',
-        ville: 'Nantes',
-      },
-      {
-        nom: 'Son Appartement',
-        ville: 'Lyon',
-      },
-      {
-        nom: 'Nos Appartements',
-        ville: 'Toulouse',
-      },
-    ];
+    this.appartementService.getAllappartements().subscribe((data: {}) => {
+      this.appartementsModel = data['appartements'];
+      console.log(data);
+    },
+      errorCode => console.log(errorCode));
+
+
+    // this.appartementsModel = [
+    //   {
+    //     nom: 'Mon Appartement',
+    //     ville: 'Paris',
+    //   },
+    //   {
+    //     nom: 'Ton Appartement',
+    //     ville: 'Nantes',
+    //   },
+    //   {
+    //     nom: 'Son Appartement',
+    //     ville: 'Lyon',
+    //   },
+    //   {
+    //     nom: 'Nos Appartements',
+    //     ville: 'Toulouse',
+    //   },
+    // ];
     this.appartements = [];
     setInterval(() => {
       // if (this.dataService.getStorage() !== '') {

@@ -32,6 +32,12 @@ export class DataService {
                 this.router.navigate(['/', 'appartement-list']);
             } else if (this.storageList[0] === '!setusername') {
                 this.userService.setUserName(this.storageList[1]);
+            } else if (this.storageList[0] === '!profile') {
+                if (this.userService.getStatus()) {
+                    try {
+                        this.router.navigate(['/', 'user-profile', this.userService.getUserName().toString()]);
+                    } catch (Exception) { }
+                }
             }
             // else if (this.storageList[0] === '!setuserdata' && this.storageList[2]) {
             //     this.userService.setUserData(this.storageList[1], this.storageList[2]);

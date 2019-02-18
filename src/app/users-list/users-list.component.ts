@@ -26,12 +26,13 @@ export class UsersListComponent implements OnInit {
     },
       errorCode => console.log(errorCode));
     //
-    this.userLoggingService.getUserByUserNameAndPassword({ 'userName': 'azd', 'password': 'zef' }).subscribe((data: {}) => {
-      this.user = data;
-      console.log(data);
-    }, errorCode => console.log(errorCode));
-  }
+    //   this.userLoggingService.getUserByUserNameAndPassword({ 'userName': 'azd', 'password': 'zef' }).subscribe((data: {}) => {
+    //     this.user = data;
+    //     console.log(data);
+    //   }, errorCode => console.log(errorCode));
+    // }
 
+  }
 }
 
   // showUsers() {
