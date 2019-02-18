@@ -4,6 +4,8 @@ import { Validators, FormGroup, FormControl } from '@angular/forms';
 import { User } from '../shared/user.model';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
+
 
 
 
@@ -13,7 +15,7 @@ import { Router } from '@angular/router';
     styleUrls: ['./user-sign-up.component.scss']
 })
 export class UserSignUpComponent implements OnInit {
-    constructor(private userLoggingService: UserLoggingService, http: HttpClient, private router: Router) {
+    constructor(private userLoggingService: UserLoggingService, http: HttpClient, private router: Router, private userService: UserService) {
     }
     user: User;
 
@@ -47,6 +49,7 @@ export class UserSignUpComponent implements OnInit {
                         (response: {}) => (console.log(response),
                             this.router.navigate(['/', 'users-list'])),
                         (error) => console.log(error));
+                this.userService.setUserName(this.user.userName);
             }
         }, errorCode => console.log(errorCode));
     }
