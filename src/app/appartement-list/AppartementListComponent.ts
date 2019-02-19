@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
+import { AppartementService } from '../services/appartement.service';
 
 
 
@@ -17,85 +18,76 @@ export class AppartementListComponent implements OnInit {
   searchInput: string;
   order: string;
   appartements: AppartementJson[];
-  appartementsModel: AppartementJson[];
+  // appartementsList: AppartementJson[];
+  appartementsList;
   // constructor(private appartementService: AppartementService) { }
-  constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router) {
+  constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router, private appartementService: AppartementService) {
   }
-  // ngAfterContentChecked(): void {
-  //   // this.filterAppartements();
-  // }
 
   public searchData = this.dataService.getStorage();
 
   filterAppartements() {
     if (this.dataService.getStorage() === undefined) {
-      this.appartements = this.appartementsModel;
+      this.appartements = this.appartementsList;
     } else if (this.dataService.getStorage() === '!list') {
-      this.appartements = this.appartementsModel;
+      this.appartements = this.appartementsList;
       this.router.navigate(['/', 'appartement-list']);
     } else if (this.dataService.getStorage() === 'empty search') {
-      this.appartements = this.appartementsModel;
+      this.appartements = this.appartementsList;
       // this.router.url === '/appartement-list'
       // if (this.router.url === '/appartement-list'){
       this.router.navigate(['/', 'home']);
     } else if (this.dataService.getStorage() !== null) {
-      this.appartements = [];
-      for (let i = 0; i < this.appartementsModel.length; i++) {
-        if (this.appartementsModel[i].nom.toUpperCase().includes(this.dataService.getStorage().toUpperCase()) ||
-          this.appartementsModel[i].ville.toUpperCase().includes(this.dataService.getStorage().toUpperCase())) {
-          this.appartements.push(this.appartementsModel[i]);
-        } else {
-
-          // if(this.dataService.getStorage() === "!list"){
-          //   this.appartements = this.appartementsModel;
-          //   return
-          // }
-          // else{
-          //   this.appartements = [];
-          //   return
-          // }
+      this.appartements = []; {
+        for (let i = 0; i < this.appartementsList.length; i++) {
+          if (this.appartementsList[i].nom.toUpperCase().includes(this.dataService.getStorage().toUpperCase()) ||
+            this.appartementsList[i].ville.toUpperCase().includes(this.dataService.getStorage().toUpperCase()) ||
+            this.appartementsList[i].codePostal.toUpperCase().includes(this.dataService.getStorage().toUpperCase()) ||
+            this.appartementsList[i].adresse.toUpperCase().includes(this.dataService.getStorage().toUpperCase()) ||
+            this.appartementsList[i]['nombre_de_pièces'].toUpperCase().includes(this.dataService.getStorage().toUpperCase()) ||
+            this.appartementsList[i]['capacité'].toUpperCase().includes(this.dataService.getStorage().toUpperCase())
+          ) {
+            this.appartements.push(this.appartementsList[i]);
+          } else {
+          }
         }
-        // this.appartements = this.appartementsModel;
       }
     }
-    // }, 100);
   }
 
-
-
-
-  // set name(value: string) {
-  //     this.critere = value;
-  // }
-
   ngOnInit() {
-    // this.appartements = this.appartementService.getAppartement();
-    // console.log(this.appartements);
-    // console.log(this.appartements)
-    this.appartementsModel = [
-      {
-        nom: 'Mon Appartement',
-        ville: 'Paris',
-      },
-      {
-        nom: 'Ton Appartement',
-        ville: 'Nantes',
-      },
-      {
-        nom: 'Son Appartement',
-        ville: 'Lyon',
-      },
-      {
-        nom: 'Nos Appartements',
-        ville: 'Toulouse',
-      },
-    ];
-    this.appartements = [];
+    this.appartementService.getAllappartements().subscribe((data: {}) => {
+      this.appartementsList = data['appartements'];
+
+    },
+      errorCode => console.log(errorCode));
+
+    // this.appartements = this.appartementsList;
+
+    // this.appartementsList = [
+    //   {
+    //     nom: 'Mon Appartement',
+    //     ville: 'Paris',
+    //   },
+    //   {
+    //     nom: 'Ton Appartement',
+    //     ville: 'Nantes',
+    //   },
+    //   {
+    //     nom: 'Son Appartement',
+    //     ville: 'Lyon',
+    //   },
+    //   {
+    //     nom: 'Nos Appartements',
+    //     ville: 'Toulouse',
+    //   },
+    // ];
+    // this.appartements = [];
     setInterval(() => {
       // if (this.dataService.getStorage() !== '') {
       this.filterAppartements();
       // } else {
-      //   this.appartements = this.appartementsModel;
+      //   this.appartements = this.appartementsList;
       //   console.log(typeof (this.appartements));
       //   console.log(this.appartements);
       // }
@@ -105,7 +97,7 @@ export class AppartementListComponent implements OnInit {
 
     // setInterval(()=> {
     //   this.dataService.getStorage();
-    //   this.filterAppartements(); console.log("Interval")
+    //   this.filterAppartements(); console.log('Interval')
     // }, 1000);
 
 
@@ -118,10 +110,3 @@ export class AppartementListComponent implements OnInit {
     // ( params => this.searchInput=params['searchInput'])
   }
 }
-    // this.filterAppartements();
-
-  // filterAppartements(searchInput: string) {
-    // const critere = this.dataService.getStorage();
-    // this.appartements = this.appartementsModel.filter(this.appartementsModel['ville'], critere);
-    // console.log(critere);
-    // console.log('1232');

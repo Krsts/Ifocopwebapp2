@@ -11,7 +11,7 @@ import { AppartementService } from '../services/appartement.service';
 })
 export class AppartementDetailComponent implements OnInit {
 
-  appartements: Appartement[];
+  appartements;
 
 
   title = 'Title';
@@ -21,7 +21,10 @@ export class AppartementDetailComponent implements OnInit {
   constructor(private appartementService: AppartementService) { }
 
   ngOnInit() {
-    this.appartements = this.appartementService.getAppartement();
+    this.appartementService.getAppartementByName({'nom': 'Superbe Appartement'}).subscribe((data: {}) => {
+      console.log(data);
+      this.appartements = data;
+    }, errorCode => console.log(errorCode));
     console.log(this.appartements);
   }
 }

@@ -17,6 +17,7 @@ import { PaiementComponent } from './paiement/paiement.component';
 
 
 const routes: Routes = [
+
   {path: 'home', component: HomeComponent},
   {path: 'appartement-list', component: AppartementListComponent},
   {path: 'appartement-detail', component: AppartementDetailComponent},
@@ -28,11 +29,22 @@ const routes: Routes = [
   {path: 'RGPD', component: RgpdComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'users-list', component: UsersListComponent},
-  {path: 'user-profile', component: UserProfileComponent},
+//   {path: 'user-profile', component: UserProfileComponent},
   {path: 'user-sign-up', component: UserSignUpComponent},
   {path: 'appartement-form', component: AppartementFormComponent},
   {path: '', redirectTo: 'appartement-list', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent},
+//   { path: 'home', component: HomeComponent },
+//   { path: 'appartement-list', component: AppartementListComponent },
+//   { path: 'appartement-detail', component: AppartementDetailComponent },
+//   { path: 'user-signup', component: UserSignUpComponent },
+//   { path: 'users-list', component: UsersListComponent },
+  {path: 'user-profile/:userName', component: UserProfileComponent},
+  { path: 'user-sign-up', component: UserSignUpComponent },
+//   { path: 'appartement-form', component: AppartementFormComponent },
+//   { path: '', redirectTo: 'appartement-list', pathMatch: 'full' },
+//   { path: '**', component: PageNotFoundComponent },
+
 ];
 
 @NgModule({

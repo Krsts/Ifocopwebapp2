@@ -1,20 +1,42 @@
 import { Appartement } from './../shared/appartement.model';
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
-    providedIn: 'root',
-  })
-
+  providedIn: 'root'
+})
 export class AppartementService {
-appartementSelected = new EventEmitter<Appartement>();
 
-private appartement: Appartement[] =  [
-    // new Appartement('Mon Appartement', 'Paris'),
-    // new Appartement('Deuxieme Appartement', 'Lyon'),
-    // new Appartement('Troisieme Appartement', 'Toulouse'),
-  ];
+  // Typage! ?????????????????????????????????????????!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  baseUrl = 'http://localhost:3000/appartement-list';
+  private appartements: Appartement[];
+  constructor(private http: HttpClient) { }
 
-  getAppartement() {
-      return this.appartement.slice();
+  getAllappartements(): Observable<Appartement[]> {
+    return this.http.get<Appartement[]>(this.baseUrl);
+  }
+
+  getAppartementByName(appartement: Object): Observable<Appartement[]> {
+    return this.http.get<Appartement[]>(this.baseUrl + '/' + appartement['nom']);
+  }
+
+  findAll(): Appartement[] {
+    return this.appartements;
+  }
+  find(nom: string): Appartement {
+    return this.appartements[this.getSelectedIndex(nom)];
+  }
+  private getSelectedIndex(nom: string) {
+    for (let i = 0; i < this.appartements.length; i++) {
+      if (this.appartements[i].nom === nom) {
+        return i;
+      }
+    }
+    return -1;
+  }
+  addAppartement(appartement: Appartement) {
+    return this.http.post(this.baseUrl, appartement);
   }
 }

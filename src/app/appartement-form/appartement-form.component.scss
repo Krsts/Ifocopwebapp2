@@ -2,9 +2,10 @@
     font-size: 18px;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
+.container>form>input {
+    display: block;
+    // display: flex;
+    // flex-direction: column;
 }
 
 .container>mat-form-field {
@@ -17,4 +18,8 @@
 
 .example-container>* {
     width: 100%;
+}
+
+.photos-upload-container{
+    display:inline-block;
 }

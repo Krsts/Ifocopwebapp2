@@ -2,6 +2,7 @@ import { User } from './../shared/user.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { retry, catchError } from 'rxjs/operators';
 
 
 @Injectable({
@@ -12,12 +13,34 @@ export class UserLoggingService {
   // Typage! ?????????????????????????????????????????!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   baseUrl = 'http://localhost:3000/users-list';
   private users: User[];
+
   constructor(private http: HttpClient) { }
 
   getAllUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.baseUrl);
   }
 
+
+  getUserByUserNameAndPassword(user: Object): Observable<User[]> {
+    return this.http.get<User[]>(this.baseUrl + '/' + user['userName'] + '/' + user['password']);
+  }
+
+  // getUserByUserName(userName: string): Observable<User> {
+  //   const myHeaders = new Headers();
+  //   myHeaders.append('Content-Type', 'application/json');
+  //   const myParams = new URLSearchParams();
+  //   myParams.append('userName', userName);
+  //   // const options = new RequestOptions({ headers: myHeaders, params: myParams });
+  //   return this.http.get<User>(this.baseUrl + '/:' + userName, { headers : myHeaders, myParams });
+  // }
+
+  changeUserData(user: Object): Observable<User[]> {
+    return this.http.put<User[]>(this.baseUrl + '/' + user['userName'], user);
+  }
+
+  getUserByUserName(user: Object): Observable<User[]> {
+    return this.http.get<User[]>(this.baseUrl + '/' + user['userName']);
+  }
   findAll(): User[] {
     return this.users;
   }

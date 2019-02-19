@@ -1,6 +1,5 @@
 <script src="./search-bar.component.js"></script>
 
-
 <!-- 
 <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
     <input name="first" ngModel required #first="ngModel">
@@ -9,8 +8,13 @@
 </form> -->
 
 <!-- <input (change)="callFilter()" (keyup)="onSearch()" [(ngModel)]="searchinput" class="search" type="text" placeholder="Tapez votre recherche" /> -->
+<!-- <input (keyup.enter)="onEnter()" (keyup)="callFilter()" [(ngModel)]="searchinput" class="search" type="text" placeholder="Saisissez votre recherche" />
+<div class="d-inline search-icon"><a><i class="fa fa-search"></i></a></div> -->
+
 <input (keyup.enter)="onEnter()" (keyup)="callFilter()" [(ngModel)]="searchinput" class="search" type="text" placeholder="Saisissez votre recherche" />
-<div class="d-inline search-icon"><a><i class="fa fa-search"></i></a></div>
+<div class="d-inline search-icon">
+    <a> <i (click)="onEnter()" class="fa fa-search"></i></a>
+</div>
 
 <!-- <button (click)="onsearchrequest($event)" class="submit"><i class="fa fa-search" style="color:Yellow; font-size:48px; margin:30px 0;"></i></button> -->
 <!-- <p style="text-align:center">Votre recherche : {{ searchinput }}</p> -->
