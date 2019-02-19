@@ -1,11 +1,20 @@
-<div class="container-fluid" *ngIf="this.userService.getStatus()">
-<ul>
-        <li>{{name}}</li>
-        <li>{{firstName}}</li>
-        <li>{{address}}</li>
-        <li>{{email}}</li>
-        <li>{{phone}}</li>
-        <li>{{password}}</li>
-        
-</ul>
+<div class="container-fluid" *ngIf="this.userService.getStatus() && !edit">
+    <ul>
+        <li><input type="text" [(ngModel)]="userName">{{userName}}</li>
+        <li><input type="text" [(ngModel)]="name">{{name}}</li>
+        <li><input type="text" [(ngModel)]="firstName">{{firstName}}</li>
+        <li><input type="text" [(ngModel)]="address">{{address}}</li>
+        <li><input type="text" [(ngModel)]="email">{{email}}</li>
+        <li><input type="text" [(ngModel)]="phone">{{phone}}</li>
+        <li><input type="text" [(ngModel)]="password">{{password}}</li>
+    </ul>
+    <button (click)="EditMode()">Modifier</button>
+</div>
+
+<div *ngIf="edit" class="container">
+    <form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+        Username: <input formControlName="userName" value={{userName}} /> Courriel : <input formControlName="email" value={{email}} /> Nom: <input formControlName="name" value={{name}} /> Prénom: <input formControlName="firstName" value={{firstName}}
+        /> Addresse: <input formControlName="address" value={{address}} /> Téléphone: <input formControlName="phone" value="Téléphone" /> Mot de passe: <input formControlName="password" value={{password}} />
+        <button (click)="EditMode=false" type="submit">Submit</button>
+    </form>
 </div>

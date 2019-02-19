@@ -1,8 +1,8 @@
 <div class="container">
     <form [formGroup]="appartementForm" (ngSubmit)="onSubmitAppartement()">
-        Nom: <input formControlName="nom" placeholder="Titre de l'appartement" /> adresse : <input formControlName="adresse" placeholder="Adresse" /> Nom: <input formControlName="nom" placeholder="Nom" /> codePostal: <input formControlName="codePostal"
-            placeholder="Code Postal" /> ville: <input formControlName="ville" placeholder="Paris" /> superficie (m²): <input formControlName="superficie" placeholder="Superficie en m²" /> étage: <input formControlName="étage" placeholder="étage" /> nombre
-        de pièces: <input formControlName="nombre_de_pièces" placeholder="Nombre de pièces" /> Nombre maximum de personnes:
+        Nom: <input formControlName="nom" placeholder="Titre de l'appartement" /> adresse : <input formControlName="adresse" placeholder="Adresse" />codePostal: <input formControlName="codePostal" placeholder="Code Postal" /> ville: <input formControlName="ville"
+            placeholder="Paris" /> superficie (m²): <input formControlName="superficie" placeholder="Superficie en m²" /> étage: <input formControlName="étage" placeholder="étage" /> nombre de pièces: <input formControlName="nombre_de_pièces" placeholder="Nombre de pièces"
+        /> Nombre maximum de personnes:
         <input formControlName="capacité" placeholder="Nombre de personnes acceptées" />
         <!-- Salle1: <input formControlName="salle1" placeholder="Salle n°1" />  -->
         <!-- Tarif pour la demi journée: <input formControlName="tarif_demi_journée_salle_1" placeholder="Tarif pour la demi journée" /> Tarif pour la journée entière: <input formControlName="tarif_journée_salle_1" placeholder="Tarif pour la journée complète"
@@ -39,7 +39,7 @@
             Fumeur: <input type="radio" formControlName="fumeur" value="Oui"> Oui
             <input type="radio" formControlName="fumeur" value="Non"> Non
         </div>
-        Descriptif de l'appartement: <input type="text-area" formControlName="descriptif" placeholder="Description de l'appartement" /> Type d'événemnts acceptés: <input formControlName="type_devenements_acceptés" placeholder="Evénements acceptés" />        prestations annexes: <input formControlName="prestations_annexes" placeholder="Prestations Annexes" />
+        Descriptif de l'appartement: <input type="text-area" formControlName="descriptif" placeholder="Description de l'appartement" /> Type d'événements acceptés: <input formControlName="type_devenements_acceptés" placeholder="Evénements acceptés" />        prestations annexes: <input formControlName="prestations_annexes" placeholder="Prestations Annexes" />
         <div class='photos-upload-container'>
             Image: <input type="file" formControlName="img1"> Image: <input type="file" formControlName="img2"> Image: <input type="file" formControlName="img3"> Image: <input type="file" formControlName="img4"> Image: <input type="file" formControlName="img5">
         </div>

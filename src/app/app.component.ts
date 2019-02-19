@@ -23,20 +23,6 @@ export class AppComponent implements OnInit {
   userName: string;
   userLoginForm: FormGroup;
 
-  // userData: {
-  //   userName,
-  //   password
-  // };
-
-  // userNameFormControl = new FormControl('', [
-  //   Validators.required,
-  // ]);
-  // passwordFormControl = new FormControl('', [
-  //   Validators.required,
-  // ]);
-
-  // user: any;
-
   // tslint:disable-next-line:max-line-length
   constructor(private router: Router, private dataService: DataService, private userService: UserService, private userLoggingService: UserLoggingService, private formBuilder: FormBuilder) {
     this.createForm();
@@ -72,8 +58,7 @@ export class AppComponent implements OnInit {
 
   VerifyUser(userName, password) {
     this.userLoggingService.getUserByUserNameAndPassword({ userName, password }).subscribe((data: {}) => {
-      // this.user = data[0];
-      // console.log(data[0].userName);
+      console.log(data);
       this.userService.setUserName(data[0].userName);
     }, errorCode => console.log(errorCode));
   }
@@ -90,6 +75,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.userIcon = 'mood_bad';
+    this.userService.setUserName('Gilles');
 
     $(document).ready(function () {
       console.log('Document ready');

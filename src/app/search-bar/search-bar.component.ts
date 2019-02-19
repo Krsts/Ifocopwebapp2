@@ -11,54 +11,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./search-bar.component.scss']
 })
 export class SearchBarComponent implements OnInit {
-
-  // appartements = AppartementsDb;
   searchinput: string;
-
-  // ngAfterViewChecked(): void {
-  // Called after every check of the component's view. Applies to components only.
-  // Add 'implements AfterViewChecked' to the class.
-  // this.appartementList.filterAppartements();
-  // }
-
-  // @Output()
-  // search = new EventEmitter<string>();
-
-  // @ViewChild(AppartementListComponent)
-  // private appartementList: AppartementListComponent;
-
-  // callFilter() {
-  // console.log(this.searchinput);
-  // this.appartementList.filterAppartements(this.searchinput);
-  // }
-
-  // Call Filter to DataService
-
-  // onSearch() {
-  //   this.search.emit(this.searchinput);
-  // }
   constructor(private dataService: DataService, private router: Router) { }
-
   onEnter() {
     this.callFilter();
-    // this.router.navigate(['/', 'appartement-list'], { queryParams: { order: this.dataService.getStorage() } })
-    //     this.router.navigateByUrl('/appartement-list', {skipLocationChange: true}).then(()=>
-    // this.router.navigate(["/", "appartement-list"]));
   }
-
-  // if (this.searchinput !== 'empty search')
   callFilter() {
     {
-      // console.log(this.searchinput);
-
       this.dataService.setStorage(this.searchinput);
-      // this.router.navigateByUrl('/appartement-list', {skipLocationChange: true}).then(()=>
-      // this.router.navigate(["/", "appartement-list"]));
-      this.router.navigate(['/', 'appartement-list']);
-      // console.log(`callFilter getStorage() : ${this.dataService.getStorage()}`);
+      if (this.dataService.getStorage() === '') {
+        this.router.navigate(['/', 'home']);
+      } else {
+        this.router.navigate(['/', 'appartement-list']);
+      }
     }
   }
-
   ngOnInit() {
     this.searchinput = '';
   }
