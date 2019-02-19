@@ -41,9 +41,9 @@ export class UserService {
   goToProfile() {
     if (this.status) {
       this.router.navigate(['/', 'user-profile', this.getUserName().toString()]);
-      return (console.log('Connecté'));
+      // return (console.log('Connecté'));
     } else {
-      return (console.log('Non Connecté'));
+      // return (console.log('Non Connecté'));
     }
   }
 

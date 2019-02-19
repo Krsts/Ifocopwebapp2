@@ -74,7 +74,8 @@ export class UserProfileComponent implements OnInit {
     console.log(this.userChecker)
     this.route.params
       // tslint:disable-next-line:max-line-length
-      .subscribe(userName => { console.log(userName); this.userChecker = userName['userName']; }, errorCode => console.log(errorCode));
+      .subscribe(userName =>
+      { console.log(userName); this.userChecker = userName['userName']; }, errorCode => console.log(errorCode));
 
     if (!this.userService.getStatus()) {
       this.router.navigate(['/', 'home']);

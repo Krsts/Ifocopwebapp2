@@ -75,7 +75,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.userIcon = 'mood_bad';
-    this.userService.setUserName('Gilles');
+    // this.userService.setUserName('Gilles');
 
     $(document).ready(function () {
       console.log('Document ready');
