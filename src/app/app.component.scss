@@ -44,8 +44,8 @@ body {
     header {
         display: flex;
         flex-direction: column;
-        height: 200px;
-        background: linear-gradient(rgba($black, .7), rgba($black, .3)), url("../assets/img/homepic.jpg")no-repeat center center;
+        height: 250px;
+        background: linear-gradient(rgba($black, .7), rgba($black, .3)), url("../assets/img/1499210910xxl-maison-appartements-ville.jpg")no-repeat center center;
         background-size: cover;
         padding: 1em;
         #mainNav {
@@ -81,7 +81,8 @@ body {
             h1 {
                 letter-spacing: 2px;
                 margin-bottom: .80em;
-                font-size: 1.5em;
+                font-size: 2em;
+                color:white;
             }
             button {
                 background: 0;
@@ -176,7 +177,7 @@ body {
         margin: 0;
         height: 100%;
         ul {
-            list-style: none;
+            // list-style: none;
             padding: 0;
             display: flex;
             flex-wrap: wrap;
@@ -211,6 +212,9 @@ body {
     margin: 5px 5px;
 }
 
+
+
 matinput {
     font-size: 18px;
 }
+

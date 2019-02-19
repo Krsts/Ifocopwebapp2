@@ -8,21 +8,43 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
 import { AppartementFormComponent } from './appartement-form/appartement-form.component';
 import { UsersListComponent } from './users-list/users-list.component';
+import { ContactComponent } from './contact/contact.component';
+import { CookiesComponent } from './cookies/cookies.component';
+import { PresentationComponent } from './presentation/presentation.component';
+import { RgpdComponent } from './rgpd/rgpd.component';
+import { AvisComponent } from './avis/avis.component';
+import { PaiementComponent } from './paiement/paiement.component';
 
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'appartement-list', component: AppartementListComponent },
-  { path: 'appartement-detail', component: AppartementDetailComponent },
-  { path: 'user-signup', component: UserSignUpComponent },
-  { path: 'users-list', component: UsersListComponent },
-  {
-    path: 'user-profile/:userName', component: UserProfileComponent
-  },
+
+  {path: 'home', component: HomeComponent},
+  {path: 'appartement-list', component: AppartementListComponent},
+  {path: 'appartement-detail', component: AppartementDetailComponent},
+  {path: 'user-signup', component: UserSignUpComponent},
+  {path: 'cookies', component: CookiesComponent},
+  {path: 'avis', component: AvisComponent},
+  {path: 'presentation', component: PresentationComponent},
+  {path: 'paiement', component: PaiementComponent},
+  {path: 'RGPD', component: RgpdComponent},
+  {path: 'contact', component: ContactComponent},
+  {path: 'users-list', component: UsersListComponent},
+//   {path: 'user-profile', component: UserProfileComponent},
+  {path: 'user-sign-up', component: UserSignUpComponent},
+  {path: 'appartement-form', component: AppartementFormComponent},
+  {path: '', redirectTo: 'appartement-list', pathMatch: 'full'},
+  {path: '**', component: PageNotFoundComponent},
+//   { path: 'home', component: HomeComponent },
+//   { path: 'appartement-list', component: AppartementListComponent },
+//   { path: 'appartement-detail', component: AppartementDetailComponent },
+//   { path: 'user-signup', component: UserSignUpComponent },
+//   { path: 'users-list', component: UsersListComponent },
+  {path: 'user-profile/:userName', component: UserProfileComponent},
   { path: 'user-sign-up', component: UserSignUpComponent },
-  { path: 'appartement-form', component: AppartementFormComponent },
-  { path: '', redirectTo: 'appartement-list', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent },
+//   { path: 'appartement-form', component: AppartementFormComponent },
+//   { path: '', redirectTo: 'appartement-list', pathMatch: 'full' },
+//   { path: '**', component: PageNotFoundComponent },
+
 ];
 
 @NgModule({

@@ -26,9 +26,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
 import { UsersListComponent } from './users-list/users-list.component';
-import { CalendarComponent } from './calendar/calendar.component';
+
 import { IgxDatePickerModule } from 'igniteui-angular';
 import { ContactComponent } from './contact/contact.component';
+import { PresentationComponent } from './presentation/presentation.component';
+import { RgpdComponent } from './rgpd/rgpd.component';
+
+import {NgbdDatepickerPopup} from './ngbd-datepicker-popup/ngbd-datepicker-popup.component'
+import { from } from 'rxjs';
+import { NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { CookiesComponent } from './cookies/cookies.component';
+import { AvisComponent } from './avis/avis.component';
+import { PaiementComponent } from './paiement/paiement.component';
 
 @NgModule({
   declarations: [
@@ -46,8 +55,15 @@ import { ContactComponent } from './contact/contact.component';
     NavbarComponent,
     UserProfileComponent,
     UserSignUpComponent,
-    CalendarComponent,
     ContactComponent,
+    PresentationComponent,
+    RgpdComponent,
+
+    NgbdDatepickerPopup,
+    CookiesComponent,
+    AvisComponent,
+    PaiementComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -57,7 +73,8 @@ import { ContactComponent } from './contact/contact.component';
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    IgxDatePickerModule
+    IgxDatePickerModule,
+    NgbModule
   ],
   providers: [DataService, UserLoggingService],
   bootstrap: [AppComponent]

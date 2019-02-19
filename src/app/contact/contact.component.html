@@ -1,3 +1,55 @@
-<p>
-  contact works!
-</p>
+<div class="container">
+    <div class="row">
+      <div class="offset-3 col-md-5">
+    <h2 class="display-4 text-center font-weight-light">Nous contacter</h2>
+    <hr class="my-4">
+    <form [formGroup]="contactForm" (ngSubmit)="onFormSubmit()" class="form">   
+        <h3></h3> 
+  
+              <div class="form-group">
+                  <select class="form-control form-control-sm" name="service" [(ngModel)]="service" #serviceInput="ngModel" >
+                      <option ng-selected="selected" value="choisir">-Choisir-</option>
+                      <option value="clients">Client</option>
+                      <option value="hote">Hôte</option>
+                      <option value="partenaire">Prestataire</option>
+                  </select>
+                  
+              </div>
+  
+              <div class="form-group">
+                <input type="text" name="name" class="form-control form-control-sm" placeholder="Votre nom" [(ngModel)]="name" required minlength="2" #nameInput="ngModel">
+              <div class="help is-error" *ngIf="nameInput.invalid && nameInput.dirty">
+                Merci d'indiquer votre nom
+              </div>
+              </div>
+  
+              <div class="form-group">
+                <input type="email" name="email" class="form-control form-control-sm" placeholder="Votre Email" [(ngModel)]="email" required email #emailInput="ngModel">
+              <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+                  Merci d'indiquer votre email
+              </div>
+              </div>
+  
+              <div class="form-group">
+                <input type="text" name="phone" class="form-control form-control-sm" placeholder="Votre téléphone" [(ngModel)]="phone" required phone minlength="10" maxlength="10" #phoneInput="ngModel">
+              <div class="help is-error" *ngIf="phoneInput.invalid && phoneInput.dirty">
+                Votre numéro est obligatoire est doit être contenir 10 chiffres
+              </div>
+              </div>
+  
+              <div class="form-group">
+                  <textarea class="form-control form-control-sm" name="message" placeholder="Votre question" [(ngModel)]="message" required message #messageInput="ngModel" style="width: 100%; height: 150px;"> 
+                  </textarea>
+                  <div class="help is-error" *ngIf="messageInput.invalid && messageInput.dirty">
+                    Merci de noter votre question/message
+                  </div>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary contactbutton">Envoyer</button>
+                  </div>               
+  </form>
+</div>
+</div>
+  </div>
+
+  

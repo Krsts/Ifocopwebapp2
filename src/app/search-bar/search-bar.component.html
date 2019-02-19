@@ -1,6 +1,45 @@
 <script src="./search-bar.component.js"></script>
 
-<input (keyup.enter)="onEnter()" (keyup)="callFilter()" [(ngModel)]="searchinput" class="search" type="text" placeholder="Tapez votre recherche" />
+<!-- 
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+    <input name="first" ngModel required #first="ngModel">
+    <input name="last" ngModel>
+    <button>Submit</button>
+</form> -->
+
+<!-- <input (change)="callFilter()" (keyup)="onSearch()" [(ngModel)]="searchinput" class="search" type="text" placeholder="Tapez votre recherche" /> -->
+<!-- <input (keyup.enter)="onEnter()" (keyup)="callFilter()" [(ngModel)]="searchinput" class="search" type="text" placeholder="Saisissez votre recherche" />
+<div class="d-inline search-icon"><a><i class="fa fa-search"></i></a></div> -->
+
+<input (keyup.enter)="onEnter()" (keyup)="callFilter()" [(ngModel)]="searchinput" class="search" type="text" placeholder="Saisissez votre recherche" />
 <div class="d-inline search-icon">
     <a> <i (click)="onEnter()" class="fa fa-search"></i></a>
 </div>
+
+<!-- <button (click)="onsearchrequest($event)" class="submit"><i class="fa fa-search" style="color:Yellow; font-size:48px; margin:30px 0;"></i></button> -->
+<!-- <p style="text-align:center">Votre recherche : {{ searchinput }}</p> -->
+
+
+
+
+
+<!-- <app-appartement-list-item *ngFor="let appartement of appartements | filter : searchText" [appartement]="appartement"></app-appartement-list-item> -->
+<!-- <div class="search-bar-body ">
+    <div class="wrapper">
+        <form>
+            
+            <input [(ngModel)]="search" class="search" type="text" value=" " />
+            <button (click)="onsearchrequest(event)" class="submit"></button>
+        </form>
+    </div>
+</div>
+ -->
+<!-- <p>Search Value: {{ search }}</p>
+<p>Valid: {{ ctrl.valid }}</p> -->
+<!-- 
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+    <input name="search" ngModel required #search="ngModel">
+    <button>Submit</button>
+</form> -->
+<!-- <input [(ngModel)]="search" class="search" #ctrl="ngModel" required>
+            <input [(NgModel)]="search" class="search" type="text" id="search" /> -->

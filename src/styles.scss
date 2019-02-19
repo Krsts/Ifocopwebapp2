@@ -1,27 +1,28 @@
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 body {
     max-width: 1980px;
-    margin: auto;
+    // margin: auto;
     //     padding: 0;
     //     margin: 0;
-    //     background: rgb(255, 255, 255);
-    //     background-image: linear-gradient(rgba(228, 236, 213, 0.952) 50%, rgba(247, 246, 186, 0.9));
-    //     // text-align: center;
-    //     background-size: 100% 100%;
-    //     background-repeat: no-repeat;
-    //     height: 100%;
+        background: #f0ecec;
+        // background-image: linear-gradient(rgba(228, 236, 213, 0.952) 50%, rgba(247, 246, 186, 0.9));
+        // text-align: center;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 100%;
 }
 
-// a {
-//     padding:0;
-//     margin:0;
-// }
+a {
+    padding:0;
+    margin:0;
+}
 @import "~igniteui-angular/lib/core/styles/themes/index";
-// Uncomment the following lines if you want to add a custom palette:
-// $primary: #731963 !default;
-// $secondary: #ce5712 !default;
-// $app-palette: igx-palette($primary, $secondary);
+// // Uncomment the following lines if you want to add a custom palette:
+// // $primary: #731963 !default;
+// // $secondary: #ce5712 !default;
+// // $app-palette: igx-palette($primary, $secondary);
 
-@include igx-core();
-@include igx-theme($default-palette);
+// @include igx-core();
+// @include igx-theme($default-palette);
