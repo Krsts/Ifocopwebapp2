@@ -1,16 +1,16 @@
-* {
-    font-size: 24px;
-}
+// * {
+//     font-size: 24px;
+// }
 
-.container {
-    display: flex;
-    flex-direction: column;
-}
+// .container {
+//     display: flex;
+//     flex-direction: column;
+// }
 
-.container>* {
-    width: 100%;
-    font-size: 24px;
-}
+// .container>* {
+//     width: 100%;
+//     font-size: 24px;
+// }
 
 // .container>mat-form-field {
 //     font-size: 18px;
@@ -18,17 +18,13 @@
 // .container>mat-checkbox {
 //     font-size: 18px;
 // }
-mat-form-field {
-    width: 400px;
-    font-size: 18px;
-}
+// mat-form-field {
+//     width: 100px;
+//     font-size: 18px;
+// }
 
 mat-card-title {
     text-align: center;
-}
-
-form {
-    align-content: center;
 }
 
 input {
@@ -54,10 +50,14 @@ textarea.md-textarea {
     outline: 0;
     height: 2.1rem;
     width: 100%;
-    font-size: 2rem;
+    font-size: 1rem;
     box-shadow: none;
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
     transition: all .3s;
-}
+ }
+
+ h3 {
+     text-align: center;
+ }

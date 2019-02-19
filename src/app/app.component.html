@@ -3,7 +3,10 @@
 <div id="container-global">
 
     <header>
-        <!--  -->
+
+
+            <!-- <div><img class="logo" src="../assets/logo/logo.JPG" alt="logo"></div>  -->
+
         <div class="nav-div" style="display: inline-block;">
             <button mat-button [matMenuTriggerFor]="menu">Navigation</button>
             <mat-menu #menu="matMenu">
@@ -15,6 +18,8 @@
             mat-menu-item>Détails</button></a>
                 <!-- Mat Menu Open -->
             </mat-menu>
+
+
 
             <span style="float:right; margin-right: 24px;">
         <a [matMenuTriggerFor]="userMenu" *ngIf="this.userService.getStatus()">
@@ -40,7 +45,7 @@
               Veuillez entrer votre mot de passe
             </mat-error> -->
           </mat-form-field>
-          <button *ngIf="!this.userService.getStatus()" mat-button (click)="OnLoginSubmit()">Se Conecter</button>
+          <button *ngIf="!this.userService.getStatus()" mat-button (click)="OnLoginSubmit()">Se Connecter</button>
           <!-- Login -->
 
           <button mat-menu-item [hidden]="this.userService.getStatus()" (click)="this.userService.goToSignUp()"><b>S'enregistrer</b></button>
@@ -78,7 +83,7 @@
             <!-- (search)='searchfetch($event)' -->
 
             <app-search-bar></app-search-bar>
-            <h1>Explorez vos opportunités</h1>
+            <h1 class="explorer">Explorez vos opportunités</h1>
             <!-- <a [routerLink]="['/appartement-list']" routerLinkActive="router-link-active"><button>Réservez dès
           maintenant</button></a> -->
         </div>

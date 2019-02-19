@@ -25,3 +25,4 @@ export class AppartementDetailComponent implements OnInit {
     console.log(this.appartements);
   }
 }
+

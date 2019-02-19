@@ -1,3 +1,4 @@
+<div>
 <div class="page">
     <div class="modal-container">
         <div class="l-product">
@@ -9,7 +10,8 @@
                     <div class="c-desription">
                         {{descriptif}}
                     </div>
-                    <app-calendar></app-calendar>
+<ngbd-datepicker-popup></ngbd-datepicker-popup>
+
 
                 </div>
                 <main class="l-product__main">
@@ -51,17 +53,17 @@
                             </div>
 
                             <div class="c-price__row">
-                                <div class="c-price__index c-price__index--m">1/2 journée </div>
+                                <div class="c-price__index c-price__index--m"><span><input type="radio" name="options" [(ngModel)]="model.options" value={{tarifDemiJournee}}></span> 1/2 journée </div>
                                 <div class="c-price__value c-price__value--green">{{tarifDemiJournee}}</div>
                             </div>
 
                             <div class="c-price__row">
-                                <div class="c-price__index c-price__index--m">Journée entière </div>
+                                <div class="c-price__index c-price__index--m"><span><input type="radio" name="options" [(ngModel)]="model.options" value={{tarifJournee}}></span> Journée entière </div>
                                 <div class="c-price__value c-price__value--green">{{tarifJournee}}</div>
                             </div>
 
                             <div class="c-price__row">
-                                <div class="c-price__index c-price__index--m">Soirée</div>
+                                <div class="c-price__index c-price__index--m"><span><input type="radio" name="options" [(ngModel)]="model.options" value={{tarifSoiree}}></span> Soirée</div>
                                 <div class="c-price__value c-price__value--green">{{tarifSoiree}}</div>
                             </div>
 
@@ -73,43 +75,24 @@
                     <div class="l-product__add-to">
                         <div class="c-add-to">
                             <div class="c-add-to__container">
-                                <div class="c-add-to__cell">
-                                    <form action="/" class="c-amount">
-
-
-
-                                        <div class="c-amount__item c-amount__item--input">
-                                            <label for="amount" class="control-label c-amount__label">Tarif</label>
-                                            <input class="form-control c-amount__input" id="amount">
-                                        </div>
-
-
-                                    </form>
-                                </div>
-
-
-                                <div class="c-add-to__cell">
-                                    <div class="c-info c-info--total">
-                                        <div class="c-info__row">
+                                
                                             <div class="c-info__index">Total</div>
-                                            <div class="c-info__value c-info__value--total">55.00 CHF</div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                                <div class="c-add-to__cell c-add-to__cell--end">
+                                            <div class="c-info__value c-info__value--total">XX€</div>
+                                        
                                     <div class="basket-button">
                                         <button class="btn btn-primary basket-button__btn">Réserver</button>
-                                    </div>
+                                  
                                 </div>
                             </div>
 
                         </div>
                     </div>
+                    <div class="container">
+                        <div class="row">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.8134234602117!2d2.368920850667984!3d48.861768108322295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66dfc393f0d1b%3A0x9899af2492d014bb!2sIFOCOP+-+Centre+de+Paris+11!5e0!3m2!1sfr!2sfr!4v1549537901094"
                         width="720" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-
+                    </div>
+                    </div>
                 </main>
 
                 <aside class="l-product__aside">
