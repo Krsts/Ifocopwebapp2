@@ -85,7 +85,9 @@ export class AppartementListComponent implements OnInit {
     // this.appartements = [];
     setInterval(() => {
       // if (this.dataService.getStorage() !== '') {
+        try {
       this.filterAppartements();
+    } catch{}
       // } else {
       //   this.appartements = this.appartementsList;
       //   console.log(typeof (this.appartements));

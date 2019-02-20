@@ -81,59 +81,59 @@ app.post('/users-list', (req, res) => {
         });
     }),
 
-    // app.route('/users-list/:user').put((req, res) => {
-    //     console.log(req.body);
-    //     res.send(200, req.body);
-    // });
-
-    //   app.put('users-list/:userName', (req, res) => {
-    //       console.log(req.userName);
-    //       User.find().then(users) => {
-    //           res.send(users)
-    //         }, (e) => {
-    //           res.status(400).send(e);
-    //         },
-
-    //-- USERS --//
-
-    // APPARTEMENTS //
-
-    app.post('/appartement-list', (req, res) => {
-        var appartement = new Appartement({
-            nom: req.body.nom,
-            adresse: req.body.adresse,
-            codePostal: req.body.codePostal,
-            ville: req.body.ville,
-            superficie: req.body.superficie,
-            étage: req.body.étage,
-            nombre_de_pièces: req.body.nombre_de_pièces,
-            capacité: req.body.capacité,
-            supplément_resturation: req.body.supplément_resturation,
-            supplément_location_de_matériel: req.body.supplément_location_de_matériel,
-            wifi: req.body.wifi,
-            animaux_acceptés: req.body.animaux_accpetés,
-            diffusion_de_musique: req.body.diffusion_de_musique,
-            transports_en_commun: req.body.transports_en_commun,
-            accès_handicapé: req.body.accès_handicapé,
-            parking_public: req.body.parking_public,
-            parking_privé: req.body.parking_privé,
-            descriptif: req.body.descriptif,
-            type_devenements_acceptés: req.body.type_devenements_acceptés,
-            prestations_annexes: req.body.prestations_annexes,
-            fumeur: req.body.fumeur,
-            img1: req.body.img1,
-            img2: req.body.img2,
-            img3: req.body.img3,
-            img4: req.body.img4,
-            img5: req.body.img5
-        });
-
-        appartement.save().then((doc) => {
-            res.send(doc);
-        }, (e) => {
-            res.status(400).send(e);
-        });
+    app.route('/users-list/:user').put((req, res) => {
+        console.log(req.body);
+        res.send(200, req.body);
     });
+
+//   app.put('users-list/:userName', (req, res) => {
+//       console.log(req.userName);
+//       User.find().then(users) => {
+//           res.send(users)
+//         }, (e) => {
+//           res.status(400).send(e);
+//         },
+
+//-- USERS --//
+
+// APPARTEMENTS //
+
+app.post('/appartement-list', (req, res) => {
+    var appartement = new Appartement({
+        nom: req.body.nom,
+        adresse: req.body.adresse,
+        codePostal: req.body.codePostal,
+        ville: req.body.ville,
+        superficie: req.body.superficie,
+        étage: req.body.étage,
+        nombre_de_pièces: req.body.nombre_de_pièces,
+        capacité: req.body.capacité,
+        supplément_resturation: req.body.supplément_resturation,
+        supplément_location_de_matériel: req.body.supplément_location_de_matériel,
+        wifi: req.body.wifi,
+        animaux_acceptés: req.body.animaux_accpetés,
+        diffusion_de_musique: req.body.diffusion_de_musique,
+        transports_en_commun: req.body.transports_en_commun,
+        accès_handicapé: req.body.accès_handicapé,
+        parking_public: req.body.parking_public,
+        parking_privé: req.body.parking_privé,
+        descriptif: req.body.descriptif,
+        type_devenements_acceptés: req.body.type_devenements_acceptés,
+        prestations_annexes: req.body.prestations_annexes,
+        fumeur: req.body.fumeur,
+        img1: req.body.img1,
+        img2: req.body.img2,
+        img3: req.body.img3,
+        img4: req.body.img4,
+        img5: req.body.img5
+    });
+
+    appartement.save().then((doc) => {
+        res.send(doc);
+    }, (e) => {
+        res.status(400).send(e);
+    });
+});
 
 app.get('/appartement-list/:nom', (req, res) => {
         // console.log(req.params);

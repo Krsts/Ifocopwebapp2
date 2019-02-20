@@ -58,8 +58,12 @@ export class AppComponent implements OnInit {
 
   VerifyUser(userName, password) {
     this.userLoggingService.getUserByUserNameAndPassword({ userName, password }).subscribe((data: {}) => {
-      console.log(data);
-      this.userService.setUserName(data[0].userName);
+      console.log(data); try {
+        if (data[0].userName.length > 0) {
+
+          this.userService.setUserName(data[0].userName);
+        }
+      } catch{ }
     }, errorCode => console.log(errorCode));
   }
 
