@@ -30,6 +30,7 @@ export class UserSignUpComponent implements OnInit {
         password: new FormControl('', [Validators.required])
     });
 
+
     onFormSubmit() {
         this.user = {
             userName: this.userForm.get('userName').value,
