@@ -15,6 +15,7 @@ import { UserService } from '../services/user.service';
     styleUrls: ['./user-sign-up.component.scss']
 })
 export class UserSignUpComponent implements OnInit {
+    // tslint:disable-next-line:max-line-length
     constructor(private userLoggingService: UserLoggingService, http: HttpClient, private router: Router, private userService: UserService) {
     }
     user: User;

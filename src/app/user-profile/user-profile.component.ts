@@ -21,6 +21,7 @@ export class UserProfileComponent implements OnInit {
   email: string;
   password: string;
   phone: string;
+  id;
 
   userChecker: string;
   userForm = new FormGroup({
@@ -43,9 +44,10 @@ export class UserProfileComponent implements OnInit {
       phone: this.userForm.get('phone').value,
       password: this.userForm.get('password').value
     };
-    this.userLoggingService.changeUserData({ userName: this.user['userName'], user: this.user }).subscribe(data => {
-      console.log(JSON.stringify(data));
-    }, errorCode => (console.log(errorCode)));
+    // this.updateCustomer();
+    // this.userLoggingService.changeUserData({ userName: this.user['userName'], user: this.user }).subscribe(data => {
+    //   console.log(JSON.stringify(data));
+    // }, errorCode => (console.log(errorCode)));
   }
   // if (data.length > 0) {
   //   window.alert('Nom d\'utilisateur déjà existant');
@@ -58,12 +60,20 @@ export class UserProfileComponent implements OnInit {
   // this.userService.setUserName(this.user.userName);
 
   // }, errorCode => console.log(errorCode));
-
-
   //
-
   EditMode() {
     return this.edit = !this.edit;
+  }
+  updateCustomer() {
+    this.userLoggingService.getUserByUserName({ 'userName': this.userChecker }).subscribe(data => {
+      console.log('data :' + data);
+      this.id = data['_id'];
+    }, error => console.log(error)),
+
+      this.userLoggingService.updateUser(this.user, this.id).subscribe((res) => {
+        console.log('Updated the customer');
+        this.router.navigate(['/', 'home']);
+      }, errorCode => console.log(errorCode));
   }
 
   // tslint:disable-next-line:max-line-length
@@ -71,11 +81,10 @@ export class UserProfileComponent implements OnInit {
   }
   ngOnInit() {
     this.userChecker = this.userService.getUserName();
-    console.log(this.userChecker)
+    console.log(this.userChecker);
     this.route.params
       // tslint:disable-next-line:max-line-length
-      .subscribe(userName =>
-      { console.log(userName); this.userChecker = userName['userName']; }, errorCode => console.log(errorCode));
+      .subscribe(userName => { console.log(userName); this.userChecker = userName['userName']; }, errorCode => console.log(errorCode));
 
     if (!this.userService.getStatus()) {
       this.router.navigate(['/', 'home']);
@@ -84,6 +93,7 @@ export class UserProfileComponent implements OnInit {
       this.userLoggingService.getUserByUserName({ 'userName': this.userChecker }).subscribe(data => {
         // console.log('data : ' + JSON.stringify(data[0]));
         this.user = data[0];
+        this.id = this.user._id;
         this.userName = this.userService.getUserName();
         this.name = this.user.name;
         this.firstName = this.user.firstName;
@@ -94,9 +104,9 @@ export class UserProfileComponent implements OnInit {
       },
         errorCode => console.log(errorCode));
     }
-    this.userLoggingService.changeUserData({ userName: this.user['userName'], user: this.user }).subscribe(data => {
-      console.log('data');
-    }, errorCode => (console.log(errorCode)));
+    // this.userLoggingService.changeUserData({ user: this.user }).subscribe(data => {
+    //   console.log('data');
+    // }, errorCode => (console.log(errorCode)));
   }
 }
 

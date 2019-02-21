@@ -19,7 +19,7 @@ var app = express();
 
 app.use(bodyParser.json());
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
@@ -29,21 +29,21 @@ app.use(function(req, res, next) {
 // USERS //
 
 app.post('/users-list', (req, res) => {
-        var user = new User({
-            userName: req.body.userName,
-            name: req.body.name,
-            firstName: req.body.firstName,
-            address: req.body.address,
-            email: req.body.email,
-            phone: req.body.phone,
-            password: req.body.password
-        });
-        user.save().then((doc) => {
-            res.send(doc);
-        }, (e) => {
-            res.status(400).send(e);
-        });
-    }),
+    var user = new User({
+        userName: req.body.userName,
+        name: req.body.name,
+        firstName: req.body.firstName,
+        address: req.body.address,
+        email: req.body.email,
+        phone: req.body.phone,
+        password: req.body.password
+    });
+    user.save().then((doc) => {
+        res.send(doc);
+    }, (e) => {
+        res.status(400).send(e);
+    });
+}),
 
     app.get('/users-list/', (req, res) => {
 
@@ -81,10 +81,26 @@ app.post('/users-list', (req, res) => {
         });
     }),
 
-    app.route('/users-list/:user').put((req, res) => {
-        console.log(req.body);
-        res.send(200, req.body);
-    });
+    // app.put('/users-list/edit/:userName', (req, res) => {
+    //     User.findOneAndUpdate({ userName: req.params.userName }, { name: "Bertrand" },
+    //     function (err, user) {
+    //             if (err) throw err;
+    //             console.log(user);
+    //         })});
+
+    app.put('/users-list/edit/:id', (req, res) => {
+        // console.log(req.body.userName)
+        User.findByIdAndUpdate(req.params.id, req.body, {new: true}, function (err, user) {
+            if (err) return res.status(500).send(err);
+            // we have the updated user returned to us
+            return res.send(user)
+        })
+    })
+
+// app.route('/users-list/:user').put((req, res) => {
+//     console.log(req.body);
+//     res.send(200, req.body);
+// });
 
 //   app.put('users-list/:userName', (req, res) => {
 //       console.log(req.userName);
@@ -136,15 +152,15 @@ app.post('/appartement-list', (req, res) => {
 });
 
 app.get('/appartement-list/:nom', (req, res) => {
-        // console.log(req.params);
-        Appartement.find(req.params).then((appartements) => {
-            res.send(
-                appartements
-            )
-        }, (e) => {
-            res.status(400).send(e);
-        });
-    }),
+    // console.log(req.params);
+    Appartement.find(req.params).then((appartements) => {
+        res.send(
+            appartements
+        )
+    }, (e) => {
+        res.status(400).send(e);
+    });
+}),
 
     app.get('/appartement-list', (req, res) => {
         Appartement.find().then((appartements) => {
