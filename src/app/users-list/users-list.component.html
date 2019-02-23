@@ -12,7 +12,7 @@
         <!-- <th>Photo</th> -->
         <!-- <th>Buy</th> -->
     </tr>
-    <tr *ngFor="let user of users; index as i">
+    <tr *ngFor="let user of userS; index as i">
         <td>{{i}}</td>
         <td>{{user.userName}}</td>
         <td>{{user.name}}</td>
@@ -26,8 +26,8 @@
         </td> -->
         <td>
             <a [routerLink]="['/user-profile', user.userName]">User Profile
-                <!-- {{ product.name }} -->
-            </a>
+        <!-- {{ product.name }} -->
+      </a>
             <!-- <a [routerLink]="['/user-profile', { userName:user.userName }]">userProfile</a> -->
         </td>
     </tr>

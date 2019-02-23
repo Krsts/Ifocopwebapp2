@@ -73,30 +73,9 @@ export class UserService {
     }
   }
 
-  // setUserData(...values) {
-  //   if('userName' in values){
-  //     this.userData.userName
-  //   }
-  // }
-
-  // getUserData() {
-  //   if (this.userData.userName !== undefined) {
-  //     return this.userData.userName;
-  //   } else {
-  //     return 'Bertrand Default';
-  //   }
-
-  // }
-
   getUserName() {
     return this.userName;
   }
-
-
-  // setUserData(userName, passWord) {
-  //   this.userData.userName = userName;
-  //   this.userData.passWord = passWord;
-  // }
   constructor(private router: Router) { }
 
 }

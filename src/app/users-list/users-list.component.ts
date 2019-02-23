@@ -14,29 +14,17 @@ import * as _ from 'lodash';
 })
 export class UsersListComponent implements OnInit {
 
-  private users;
+  private userS;
   private user;
   constructor(private userLoggingService: UserLoggingService, private http: HttpClient) { }
 
   ngOnInit() {
     //
     this.userLoggingService.getAllUsers().subscribe((data: {}) => {
-      this.users = data;
+      this.userS = data;
       console.log(data);
     },
       errorCode => console.log(errorCode));
-    //
-    //   this.userLoggingService.getUserByUserNameAndPassword({ 'userName': 'azd', 'password': 'zef' }).subscribe((data: {}) => {
-    //     this.user = data;
-    //     console.log(data);
-    //   }, errorCode => console.log(errorCode));
-    // }
-
   }
 }
 
-  // showUsers() {
-  //   for (let i = 0; i < this.users.length; i++) {
-  //     console.log('123' + this.users[i].userName);
-  //   }
-  // }

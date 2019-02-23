@@ -12,12 +12,10 @@
 </div>
 
 <div *ngIf="edit" class="container">
-    <form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
-        Username: <input formControlName="userName" value={{userName}} /> Courriel : <input formControlName="email"
-            value={{email}} /> Nom: <input formControlName="name" value={{name}} /> Prénom: <input
-            formControlName="firstName" value={{firstName}} /> Addresse: <input formControlName="address"
-            value={{address}} /> Téléphone: <input formControlName="phone" value={{phone}} /> Mot de passe: <input
-            formControlName="password" value={{password}} />
+
+    <form [formGroup]="uSerFOrm" (ngSubmit)="onFormSubmit()">
+        Username: <input formControlName="userName" /> Courriel : <input formControlName="email" /> Nom: <input formControlName="name" /> Prénom: <input formControlName="firstName" /> Addresse: <input formControlName="address" /> Téléphone: <input formControlName="phone"
+        /> Mot de passe: <input formControlName="password" />
         <button type="submit">Submit</button> <button (click)="updateCustomer()">Send Update</button>
     </form>
 </div>

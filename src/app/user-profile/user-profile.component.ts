@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserLoggingService } from '../services/user-logging.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
+import { User } from '../shared/user.model';
 
 @Component({
   selector: 'app-user-profile',
@@ -21,10 +21,11 @@ export class UserProfileComponent implements OnInit {
   email: string;
   password: string;
   phone: string;
-  id;
-
+  id: string;
   userChecker: string;
-  userForm = new FormGroup({
+
+
+  uSerFOrm = new FormGroup({
     userName: new FormControl(this.userName, [Validators.required, Validators.minLength(3)]),
     name: new FormControl(this.name, [Validators.required, Validators.minLength(1)]),
     firstName: new FormControl(this.firstName, [Validators.minLength(3)]),
@@ -36,31 +37,15 @@ export class UserProfileComponent implements OnInit {
 
   onFormSubmit() {
     this.user = {
-      userName: this.userForm.get('userName').value,
-      name: this.userForm.get('name').value,
-      firstName: this.userForm.get('firstName').value,
-      address: this.userForm.get('address').value,
-      email: this.userForm.get('email').value,
-      phone: this.userForm.get('phone').value,
-      password: this.userForm.get('password').value
+      userName: this.uSerFOrm.get('userName').value,
+      name: this.uSerFOrm.get('name').value,
+      firstName: this.uSerFOrm.get('firstName').value,
+      address: this.uSerFOrm.get('address').value,
+      email: this.uSerFOrm.get('email').value,
+      phone: this.uSerFOrm.get('phone').value,
+      password: this.uSerFOrm.get('password').value
     };
-    // this.updateCustomer();
-    // this.userLoggingService.changeUserData({ userName: this.user['userName'], user: this.user }).subscribe(data => {
-    //   console.log(JSON.stringify(data));
-    // }, errorCode => (console.log(errorCode)));
   }
-  // if (data.length > 0) {
-  //   window.alert('Nom d\'utilisateur déjà existant');
-  // } else {
-  //   this.userLoggingService.addUser(this.user)
-  // .subscribe(
-  // (response: {}) => (console.log(response),
-  // this.router.navigate(['/', 'users-list'])),
-  // (error) => console.log(error));
-  // this.userService.setUserName(this.user.userName);
-
-  // }, errorCode => console.log(errorCode));
-  //
   EditMode() {
     return this.edit = !this.edit;
   }
@@ -68,12 +53,13 @@ export class UserProfileComponent implements OnInit {
     this.userLoggingService.getUserByUserName({ 'userName': this.userChecker }).subscribe(data => {
       console.log('data :' + data);
       this.id = data['_id'];
-    }, error => console.log(error)),
-
+    }, error => console.log(error))
+    if (this.user.userName.length > 0) {
       this.userLoggingService.updateUser(this.user, this.id).subscribe((res) => {
         console.log('Updated the customer');
         this.router.navigate(['/', 'home']);
       }, errorCode => console.log(errorCode));
+    } console.log("userName Empty");
   }
 
   // tslint:disable-next-line:max-line-length
@@ -90,23 +76,24 @@ export class UserProfileComponent implements OnInit {
       this.router.navigate(['/', 'home']);
     } else {
       console.log('userChecker : ' + this.userChecker);
-      this.userLoggingService.getUserByUserName({ 'userName': this.userChecker }).subscribe(data => {
-        // console.log('data : ' + JSON.stringify(data[0]));
+      this.userLoggingService.getUserByUserName({ 'userName': this.userChecker.toString() }).subscribe(data => {
+        console.log(data[0]);
         this.user = data[0];
+        console.log("this.user : " + this.user);
         this.id = this.user._id;
-        this.userName = this.userService.getUserName();
+        this.userName = this.user.userName;
         this.name = this.user.name;
         this.firstName = this.user.firstName;
         this.address = this.user.address;
         this.email = this.user.email;
         this.phone = this.user.phone;
         this.password = this.user.password;
+
+        console.log(this.userName);
+        console.log(this.phone);
       },
         errorCode => console.log(errorCode));
     }
-    // this.userLoggingService.changeUserData({ user: this.user }).subscribe(data => {
-    //   console.log('data');
-    // }, errorCode => (console.log(errorCode)));
   }
 }
 
