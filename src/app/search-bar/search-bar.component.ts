@@ -1,6 +1,4 @@
-// import { FilterPipeJson } from './../services/filter-json.pipe';
-// import { AppartementsDb } from './../services/appartements.db';
-import { Component, OnInit, Output, EventEmitter, ViewChild, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, AfterViewChecked, Input } from '@angular/core';
 import { AppartementListComponent } from '../appartement-list/AppartementListComponent';
 import { DataService } from '../services/Data.service';
 import { Router } from '@angular/router';
@@ -11,7 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./search-bar.component.scss']
 })
 export class SearchBarComponent implements OnInit {
+
   searchinput: string;
+
   constructor(private dataService: DataService, private router: Router) { }
   onEnter() {
     this.callFilter();

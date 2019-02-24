@@ -21,6 +21,9 @@ export class AppartementService {
   getAppartementByName(appartement: Object): Observable<Appartement[]> {
     return this.http.get<Appartement[]>(this.baseUrl + '/' + appartement['nom']);
   }
+  uploadImage(fd) {
+    return this.http.post('http://localhost:3000/appartement-list/upload', fd);
+    }
 
   findAll(): Appartement[] {
     return this.appartements;

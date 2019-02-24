@@ -20,7 +20,7 @@ const routes: Routes = [
 
   { path: 'home', component: HomeComponent },
   { path: 'appartement-list', component: AppartementListComponent },
-  { path: 'appartement-detail', component: AppartementDetailComponent },
+  { path: 'appartement-detail/:appartement', component: AppartementDetailComponent },
   { path: 'user-signup', component: UserSignUpComponent },
   { path: 'cookies', component: CookiesComponent },
   { path: 'avis', component: AvisComponent },
@@ -41,7 +41,7 @@ const routes: Routes = [
   //   { path: 'appartement-detail', component: AppartementDetailComponent },
   //   { path: 'user-signup', component: UserSignUpComponent },
   //   { path: 'users-list', component: UsersListComponent },
-  
+
   //   { path: 'appartement-form', component: AppartementFormComponent },
   //   { path: '', redirectTo: 'appartement-list', pathMatch: 'full' },
   //   { path: '**', component: PageNotFoundComponent },

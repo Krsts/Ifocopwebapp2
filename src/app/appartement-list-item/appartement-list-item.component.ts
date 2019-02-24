@@ -1,3 +1,4 @@
+import { UserService } from './../services/user.service';
 import { AppartementJson } from './../shared/appartement-json.model';
 // import { AppartementService } from './../services/appartement.service';
 // import { Appartement } from './../shared/appartement.model';
@@ -13,8 +14,12 @@ export class AppartementListItemComponent implements OnInit {
 
   @Input() appartement: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private userService: UserService) { }
 
+  onReserver(id) {
+    this.userService.addToLocalCart(id);
+    window.alert(`${this.appartement.nom} ajouté à votre profil`);
+  }
   ngOnInit() {
   }
 }

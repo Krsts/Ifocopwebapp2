@@ -10,6 +10,7 @@ export class UserService {
   status: Boolean = false;
   // userName = this.userData.userName;
   userName: string;
+  cart: Array<String>;
 
 
   getStatus() {
@@ -71,6 +72,22 @@ export class UserService {
       this.setLoginStatus(userName);
       this.status = true;
     }
+  }
+
+  checkLocalCart() {
+    if (this.cart.length > 0) { return true; } else { return false; }
+  }
+
+  getLocalCart() {
+    return this.cart;
+  }
+
+  addToLocalCart(id: String) {
+    this.cart.push(id);
+  }
+
+  clearLocalCart() {
+    this.cart = [];
   }
 
   getUserName() {

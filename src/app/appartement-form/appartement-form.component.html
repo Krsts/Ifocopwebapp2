@@ -41,7 +41,9 @@
         </div>
         Descriptif de l'appartement: <input type="text-area" formControlName="descriptif" placeholder="Description de l'appartement" /> Type d'événements acceptés: <input formControlName="type_devenements_acceptés" placeholder="Evénements acceptés" />        prestations annexes: <input formControlName="prestations_annexes" placeholder="Prestations Annexes" />
         <div class='photos-upload-container'>
-            Image: <input type="file" formControlName="img1"> Image: <input type="file" formControlName="img2"> Image: <input type="file" formControlName="img3"> Image: <input type="file" formControlName="img4"> Image: <input type="file" formControlName="img5">
+            Image 1: <input type="file" formControlName="img1" (change)="onFileSelected($event)">
+            <button type="button" (click)="onUpload()">Upload</button>
+            Image 2: <input type="file" formControlName="img2"> Image: <input type="file" formControlName="img3"> Image: <input type="file" formControlName="img4"> Image: <input type="file" formControlName="img5">
         </div>
         <button type="submit">Submit</button>
     </form>

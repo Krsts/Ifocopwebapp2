@@ -53,13 +53,13 @@ export class UserProfileComponent implements OnInit {
     this.userLoggingService.getUserByUserName({ 'userName': this.userChecker }).subscribe(data => {
       console.log('data :' + data);
       this.id = data['_id'];
-    }, error => console.log(error))
+    }, error => console.log(error));
     if (this.user.userName.length > 0) {
       this.userLoggingService.updateUser(this.user, this.id).subscribe((res) => {
         console.log('Updated the customer');
         this.router.navigate(['/', 'home']);
       }, errorCode => console.log(errorCode));
-    } console.log("userName Empty");
+    } console.log('userName Empty');
   }
 
   // tslint:disable-next-line:max-line-length
@@ -79,7 +79,7 @@ export class UserProfileComponent implements OnInit {
       this.userLoggingService.getUserByUserName({ 'userName': this.userChecker.toString() }).subscribe(data => {
         console.log(data[0]);
         this.user = data[0];
-        console.log("this.user : " + this.user);
+        console.log('this.user : ' + this.user);
         this.id = this.user._id;
         this.userName = this.user.userName;
         this.name = this.user.name;

@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
   userIcon: string;
   userName: string;
   userLoginForm: FormGroup;
+  reservations: Array<String>;
 
   // tslint:disable-next-line:max-line-length
   constructor(private router: Router, private dataService: DataService, private userService: UserService, private userLoggingService: UserLoggingService, private formBuilder: FormBuilder) {
@@ -34,9 +35,15 @@ export class AppComponent implements OnInit {
     // console.log(this.userService.getStatus());
     if (this.userService.getStatus() === true) {
       this.userIcon = 'mood';
+      this.reservations = this.userService.getLocalCart();
     } else {
       this.userIcon = 'mood_bad';
+      this.userService.clearLocalCart();
     }
+  }
+
+  clearStorage() {
+    this.dataService.clearStorage();
   }
 
   createForm() {
@@ -63,7 +70,7 @@ export class AppComponent implements OnInit {
 
           this.userService.setUserName(data[0].userName);
         }
-      } catch{ }
+      } catch { }
     }, errorCode => console.log(errorCode));
   }
 

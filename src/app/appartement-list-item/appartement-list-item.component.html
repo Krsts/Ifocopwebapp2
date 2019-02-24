@@ -30,5 +30,6 @@
             </li>
         </ul>
     </div>
+    <button *ngIf="this.userService.getStatus()" type="button" (click)="onReserver(appartement.nom)">Réserver</button>
 
 </section>

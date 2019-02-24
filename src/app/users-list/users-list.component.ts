@@ -1,3 +1,4 @@
+import { UserService } from './../services/user.service';
 import { HttpClient } from '@angular/common/http';
 import { User } from './../shared/user.model';
 import { Component, OnInit } from '@angular/core';
@@ -16,7 +17,7 @@ export class UsersListComponent implements OnInit {
 
   private userS;
   private user;
-  constructor(private userLoggingService: UserLoggingService, private http: HttpClient) { }
+  constructor(private userLoggingService: UserLoggingService, private http: HttpClient, private userService: UserService) { }
 
   ngOnInit() {
     //

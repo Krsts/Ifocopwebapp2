@@ -27,102 +27,103 @@ app.use(function(req, res, next) {
     next();
 })
 
+app.on('connection', (socket) => console.log('Connection !'))
+
 // Mongoose addendum 
 
-// var express = require('express');
-var mongoose = require('mongoose');
-var gridfs = require('gridfs-stream');
-var fs = require('fs');
-
-var db_filename = "demo.jpg";
-var local_file = "./gridfs.jpg";
-
-mongoose.connect('mongodb://localhost:27017/test', {
-    useNewUrlParser: true
-});
-mongoose.Promise = global.Promise;
-var app = express();
-gridfs.mongo = mongoose.mongo;
-var connection = mongoose.connection;
-connection.on('error', console.error.bind(console, 'connection error:'));
-connection.once('open', function() {
-
-    var gfs = gridfs(connection.db);
-
-    app.get('/', function(req, res) {
-        res.send('Demo of MongoDB – GridFS by niralar.com');
-    });
-
-    // Writing a file from local to MongoDB
-    app.get('/write', function(req, res) {
-        var writestream = gfs.createWriteStream({
-            filename: db_filename
-        });
-        fs.createReadStream(local_file).pipe(writestream);
-        writestream.on('close', function(file) {
-            res.send('File Created : ' + file.filename);
-        });
-    });
-
-    // Reading a file from MongoDB
-    app.get('/read', function(req, res) {
-        // Check file exist on MongoDB
-        gfs.exist({
-            filename: db_filename
-        }, function(err, file) {
-            if (err || !file) {
-                res.send('File Not Found');
-            } else {
-                var readstream = gfs.createReadStream({
-                    filename: db_filename
-                });
-                readstream.pipe(res);
-            }
-        });
-    });
-
-    // Delete a file from MongoDB
-    app.get('/delete', function(req, res) {
-        gfs.exist({
-            filename: db_filename
-        }, function(err, file) {
-            if (err || !file) {
-                res.send('File Not Found');
-            } else {
-                gfs.remove({
-                    filename: db_filename
-                }, function(err) {
-                    if (err) res.send(err);
-                    res.send('File Deleted');
-                });
-            }
-        });
-    });
-
-    // Get file information(File Meta Data) from MongoDB
-    app.get('/meta', function(req, res) {
-        gfs.exist({
-            filename: db_filename
-        }, function(err, file) {
-            if (err || !file) {
-                res.send('File Not Found');
-            } else {
-                gfs.files.find({
-                    filename: db_filename
-                }).toArray(function(err, files) {
-                    if (err) res.send(err);
-                    res.send(files);
-                });
-            }
-        });
-    });
-});
-
 // var mongoose = require('mongoose');
-// mongoose.Promise = global.Promise;
-// mongoose.connect('mongodb://localhost:27017/daymeetings', {
+// var gridfs = require('gridfs-stream');
+// var fs = require('fs');
+
+// var db_filename = "demo.jpg";
+// var local_file = "./gridfs.jpg";
+
+// mongoose.connect('mongodb://localhost:27017/test', {
 //     useNewUrlParser: true
 // });
+// mongoose.Promise = global.Promise;
+// var app = express();
+// gridfs.mongo = mongoose.mongo;
+// var connection = mongoose.connection;
+// connection.on('error', console.error.bind(console, 'connection error:'));
+// connection.once('open', function() {
+
+//     var gfs = gridfs(connection.db);
+
+//     app.get('/', function(req, res) {
+//         res.send('Demo of MongoDB – GridFS by niralar.com');
+//     });
+
+    // Writing a file from local to MongoDB
+    // app.get('/write', function(req, res) {
+    //     var writestream = gfs.createWriteStream({
+    //         filename: db_filename
+    //     });
+    //     fs.createReadStream(local_file).pipe(writestream);
+    //     writestream.on('close', function(file) {
+    //         res.send('File Created : ' + file.filename);
+    //     });
+    // });
+
+    // Reading a file from MongoDB
+    // app.get('/read', function(req, res) {
+    //     // Check file exist on MongoDB
+    //     gfs.exist({
+    //         filename: db_filename
+    //     }, function(err, file) {
+    //         if (err || !file) {
+    //             res.send('File Not Found');
+    //         } else {
+    //             var readstream = gfs.createReadStream({
+    //                 filename: db_filename
+    //             });
+    //             readstream.pipe(res);
+    //         }
+    //     });
+    // });
+
+    // Delete a file from MongoDB
+    // app.get('/delete', function(req, res) {
+    //     gfs.exist({
+    //         filename: db_filename
+    //     }, function(err, file) {
+    //         if (err || !file) {
+    //             res.send('File Not Found');
+    //         } else {
+    //             gfs.remove({
+    //                 filename: db_filename
+    //             }, function(err) {
+    //                 if (err) res.send(err);
+    //                 res.send('File Deleted');
+    //             });
+    //         }
+    //     });
+    // });
+
+    // Get file information(File Meta Data) from MongoDB
+//     app.get('/meta', function(req, res) {
+//         gfs.exist({
+//             filename: db_filename
+//         }, function(err, file) {
+//             if (err || !file) {
+//                 res.send('File Not Found');
+//             } else {
+//                 gfs.files.find({
+//                     filename: db_filename
+//                 }).toArray(function(err, files) {
+//                     if (err) res.send(err);
+//                     res.send(files);
+//                 });
+//             }
+//         });
+//     });
+// });
+
+var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost:27017/daymeetings', {
+    useNewUrlParser: true
+});
 
 // var db_filename = "demo.jpg";
 // var local_file = "./gridfs.jpg";
@@ -326,6 +327,15 @@ app.post('/appartement-list', (req, res) => {
         res.status(400).send(e);
     });
 });
+
+app.post('/appartement-list/upload', (req, res) => {
+    console.log(req.body).then((doc) => {
+        res.send('It Worked');
+    }, (e) => {
+        res.status(400).send(e);
+    })
+    
+}),
 
 app.get('/appartement-list/:nom', (req, res) => {
         // console.log(req.params);

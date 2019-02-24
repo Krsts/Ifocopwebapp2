@@ -55,6 +55,17 @@ export class AppartementFormComponent implements OnInit {
     img4: new FormControl(null),
     img5: new FormControl(null)
   });
+  selectedFile = null;
+
+  onFileSelected(event) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  onUpload() {
+    const fd = new FormData();
+    fd.append('image', this.selectedFile, this.selectedFile.name);
+      this.appartementService.uploadImage(this.selectedFile);
+  }
 
   onSubmitAppartement() {
     this.appartement = {

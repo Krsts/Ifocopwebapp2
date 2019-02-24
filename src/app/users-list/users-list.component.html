@@ -25,9 +25,9 @@
             <img src="assets/images/{{product.photo}}" width="50">
         </td> -->
         <td>
-            <a [routerLink]="['/user-profile', user.userName]">User Profile
-        <!-- {{ product.name }} -->
-      </a>
+            <span *ngIf="this.userService.getStatus()">
+                <a [routerLink]="['/user-profile', user.userName]">User Profile</a></span>
+            <span *ngIf="!this.userService.getStatus()">Connectez-vous pour voir le profil des utilisateurs</span>
             <!-- <a [routerLink]="['/user-profile', { userName:user.userName }]">userProfile</a> -->
         </td>
     </tr>

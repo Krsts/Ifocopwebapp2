@@ -212,9 +212,28 @@ body {
     margin: 5px 5px;
 }
 
-
+.mat-icon:hover {
+    cursor:pointer;
+}
 
 matinput {
     font-size: 18px;
 }
 
+.mat-iconSize{
+    font-size: 18px;
+}
+
+.icon-unLogged{
+    
+    color: indianred;
+}
+
+.icon-unLogged:hover{    
+    color: indianred;
+}
+
+.icon-Logged {
+    color: burlywood;
+    
+}
