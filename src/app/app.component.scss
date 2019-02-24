@@ -225,15 +225,16 @@ matinput {
 }
 
 .icon-unLogged{
-    
     color: indianred;
 }
 
 .icon-unLogged:hover{    
-    color: indianred;
+    color: yellowgreen;
 }
 
 .icon-Logged {
     color: burlywood;
-    
+}
+.icon-Logged:hover{
+    color: yellow;
 }

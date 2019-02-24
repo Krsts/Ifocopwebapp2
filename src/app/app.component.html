@@ -30,7 +30,7 @@
             matBadgeOverlap="false" matBadgeColor="success">{{userIcon}}</mat-icon>
         </a>
         <a [matMenuTriggerFor]="userMenu" *ngIf="!this.userService.getStatus()">
-          <mat-icon [ngClass]="{'icon-unLogged':'this.userService.getStatus()',
+          <mat-icon [ngClass]="{'icon-Logged':'this.userService.getStatus()',
           'icon-unLogged': '!this.userService.getStatus()'}">{{userIcon}}</mat-icon>
         </a>
         <mat-menu #userMenu="matMenu">
