@@ -2,19 +2,19 @@
 
 Projet Réalisé avec [Angular CLI](https://github.com/angular/angular-cli) version 7.0.4.
 
-## `Mode d'emploi` : ##
+## `Mode d'emploi` : 
 
 L'application a été construite autour des fonctionnalités d'angular et de nodejs couplé avec mongodb.
 Pour fonctionner l'application nécessite le lancement du serveur présent dans le dossier backend et de la base de donnée, qui peut être récupérée sur un hébergeur.
 
-###Installation###
+### Installation
 
 >~/backend **nodemon**
 >[MongoBase](https://google.com)
 **mongod --dbpath** ***<***emplacement de la base***>***
 >Exécuter **ng serve** à la racine du projet pour lancer l'application dans le navigateur.
 
-###Utilisation###
+### Utilisation
 
 `La barre de recherche est la pièce centrale de l'application, permettant :`
 - **d'effectuer une recherche**
@@ -31,7 +31,7 @@ Dans la barre de recherche :
 
 >**!clock** ***<**Number**>*** **!s** | Pour mettre à jour la vitesse de mise à jour de la recherche. [>100ms]
 
-####Réserver un appartement :####
+#### Réserver un appartement :
 
 >Créer un nouvel utilisateur en choisissant l'option s'enregistrer dans l'icône dans le coin supérieur droit de la page.
 >L'authentification doit être automatique, toutefois il est possible de se connecter en suivant la méthode d'authentification de la barre de recherche ou en se loggant en suivant les instructions du menu situé dnas le coin supérieur droit de l'application.
