@@ -24,9 +24,13 @@ Pour fonctionner l'application nécessite le lancement du serveur présent dans 
 
 Dans la barre de recherche :
 >Le texte plat lance automatiquement une recherche dans la base de données et filtre les résultats
+
 >**!users** | pour retrouver la liste des utilisateurs enregistrés
+
 >**!list** | pour récupérer la liste des offres
+
 >**!u** ***<**username**>*** **!p** ***<**password**>*** **!s** | Pour s'authentifier
+
 >**!profile**  | Pour visiter le profil utilisateur
 
 >**!clock** ***<**Number**>*** **!s** | Pour mettre à jour la vitesse de mise à jour de la recherche. [>100ms]
