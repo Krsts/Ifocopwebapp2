@@ -264,7 +264,7 @@ app.post('/users-list', (req, res) => {
     //         })});
 
     app.put('/users-list/edit/:id', (req, res) => {
-        // console.log(req.body.userName)
+        console.log(req.params, req.body);
         User.findByIdAndUpdate(req.params.id, req.body, {
             new: true
         }, function(err, user) {

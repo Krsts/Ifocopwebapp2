@@ -41,7 +41,12 @@ var User = mongoose.model('User', {
         required: true,
         // minlength: 3,
         // trim: true,
+    },
+    reservations: {
+        type: Array
     }
 });
 
-module.exports = { User };
+module.exports = {
+    User
+};

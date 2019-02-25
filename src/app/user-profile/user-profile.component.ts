@@ -55,8 +55,9 @@ export class UserProfileComponent implements OnInit {
       this.id = data['_id'];
     }, error => console.log(error));
     if (this.user.userName.length > 0) {
+      this.user['reservations'] = this.userService.getLocalCart();
       this.userLoggingService.updateUser(this.user, this.id).subscribe((res) => {
-        console.log('Updated the customer');
+      console.log('Updated the customer');
         this.router.navigate(['/', 'home']);
       }, errorCode => console.log(errorCode));
     } console.log('userName Empty');
@@ -88,6 +89,7 @@ export class UserProfileComponent implements OnInit {
         this.email = this.user.email;
         this.phone = this.user.phone;
         this.password = this.user.password;
+        
 
         console.log(this.userName);
         console.log(this.phone);

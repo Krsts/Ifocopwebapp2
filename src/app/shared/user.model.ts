@@ -9,5 +9,6 @@ export interface User {
         phone: string;
         password: string;
         _id?: string;
+        reservations?: Array<String>;
 }
 

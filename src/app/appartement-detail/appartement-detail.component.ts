@@ -18,11 +18,11 @@ export class AppartementDetailComponent implements OnInit {
   title = 'Title';
   datededepart = Date.now();
   datedefin = Date.now();
-  name;
+  name : Object;
 
-  constructor(private appartementService: AppartementService, private route: ActivatedRoute, private router : Router) { }
+  constructor(private appartementService: AppartementService, private route: ActivatedRoute, private router: Router) { }
 
-  onReserver(){
+  onReserver() {
     this.router.navigate(['/', 'paiement'])
   }
 

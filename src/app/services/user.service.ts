@@ -82,6 +82,9 @@ export class UserService {
     return this.cart;
   }
 
+  setLocalCart(data: Array) {
+    this.cart = data;
+  }
   addToLocalCart(id: String) {
     this.cart.push(id);
   }

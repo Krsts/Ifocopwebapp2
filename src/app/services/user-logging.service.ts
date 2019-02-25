@@ -34,16 +34,18 @@ export class UserLoggingService {
   //   return this.http.get<User>(this.baseUrl + '/:' + userName, { headers : myHeaders, myParams });
   // }
 
-  updateUser(user: User, id: String) {
+  updateUser(user, id: String) {
     return this.http.put(this.baseUrl + '/edit/' + id, user);
   }
 
   getUserByUserName(user: Object): Observable<User[]> {
     return this.http.get<User[]>(this.baseUrl + '/' + user['userName']);
   }
+
   findAll(): User[] {
     return this.users;
   }
+  
   find(userName: string): User {
     return this.users[this.getSelectedIndex(userName)];
   }
