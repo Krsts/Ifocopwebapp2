@@ -57,6 +57,7 @@ export class DataService {
                         console.log(data); try {
                             if (data[0].userName.length > 0) {
                                 this.userService.setUserName(data[0].userName);
+                                this.userService.setLocalCart(data[0].reservations);
                                 this.storage = '';
                                 this.storageList = [];
                             }
