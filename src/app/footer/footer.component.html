@@ -26,10 +26,10 @@
                 <li>
                     <h4 class="footer-list-header">A propos de Daymeetings</h4>
                 </li>
-                <li><a href='http://localhost:4200/presentation' class="generic-anchor footer-list-anchor" itemprop="significantLink">Qui sommes nous ?</a></li>
-                <li><a href='http://localhost:4200/contact' class="generic-anchor footer-list-anchor" itemprop="significantLink">Contactez-nous</a></li>
-                <li><a href='http://localhost:4200/user-signup' class="generic-anchor footer-list-anchor" itemprop="significantLink">S'inscrire</a></li>
-                <li><a href='http://localhost:4200/avis' class="generic-anchor footer-list-anchor" itemprop="significantLink">Les avis de nos membres</a></li>
+                <li><a [routerLink]="['/presentation']" class="generic-anchor footer-list-anchor" itemprop="significantLink">Qui sommes nous ?</a></li>
+                <li><a [routerLink]="['/contact']" class="generic-anchor footer-list-anchor" itemprop="significantLink">Contactez-nous</a></li>
+                <li><a [routerLink]="['/user-signup']" class="generic-anchor footer-list-anchor" itemprop="significantLink">S'inscrire</a></li>
+                <li><a [routerLink]="['/avis']" class="generic-anchor footer-list-anchor" itemprop="significantLink">Les avis de nos membres</a></li>
 
 
             </ul>
@@ -37,30 +37,30 @@
     </div>
 
     <section class="footer-social-section flex-rw">
-            <div class="container">
-                    <div class="row">
-        <span class="footer-social-overlap footer-social-connect">
-          REJOIGNEZ <span class="footer-social-small">NOTRE</span> COMMUNAUTE
-        </span>
-        <span class="footer-social-overlap footer-social-icons-wrapper">
-          <a href="https://www.pinterest.com/" class="generic-anchor" target="_blank" title="Pinterest" itemprop="significantLink"><i class="fa fa-pinterest"></i></a>
-          <a href="https://www.facebook.com/" class="generic-anchor" target="_blank" title="Facebook" itemprop="significantLink"><i class="fa fa-facebook"></i></a>
-          <a href="https://twitter.com/" class="generic-anchor" target="_blank" title="Twitter" itemprop="significantLink"><i class="fa fa-twitter"></i></a>
-          <a href="http://instagram.com/" class="generic-anchor" target="_blank" title="Instagram" itemprop="significantLink"><i class="fa fa-instagram"></i></a>
-          <a href="https://www.youtube.com" class="generic-anchor" target="_blank" title="Youtube" itemprop="significantLink"><i class="fa fa-youtube"></i></a>
-          <a href="https://plus.google.com/" class="generic-anchor" target="_blank" title="Google Plus" itemprop="significantLink"><i class="fa fa-google-plus"></i></a>
-          </span>
+        <div class="container">
+            <div class="row">
+                <span class="footer-social-overlap footer-social-connect">
+              REJOIGNEZ <span class="footer-social-small">NOTRE</span> COMMUNAUTE
+                </span>
+                <span class="footer-social-overlap footer-social-icons-wrapper">
+              <a href="https://www.pinterest.com/" class="generic-anchor" target="_blank" title="Pinterest" itemprop="significantLink"><i class="fa fa-pinterest"></i></a>
+              <a href="https://www.facebook.com/" class="generic-anchor" target="_blank" title="Facebook" itemprop="significantLink"><i class="fa fa-facebook"></i></a>
+              <a href="https://twitter.com/" class="generic-anchor" target="_blank" title="Twitter" itemprop="significantLink"><i class="fa fa-twitter"></i></a>
+              <a href="http://instagram.com/" class="generic-anchor" target="_blank" title="Instagram" itemprop="significantLink"><i class="fa fa-instagram"></i></a>
+              <a href="https://www.youtube.com" class="generic-anchor" target="_blank" title="Youtube" itemprop="significantLink"><i class="fa fa-youtube"></i></a>
+              <a href="https://plus.google.com/" class="generic-anchor" target="_blank" title="Google Plus" itemprop="significantLink"><i class="fa fa-google-plus"></i></a>
+              </span>
+            </div>
         </div>
-    </div>
     </section>
     <section class="footer-bottom-section flex-rw">
         <div class="footer-bottom-wrapper">
             <i class="fa fa-copyright" role="copyright">
-     
-    </i> 2019 IFOCOP <address class="footer-address" role="company address">Paris</address><span class="footer-bottom-rights">  </span>
+         
+        </i> 2019 IFOCOP <address class="footer-address" role="company address">Paris</address><span class="footer-bottom-rights">  </span>
         </div>
         <div class="footer-bottom-wrapper">
-            <a href="http://localhost:4200/cookies" class="generic-anchor" rel="nofollow">Cookies</a> | <a href="http://localhost:4200/RGPD" class="generic-anchor" rel="nofollow">RGPD</a>
+            <a [routerLink]="['/cookies']" class="generic-anchor" rel="nofollow">Cookies</a> | <a [routerLink]="['/RGPD']" class="generic-anchor" rel="nofollow">RGPD</a>
         </div>
     </section>
 

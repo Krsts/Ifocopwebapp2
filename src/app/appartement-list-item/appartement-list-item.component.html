@@ -1,35 +1,43 @@
 <hr>
 <section>
-    <div class="content">
-        <a href="#"><i class="fa fa-search"></i></a>
-        <ul>
 
-            <li>
-                <p>ville : {{appartement.ville}}</p>
-            </li>
-            <li>
-                <p>nom : {{appartement.nom}}</p>
-            </li>
-            <li>
-                <p>code postal : {{appartement.codePostal}}</p>
-            </li>
-            <li>
-                <p>superficie : {{appartement.superficie}}</p>
-            </li>
-            <li>
-                <p>étage : {{appartement["étage"]}}</p>
-            </li>
-            <li>
-                <p>adresse : {{appartement.adresse}}</p>
-            </li>
-            <li>
-                <p>capacité : {{appartement["capacité"]}}</p>
-            </li>
-            <li>
-                <p>nombre de pièces : {{appartement["nombre_de_pièces"]}}</p>
-            </li>
-        </ul>
+    <div class="content">
+
+        <div class="media">
+            <div class="media-body">
+                <a href="#"><i class="fa fa-search"></i></a>
+
+                <h5 class="mt-0 mb-1">{{appartement.nom}}</h5>
+
+                <dl class="row">
+                    <dt class="col-sm-3">Adresse :</dt>
+                    <dd class="col-sm-9">{{appartement.adresse}}</dd>
+
+                    <dt class="col-sm-3">Ville :</dt>
+                    <dd class="col-sm-9">{{appartement.ville}}</dd>
+
+                    <dt class="col-sm-3">Code postal :</dt>
+                    <dd class="col-sm-9">{{appartement.codePostal}}</dd>
+
+                    <dt class="col-sm-3">Etage :</dt>
+                    <dd class="col-sm-9">{{appartement["étage"]}}</dd>
+
+                    <dt class="col-sm-3">Superficie :</dt>
+                    <dd class="col-sm-9">{{appartement.superficie}}</dd>
+
+                    <dt class="col-sm-3">Capacité :</dt>
+                    <dd class="col-sm-9">{{appartement["capacité"]}}</dd>
+
+                    <dt class="col-sm-3">Nombre de pièces :</dt>
+                    <dd class="col-sm-9">{{appartement["nombre_de_pièces"]}}</dd>
+
+                </dl>
+            </div>
+
+            <img class="align-self-center mr-3" src="../../assets/img/6.jpg" alt="photo-salle">
+
+        </div>
+
     </div>
-    <button *ngIf="this.userService.getStatus()" type="button" (click)="onReserver(appartement.nom)">Réserver</button>
 
 </section>
