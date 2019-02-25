@@ -17,8 +17,10 @@ export class AppartementListItemComponent implements OnInit {
   constructor(private http: HttpClient, private userService: UserService) { }
 
   onReserver(id) {
-    this.userService.addToLocalCart(id);
-    window.alert(`${this.appartement.nom} ajouté à votre profil`);
+    if (this.userService.getStatus()) {
+      this.userService.addToLocalCart(id);
+      window.alert(`${this.appartement.nom} ajouté à votre profil`);
+    } else { window.alert('Connectez-vous pour réserver l\'appartement'); }
   }
   ngOnInit() {
   }

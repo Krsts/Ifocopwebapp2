@@ -30,6 +30,9 @@ export class AppComponent implements OnInit {
     this.createForm();
   }
 
+  onDeleteRes(i) {
+    this.reservations.splice(i, 1);
+  }
   updateCart() {
     try {
       this.userLoggingService.getUserByUserName({ 'userName': this.userService.getUserName() }).subscribe((data: {}) => {
@@ -52,7 +55,7 @@ export class AppComponent implements OnInit {
       }, errorCode => console.log(errorCode),
       ); this.userLoggingService.updateUser(this.user, this.user['_id']).subscribe((res) => {
         console.log('Updated customer');
-      }), errorCode => { console.log(errorCode) };
+      });
     } catch { }
   }
 
@@ -94,25 +97,25 @@ export class AppComponent implements OnInit {
   VerifyUser(userName, password) {
     this.userLoggingService.getUserByUserNameAndPassword({ userName, password }).subscribe((data: {}) => {
       console.log('verified data : ' + JSON.stringify(data));
-      console.log(data[0].reservations); 
-      this.reservations = data[0].reservations; 
+      console.log(data[0].reservations);
+      this.reservations = data[0].reservations;
       this.userService.setLocalCart(this.reservations);
       console.log(this.reservations);
       // for (let i = 0; i < this.data[0].reservations.length; i++) {
       //   this.userService.addToLocalCart(this.data[0].reservations[i]);
-      //   this.reservations.push(this.data[0].reservations[i]);        
+      //   this.reservations.push(this.data[0].reservations[i]);
       // }
-      
+
       try {
         if (data[0].userName.length > 0) {
           this.userService.setUserName(data[0].userName);
-          
-        //   for (let i = 0; i< this.data[0].reservations.length; i++){
-        //   this.userService.addToLocalCart(this.data[0].reservations[i]);
-        //   this.reservations.push(this.data[0].reservations[i]);
-        // }
-        //   console.log("Reservations : " + this.reservations);
-        } else {}
+
+          //   for (let i = 0; i< this.data[0].reservations.length; i++){
+          //   this.userService.addToLocalCart(this.data[0].reservations[i]);
+          //   this.reservations.push(this.data[0].reservations[i]);
+          // }
+          //   console.log("Reservations : " + this.reservations);
+        } else { }
       } catch { }
     }, errorCode => console.log('errorCode'));
   }

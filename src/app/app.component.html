@@ -2,32 +2,33 @@
 
 <div id="container-global">
 
-    <header>
+  <header>
 
 
-        <!-- <div><img class="logo" src="../assets/logo/logo.JPG" alt="logo"></div>  -->
+    <!-- <div><img class="logo" src="../assets/logo/logo.JPG" alt="logo"></div>  -->
 
-        <div class="nav-div" style="display: inline-block;">
-            <mat-icon style="color:burlywood" onMouseOver="this.style.color='#0F0'" onMouseOut="this.style.color='burlywood'" [matMenuTriggerFor]="menu">
-                apps</mat-icon>
-            <mat-menu #menu="matMenu">
-                <a routerLink="/appartement-list" routerLinkActive="active"><button (click)="this.dataService.setStorage('!list')"
-            mat-menu-item>Liste des Appartements</button></a>
-                <a routerLink="/home" routerLinkActive="active"><button (click)="this.dataService.setStorage('empty search')"
+    <div class="nav-div" style="display: inline-block;">
+      <mat-icon style="color:burlywood" onMouseOver="this.style.color='#0F0'" onMouseOut="this.style.color='burlywood'"
+        [matMenuTriggerFor]="menu">
+        apps</mat-icon>
+      <mat-menu #menu="matMenu">
+        <a routerLink="/appartement-list" routerLinkActive="active"><button
+            (click)="this.dataService.setStorage('!list')" mat-menu-item>Liste des Appartements</button></a>
+        <a routerLink="/home" routerLinkActive="active"><button (click)="this.dataService.setStorage('empty search')"
             mat-menu-item>Page d'accueil</button></a>
-                <!-- <a routerLink="/appartement-detail" routerLinkActive="active"><button
+        <!-- <a routerLink="/appartement-detail" routerLinkActive="active"><button
             (click)="this.dataService.setStorage('!detail')" mat-menu-item>Détails</button></a> -->
-                <a routerLink="/users-list" routerLinkActive="active"><button (click)="this.dataService.setStorage('!user-profile')"
-            mat-menu-item>Users</button></a>
-                <!-- Mat Menu Open -->
-            </mat-menu>
+        <a routerLink="/users-list" routerLinkActive="active"><button
+            (click)="this.dataService.setStorage('!user-profile')" mat-menu-item>Users</button></a>
+        <!-- Mat Menu Open -->
+      </mat-menu>
 
 
 
-            <span style="float:right; margin-right: 24px;">
+      <span style="float:right; margin-right: 24px;">
         <a [matMenuTriggerFor]="userMenu" *ngIf="this.userService.getStatus()">
-          <mat-icon style="color:burlywood" matBadge="{{this.userService.getLocalCart().length}}" matBadgeOverlap="false"
-            matBadgeColor="success">{{userIcon}}</mat-icon>
+          <mat-icon style="color:burlywood" matBadge="{{this.userService.getLocalCart().length}}"
+            matBadgeOverlap="false" matBadgeColor="success">{{userIcon}}</mat-icon>
         </a>
         <a [matMenuTriggerFor]="userMenu" *ngIf="!this.userService.getStatus()">
           <mat-icon [ngClass]="{'icon-Logged':'this.userService.getStatus()',
@@ -37,17 +38,20 @@
           <!-- Login -->
           <form [formGroup]="userLoginForm" novalidate onkeyup.enter="onLoginSubmit()">
 
-            <mat-form-field [hidden]="this.userService.getStatus()" [ngStyle]="{'font-size.px': 18}" (click)="$event.stopPropagation()">
+            <mat-form-field [hidden]="this.userService.getStatus()" [ngStyle]="{'font-size.px': 18}"
+              (click)="$event.stopPropagation()">
               <input matInput placeholder="Utilisateur" type="text" formControlName="userName" value="">
               <!-- <mat-error *ngIf="!userNameFormControl.hasError('required')">
               Veuillez entrer votre nom d'utilisateur
             </mat-error> -->
             </mat-form-field>
 
-            <mat-form-field [hidden]="this.userService.getStatus()" [ngStyle]="{'font-size.px': 18}" (click)="$event.stopPropagation()">
+            <mat-form-field [hidden]="this.userService.getStatus()" [ngStyle]="{'font-size.px': 18}"
+              (click)="$event.stopPropagation()">
               <input matInput placeholder="Mot de passe" type="password" formControlName="password" value="">
             </mat-form-field>
-            <button *ngIf="!this.userService.getStatus()" mat-raised-button [disabled]="userLoginForm.invalid" (click)="onLoginSubmit()">
+            <button *ngIf="!this.userService.getStatus()" mat-raised-button [disabled]="userLoginForm.invalid"
+              (click)="onLoginSubmit()">
               <mat-icon class="mat-iconSize">smoking_rooms</mat-icon>Se
               Connecter
             </button>
@@ -80,55 +84,60 @@
               <mat-icon class="mat-iconSize">airline_seat_legroom_extra</mat-icon>Bonjour
               {{userName}} | messages
             </span></button>
-            <button mat-menu-item [hidden]="!this.userService.getStatus()" (click)="this.userService.goToAppartementForm()">
+          <button mat-menu-item [hidden]="!this.userService.getStatus()"
+            (click)="this.userService.goToAppartementForm()">
             <mat-icon class="mat-iconSize">folder_special</mat-icon>Ajoutez
             Votre Appartement
           </button>
 
-            <a routerLink="/user-profile" routerLinkActive="active"><button mat-menu-item [hidden]="!this.userService.getStatus()">
+          <a routerLink="/user-profile" routerLinkActive="active"><button mat-menu-item
+              [hidden]="!this.userService.getStatus()">
               <mat-icon class="mat-iconSize">pool</mat-icon>Réservations
             </button></a>
-            <div *ngIf="this.userService.getStatus()">
-                <hr *ngIf="this.userService.checkLocalCart()">
-                <!-- <button type="button" (click)="this.userService.addToLocalCart('res')">Ajouter Réservation</button> -->
-                <mat-list *ngFor="let res of reservations">
-                    <mat-list-item style="background-color:antiquewhite"><button (click)="clearStorage()" [routerLink]="['/appartement-detail/', res]" routerLinkActive=" router-link-active">
+          <div *ngIf="this.userService.getStatus()">
+            <hr *ngIf="this.userService.checkLocalCart()">
+            <!-- <button type="button" (click)="this.userService.addToLocalCart('res')">Ajouter Réservation</button> -->
+            <mat-list *ngFor="let res of reservations">
+              <mat-list-item style="background-color:antiquewhite"><button (click)="clearStorage()"
+                  [routerLink]="['/appartement-detail/', res]" routerLinkActive=" router-link-active">
                   <mat-icon class="mat-iconSize">event_note</mat-icon> {{res}}
-                </button></mat-list-item>
-                </mat-list>
-            </div>
-            <button *ngIf="this.userService.checkLocalCart()" (click)="updateCart()">Upload Cart</button>
-            </mat-menu>
-            <!-- Mat Menu Close -->
+                </button><span>
+                  <mat-icon class="mat-iconSize" (click)="onDeleteRes(index)">cancel</mat-icon>
+                </span></mat-list-item>
+            </mat-list>
+          </div>
+          <button *ngIf="this.userService.checkLocalCart()" (click)="updateCart()">Upload Cart</button>
+        </mat-menu>
+        <!-- Mat Menu Close -->
 
-            </span>
-        </div>
-        <!--  -->
-        <!--                MAIN NAV            -->
-        <!-- <nav id="mainNav" style="display:inline-block"> -->
+      </span>
+    </div>
+    <!--  -->
+    <!--                MAIN NAV            -->
+    <!-- <nav id="mainNav" style="display:inline-block"> -->
 
-        <!-- <app-navbar style="position:left"></app-navbar> -->
-        <!-- <a class="navbar-brad"><button id="button" class="fa fa-bars open"></button></a> -->
-        <!-- <div id="item">Item</div> -->
-        <!-- <div> -->
-        <!-- <span style="margin-left: 1em; margin-right: 1em;">home</a></span> -->
-        <!-- <span style="margin-left: 1em; margin-right: 1em;"><a routerLink="/appartement-detail">Détails</span> -->
-        <!-- <a href="#"><i class="fa fa-shopping-bag"></i></a> -->
-        <!-- </div>
+    <!-- <app-navbar style="position:left"></app-navbar> -->
+    <!-- <a class="navbar-brad"><button id="button" class="fa fa-bars open"></button></a> -->
+    <!-- <div id="item">Item</div> -->
+    <!-- <div> -->
+    <!-- <span style="margin-left: 1em; margin-right: 1em;">home</a></span> -->
+    <!-- <span style="margin-left: 1em; margin-right: 1em;"><a routerLink="/appartement-detail">Détails</span> -->
+    <!-- <a href="#"><i class="fa fa-shopping-bag"></i></a> -->
+    <!-- </div>
         </nav> -->
 
-        <!--                / MAIN NAV          -->
+    <!--                / MAIN NAV          -->
 
 
-        <div class="cta">
-            <!-- (search)='searchfetch($event)' -->
+    <div class="cta">
+      <!-- (search)='searchfetch($event)' -->
 
-            <app-search-bar></app-search-bar>
-            <h1 class="explorer">Explorez vos opportunités</h1>
-            <!-- <a [routerLink]="['/appartement-list']" routerLinkActive="router-link-active"><button>Réservez dès
+      <app-search-bar></app-search-bar>
+      <h1 class="explorer">Explorez vos opportunités</h1>
+      <!-- <a [routerLink]="['/appartement-list']" routerLinkActive="router-link-active"><button>Réservez dès
           maintenant</button></a> -->
-        </div>
-    </header>
+    </div>
+  </header>
 </div>
 <router-outlet></router-outlet>
 <hr>
