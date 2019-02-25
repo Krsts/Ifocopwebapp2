@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaiementComponent implements OnInit {
 
+  paiement = false;
+
+  onPaiement() {
+    return this.paiement = true;
+  }
   constructor() { }
 
   ngOnInit() {

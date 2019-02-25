@@ -44,7 +44,7 @@ export class DataService {
                     this.router.navigate(['/', 'appartement-list']);
                 } else if (this.storageList[0] === '!users') {
                     // if (this.userService.getStatus()) {
-                        this.router.navigate(['/', 'users-list']);
+                    this.router.navigate(['/', 'users-list']);
                     // }
                 } else if (this.storageList[0] === '!loggout' && this.userService.getStatus()) {
                     this.userService.setUserName(undefined);
@@ -62,6 +62,8 @@ export class DataService {
                             }
                         } catch {
                             console.log('error error');
+                            this.storage = '';
+                            this.storageList = [];
                         }
                     },
                         // errorCode => console.log(errorCode)

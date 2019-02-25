@@ -54,53 +54,53 @@ app.on('connection', (socket) => console.log('Connection !'))
 //         res.send('Demo of MongoDB – GridFS by niralar.com');
 //     });
 
-    // Writing a file from local to MongoDB
-    // app.get('/write', function(req, res) {
-    //     var writestream = gfs.createWriteStream({
-    //         filename: db_filename
-    //     });
-    //     fs.createReadStream(local_file).pipe(writestream);
-    //     writestream.on('close', function(file) {
-    //         res.send('File Created : ' + file.filename);
-    //     });
-    // });
+// Writing a file from local to MongoDB
+// app.get('/write', function(req, res) {
+//     var writestream = gfs.createWriteStream({
+//         filename: db_filename
+//     });
+//     fs.createReadStream(local_file).pipe(writestream);
+//     writestream.on('close', function(file) {
+//         res.send('File Created : ' + file.filename);
+//     });
+// });
 
-    // Reading a file from MongoDB
-    // app.get('/read', function(req, res) {
-    //     // Check file exist on MongoDB
-    //     gfs.exist({
-    //         filename: db_filename
-    //     }, function(err, file) {
-    //         if (err || !file) {
-    //             res.send('File Not Found');
-    //         } else {
-    //             var readstream = gfs.createReadStream({
-    //                 filename: db_filename
-    //             });
-    //             readstream.pipe(res);
-    //         }
-    //     });
-    // });
+// Reading a file from MongoDB
+// app.get('/read', function(req, res) {
+//     // Check file exist on MongoDB
+//     gfs.exist({
+//         filename: db_filename
+//     }, function(err, file) {
+//         if (err || !file) {
+//             res.send('File Not Found');
+//         } else {
+//             var readstream = gfs.createReadStream({
+//                 filename: db_filename
+//             });
+//             readstream.pipe(res);
+//         }
+//     });
+// });
 
-    // Delete a file from MongoDB
-    // app.get('/delete', function(req, res) {
-    //     gfs.exist({
-    //         filename: db_filename
-    //     }, function(err, file) {
-    //         if (err || !file) {
-    //             res.send('File Not Found');
-    //         } else {
-    //             gfs.remove({
-    //                 filename: db_filename
-    //             }, function(err) {
-    //                 if (err) res.send(err);
-    //                 res.send('File Deleted');
-    //             });
-    //         }
-    //     });
-    // });
+// Delete a file from MongoDB
+// app.get('/delete', function(req, res) {
+//     gfs.exist({
+//         filename: db_filename
+//     }, function(err, file) {
+//         if (err || !file) {
+//             res.send('File Not Found');
+//         } else {
+//             gfs.remove({
+//                 filename: db_filename
+//             }, function(err) {
+//                 if (err) res.send(err);
+//                 res.send('File Deleted');
+//             });
+//         }
+//     });
+// });
 
-    // Get file information(File Meta Data) from MongoDB
+// Get file information(File Meta Data) from MongoDB
 //     app.get('/meta', function(req, res) {
 //         gfs.exist({
 //             filename: db_filename
@@ -329,19 +329,19 @@ app.post('/appartement-list', (req, res) => {
 });
 
 app.post('/appartement-list/upload', (req, res) => {
-    console.log(req.body).then((doc) => {
-        res.send('It Worked');
-    }, (e) => {
-        res.status(400).send(e);
-    })
-    
-}),
+        console.log(req.body).then((doc) => {
+            res.send('It Worked');
+        }, (e) => {
+            res.status(400).send(e);
+        })
 
-app.get('/appartement-list/:nom', (req, res) => {
-        // console.log(req.params);
-        Appartement.find(req.params).then((appartements) => {
+    }),
+
+    app.get('/appartement-list/:nom', (req, res) => {
+        console.log(req.params);
+        Appartement.find(req.params).then((appartement) => {
             res.send(
-                appartements
+                appartement
             )
         }, (e) => {
             res.status(400).send(e);

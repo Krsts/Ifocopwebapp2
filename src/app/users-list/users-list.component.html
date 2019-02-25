@@ -1,34 +1,38 @@
-<h3>Users</h3>
-<table border="1">
-    <tr>
-        <th>Id</th>
-        <th>Username</th>
-        <th>Name</th>
-        <th>FirstName</th>
-        <th>Address</th>
-        <th>email</th>
-        <th>phone</th>
-        <th>password</th>
-        <!-- <th>Photo</th> -->
-        <!-- <th>Buy</th> -->
-    </tr>
-    <tr *ngFor="let user of userS; index as i">
-        <td>{{i}}</td>
-        <td>{{user.userName}}</td>
-        <td>{{user.name}}</td>
-        <td>{{user.firstName}}</td>
-        <td>{{user.address}}</td>
-        <td>{{user.email}}</td>
-        <td>{{user.phone}}</td>
-        <td>{{user.password}}</td>
-        <!-- <td>
+<div class="container">
+    <div class="row">
+
+        <h3 class="mx-auto">USERS</h3>
+        <table class="table table-hover table-sm">
+            <tr class="table-active">
+                <th scope="col">Id</th>
+                <th scope="col">Username</th>
+                <th scope="col">Name</th>
+                <th scope="col">FirstName</th>
+                <th scope="col">Address</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Password</th>
+                <th scope="col">Link</th>
+            </tr>
+            <tr *ngFor="let user of userS; index as i">
+                <td>{{i}}</td>
+                <td>{{user.userName}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.firstName}}</td>
+                <td>{{user.address}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.password}}</td>
+                <!-- <td>
             <img src="assets/images/{{product.photo}}" width="50">
         </td> -->
-        <td>
-            <span *ngIf="this.userService.getStatus()">
-                <a [routerLink]="['/user-profile', user.userName]">User Profile</a></span>
-            <span *ngIf="!this.userService.getStatus()">Connectez-vous pour voir le profil des utilisateurs</span>
-            <!-- <a [routerLink]="['/user-profile', { userName:user.userName }]">userProfile</a> -->
-        </td>
-    </tr>
-</table>
+                <td>
+                    <span *ngIf="this.userService.getStatus()">
+            <a [routerLink]="['/user-profile', user.userName]">User Profile</a></span>
+                    <span *ngIf="!this.userService.getStatus()">Connectez-vous pour voir le profil des utilisateurs</span>
+                    <!-- <a [routerLink]="['/user-profile', { userName:user.userName }]">userProfile</a> -->
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

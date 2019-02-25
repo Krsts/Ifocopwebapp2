@@ -1,87 +1,98 @@
 <div class="container">
     <div class="row">
-       
-               <div class="offset-2 col-lg-6 col-md-8 col-sm-10 col-xs-12">
 
-        <h3>Formulaire de paiement</h3>
-        <hr class="my-4">
-    
-    <p class="alert alert-success">Saisissez vos coordonnées bancaires</p>
-   <div> 
-    <input type="radio" name="options"><img class="cc" src="../../assets/logo/visa.png"> 
-    <input type="radio" name="options"><img class="cc" src="../../assets/logo/visa-el.png"> 
-    <input type="radio" name="options"><img class="cc" src="../../assets/logo/mastercard.png">
-    <input type="radio" name="options"><img class="cc" src="../../assets/logo/american-express.jpg"> 
-      </div> 
+        <div class="offset-2 col-lg-6 col-md-8 col-sm-10 col-xs-12">
 
-    <form [formGroup]="paymentForm" role="form"(ngSubmit)="onFormSubmit()"  class="form">
+            <h3>Formulaire de paiement</h3>
+            <hr class="my-4">
 
-    <div class="form-group">
-    <label for="fullName">Votre nom et prénom</label>
-
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text"><i class="fa fa-user"></i></span>
-      </div>
-      <input name="username" class="form-control" required="" type="text" placeholder="" required>
-
-    </div> <!-- input-group.// -->
-    </div> <!-- form-group.// -->
-    
-    <div class="form-group">
-    <label for="cardNumber">Votre numéro de votre carte bancaire</label>
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text"><i class="fa fa-credit-card"></i></span>
-      </div>
-      <input name="cardNumber" class="form-control" type="text" placeholder="" required>
-    </div> <!-- input-group.// -->
-    </div> <!-- form-group.// -->
-    
-    <div class="row">
-        <div class="col-sm-8">
-            <div class="form-group">
-                <label><span class="hidden-xs">Date d'éxpiration</span> </label>
-              <div class="form-inline">
-                <select class="form-control" style="width:45%">
-              <option>Mois</option>
-              <option>01 - Janvier</option>
-              <option>02 - Février</option>
-              <option>03 - Mars</option>
-              <option>04 - Avril</option>
-              <option>05 - Mai</option>
-              <option>06 - Juin</option>
-              <option>07 - Juillet</option>
-              <option>08 - Août</option>
-              <option>09 - Septembre</option>
-              <option>10 - Octobre</option>
-              <option>11 - Novembre</option>
-              <option>12 - Décembre</option>
-            </select>
-                  <span style="width:10%; text-align: center"> / </span>
-                  <select class="form-control" style="width:45%">
-              <option>Année</option>
-              <option>2019</option>
-              <option>2020</option>
-              <option>2021</option>
-            </select>
-              </div>
+            <p class="alert alert-warning" *ngIf="!paiement">Saisissez vos coordonnées bancaires</p>
+            <p class="alert alert-success" *ngIf="paiement"> Votre paiement a bien été pris en compte</p>
+            <div>
+                <input type="radio" name="options"><img class="cc" src="../../assets/logo/visa.png">
+                <input type="radio" name="options"><img class="cc" src="../../assets/logo/visa-el.png">
+                <input type="radio" name="options"><img class="cc" src="../../assets/logo/mastercard.png">
+                <input type="radio" name="options"><img class="cc" src="../../assets/logo/american-express.jpg">
             </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="form-group">
-                <label title="" data-original-title="3 digits code on back side of the card" data-toggle="tooltip">CVC <i class="fa fa-question-circle"></i></label>
-                <input class="form-control" type="text"required maxlength="3" >
-                <div class="help is-error" *ngIf="CVCInput.invalid && CVCInput.dirty">
-                    Le numéro de CVC est inscrit au dos de votre carte bancaire et comporte 3 chiffres
-                  </div>
-            </div> <!-- form-group.// -->
-        </div>
-    </div> <!-- row.// -->
-    <button class="subscribe btn btn-primary btn-block" type="button"> Payer ma réservation  </button>
-    </form>
-    </div> <!-- card-body.// -->
-    <!-- </article> card.// -->
 
+            <!-- [formGroup]="paymentForm" role="form" (ngSubmit)="onFormSubmit()"  -->
+            <form class="form">
+
+                <div class="form-group">
+                    <label for="fullName">Votre nom et prénom</label>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-user"></i></span>
+                        </div>
+                        <input name="username" class="form-control" required="" type="text" placeholder="" required>
+
+                    </div>
+                    <!-- input-group.// -->
+                </div>
+                <!-- form-group.// -->
+
+                <div class="form-group">
+                    <label for="cardNumber">Votre numéro de votre carte bancaire</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-credit-card"></i></span>
+                        </div>
+                        <input name="cardNumber" class="form-control" type="text" placeholder="" required>
+                    </div>
+                    <!-- input-group.// -->
+                </div>
+                <!-- form-group.// -->
+
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <label><span class="hidden-xs">Date d'éxpiration</span> </label>
+                            <div class="form-inline">
+                                <select class="form-control" style="width:45%">
+                  <option>Mois</option>
+                  <option>01 - Janvier</option>
+                  <option>02 - Février</option>
+                  <option>03 - Mars</option>
+                  <option>04 - Avril</option>
+                  <option>05 - Mai</option>
+                  <option>06 - Juin</option>
+                  <option>07 - Juillet</option>
+                  <option>08 - Août</option>
+                  <option>09 - Septembre</option>
+                  <option>10 - Octobre</option>
+                  <option>11 - Novembre</option>
+                  <option>12 - Décembre</option>
+                </select>
+                                <span style="width:10%; text-align: center"> / </span>
+                                <select class="form-control" style="width:45%">
+                  <option>Année</option>
+                  <option>2019</option>
+                  <option>2020</option>
+                  <option>2021</option>
+                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label title="" data-original-title="3 digits code on back side of the card" data-toggle="tooltip">CVC <i
+                  class="fa fa-question-circle"></i></label>
+                            <input class="form-control" type="text" required maxlength="3">
+                            <!-- <div class="help is-error" *ngIf="CVCInput.invalid && CVCInput.dirty"> -->
+                            <!-- Le numéro de CVC est inscrit au dos de votre carte bancaire et comporte 3 chiffres
+                        </div> -->
+                        </div>
+                        <!-- form-group.// -->
+                    </div>
+                </div>
+                <!-- row.// -->
+                <button class="subscribe btn btn-primary btn-block" type="button" (click)="onPaiement()"> Payer ma réservation
+        </button>
+            </form>
         </div>
+        <!-- card-body.// -->
+        <!-- </article> card.// -->
+
+    </div>
 </div>

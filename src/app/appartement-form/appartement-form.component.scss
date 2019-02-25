@@ -1,25 +1,28 @@
-* {
-    font-size: 18px;
+// * {
+//     font-size: 18px;
+// }
+// .container>form>input {
+//     display: block;
+//     // display: flex;
+//     // flex-direction: column;
+// }
+// .container>mat-form-field {
+//     font-size: 18px;
+// }
+// .container>mat-checkbox {
+//     font-size: 18px;
+// }
+// .example-container>* {
+//     width: 100%;
+// }
+// .photos-upload-container{
+//     display:inline-block;
+// }
+h3 {
+    text-align: center;
+    padding-top: 20px;
 }
 
-.container>form>input {
-    display: block;
-    // display: flex;
-    // flex-direction: column;
-}
-
-.container>mat-form-field {
-    font-size: 18px;
-}
-
-.container>mat-checkbox {
-    font-size: 18px;
-}
-
-.example-container>* {
-    width: 100%;
-}
-
-.photos-upload-container{
-    display:inline-block;
+.bouton-img {
+    padding: 10px 0;
 }

@@ -20,7 +20,7 @@ const routes: Routes = [
 
   { path: 'home', component: HomeComponent },
   { path: 'appartement-list', component: AppartementListComponent },
-  { path: 'appartement-detail/:appartement', component: AppartementDetailComponent },
+  { path: 'appartement-detail/:name', component: AppartementDetailComponent },
   { path: 'user-signup', component: UserSignUpComponent },
   { path: 'cookies', component: CookiesComponent },
   { path: 'avis', component: AvisComponent },

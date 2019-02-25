@@ -1,54 +1,185 @@
 <div class="container">
-    <form [formGroup]="appartementForm" (ngSubmit)="onSubmitAppartement()">
-        Nom: <input formControlName="nom" placeholder="Titre de l'appartement" /> adresse : <input formControlName="adresse" placeholder="Adresse" />codePostal: <input formControlName="codePostal" placeholder="Code Postal" /> ville: <input formControlName="ville"
-            placeholder="Paris" /> superficie (m²): <input formControlName="superficie" placeholder="Superficie en m²" /> étage: <input formControlName="étage" placeholder="étage" /> nombre de pièces: <input formControlName="nombre_de_pièces" placeholder="Nombre de pièces"
-        /> Nombre maximum de personnes:
-        <input formControlName="capacité" placeholder="Nombre de personnes acceptées" />
-        <!-- Salle1: <input formControlName="salle1" placeholder="Salle n°1" />  -->
-        <!-- Tarif pour la demi journée: <input formControlName="tarif_demi_journée_salle_1" placeholder="Tarif pour la demi journée" /> Tarif pour la journée entière: <input formControlName="tarif_journée_salle_1" placeholder="Tarif pour la journée complète"
+
+    <div class="row">
+
+        <div class="mx-auto">
+
+            <h3>Ajouter mon espace à louer</h3>
+            <hr class="my-4">
+
+            <form [formGroup]="appartementForm" (ngSubmit)="onSubmitAppartement()">
+
+                <div class="form-group formstyle">
+                    <input formControlName="nom" class="form-control formstyle" placeholder="Titre de l'appartement" />
+                </div>
+
+                <div class="form-group formstyle">
+                    <input formControlName="adresse" class="form-control formstyle" placeholder="Adresse" />
+                </div>
+
+                <div class="form-group formstyle">
+                    <input formControlName="codePostal" class="form-control formstyle" placeholder="Code Postal" />
+                </div>
+
+                <div class="form-group formstyle">
+                    <input formControlName="ville" class="form-control formstyle" placeholder="Paris" />
+                </div>
+
+                <div class="form-group formstyle">
+                    <input formControlName="superficie" class="form-control formstyle" placeholder="Superficie en m²" />
+                </div>
+
+                <div class="form-group formstyle">
+                    <input formControlName="étage" class="form-control formstyle" placeholder="étage" />
+                </div>
+
+                <div class="form-group formstyle">
+                    <input formControlName="nombre_de_pièces" class="form-control formstyle" placeholder="Nombre de pièces" />
+                </div>
+
+                <div class="form-group formstyle">
+                    <input formControlName="capacité" class="form-control formstyle" placeholder="Nombre de personnes acceptées" />
+                </div>
+
+                <!-- Salle1: <input formControlName="salle1" placeholder="Salle n°1" />  -->
+                <!-- Tarif pour la demi journée: <input formControlName="tarif_demi_journée_salle_1" placeholder="Tarif pour la demi journée" /> Tarif pour la journée entière: <input formControlName="tarif_journée_salle_1" placeholder="Tarif pour la journée complète"
         /> Tarif pour la soirée: <input formControlName="tarif_soirée_salle_1" placeholder="Tarif pour la soirée" /> Supplément restauration: <input formControlName="supplément_restauration" placeholder="Supplément Restauration" /> -->
-        <div>
-            Wifi: <input type="radio" formControlName="wifi" value="Oui"> Oui
-            <input type="radio" formControlName="wifi" value="Non"> Non
-        </div>
-        <div>
-            Animaux acceptés: <input type="radio" formControlName="animaux_acceptés" value="Oui"> Oui
-            <input type="radio" formControlName="animaux_acceptés" value="Non"> Non
-        </div>
-        <div>
+
+                <div class="form-group row">
+                    <label for="Wifi" class="col-sm-8 col-form-label">Wifi</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" id="Wifi" formControlName="wifi">
+                  <option>Oui</option>
+                  <option>Non</option>
+                </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Animaux acceptés" class="col-sm-8 col-form-label">Animaux acceptés</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" id="Animaux acceptés" formControlName="animaux_acceptés">
+                    <option>Oui</option>
+                    <option>Non</option>
+                </select>
+                    </div>
+                </div>
+
+
+
+                <!-- <div>
             Diffusion de Musique: <input type="radio" formControlName="diffusion_de_musique" value="Oui"> Oui
             <input type="radio" formControlName="diffusion_de_musique" value="Non"> Non
-        </div>
-        <div>
-            Accès aux transports en commun: <input type="radio" formControlName="transports_en_commun" value="Oui"> Oui
-            <input type="radio" formControlName="transports_en_commun" value="Non"> Non
-        </div>
-        <div>
-            Accessible pour les personnes handicapées: <input type="radio" formControlName="accès_handicapé" value="Oui"> Oui
-            <input type="radio" formControlName="accès_handicapé" value="Non"> Non
-        </div>
-        <div>
-            Parking Public à proximité: <input type="radio" formControlName="parking_public" value="Oui"> Oui
-            <input type="radio" formControlName="parking_public" value="Non"> Non
-        </div>
-        <div>
-            Parking Privé: <input type="radio" formControlName="parking_privé" value="Oui"> Oui
-            <input type="radio" formControlName="parking_privé" value="Non"> Non
-        </div>
-        <div>
-            Fumeur: <input type="radio" formControlName="fumeur" value="Oui"> Oui
-            <input type="radio" formControlName="fumeur" value="Non"> Non
-        </div>
-        Descriptif de l'appartement: <input type="text-area" formControlName="descriptif" placeholder="Description de l'appartement" /> Type d'événements acceptés: <input formControlName="type_devenements_acceptés" placeholder="Evénements acceptés" />        prestations annexes: <input formControlName="prestations_annexes" placeholder="Prestations Annexes" />
-        <div class='photos-upload-container'>
-            Image 1: <input type="file" formControlName="img1" (change)="onFileSelected($event)">
-            <button type="button" (click)="onUpload()">Upload</button>
-            Image 2: <input type="file" formControlName="img2"> Image: <input type="file" formControlName="img3"> Image: <input type="file" formControlName="img4"> Image: <input type="file" formControlName="img5">
-        </div>
-        <button type="submit">Submit</button>
-    </form>
+        </div> -->
+                <div class="form-group row">
+                    <label for="Diffusion de Musique" class="col-sm-8 col-form-label">Diffusion de Musique</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" id="Diffusion de Musique" formControlName="diffusion_de_musique">
+                  <option>Oui</option>
+                  <option>Non</option>
+                </select>
+                    </div>
+                </div>
 
-    <!-- <div class="container">
+
+
+                <div class="form-group row">
+                    <label for="Accès aux transports en commun" class="col-sm-8 col-form-label">Accès aux transports en commun</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" id="Accès aux transports en commun" formControlName="transports_en_commun">
+                    <option>Oui</option>
+                    <option>Non</option>
+                </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Accessible pour les personnes handicapées" class="col-sm-8 col-form-label">Accessible pour les personnes handicapées</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" id="Accessible pour les personnes handicapées" formControlName="accès_handicapé">
+                    <option>Oui</option>
+                    <option>Non</option>
+                </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Parking Public à proximité" class="col-sm-8 col-form-label">Parking Public à proximité</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" id="Parking Public à proximité" formControlName="parking_public">
+                    <option>Oui</option>
+                    <option>Non</option>
+                </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Parking Privé" class="col-sm-8 col-form-label">Parking Privé</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" id="Parking Privé" formControlName="parking_privé">
+                    <option>Oui</option>
+                    <option>Non</option>
+               </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label for="Fumeur" class="col-sm-8 col-form-label">Fumeur</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" id="Fumeur" formControlName="fumeur">
+                  <option>Oui</option>
+                  <option>Non</option>
+                </select>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="prestations_annexes">Prestations Annexes</label>
+                    <textarea class="form-control" id="prestations_annexes" rows="2" formControlName="prestations_annexes"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="type_devenements_acceptés">Evénements acceptés</label>
+                    <textarea class="form-control" id="type_devenements_acceptés" rows="2" formControlName="type_devenements_acceptés"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="Description de l'appartement">Description de l'appartement</label>
+                    <textarea class="form-control" id="Description de l'appartement" rows="3" formControlName="descriptif"></textarea>
+                </div>
+
+                <div class='photos-upload-container'>
+                    Image: <input class="bouton-img" type="file" formControlName="img1">
+                </div>
+
+                <div class='photos-upload-container'>
+                    Image: <input class="bouton-img" type="file" formControlName="img2">
+                </div>
+
+                <div class='photos-upload-container'>
+                    Image: <input class="bouton-img" type="file" formControlName="img3">
+                </div>
+
+                <div class='photos-upload-container'>
+                    Image: <input class="bouton-img" type="file" formControlName="img4">
+                </div>
+
+                <div class='photos-upload-container'>
+                    Image: <input class="bouton-img" type="file" formControlName="img5">
+                </div>
+
+                <div class="float-middle"><button type="submit" class="subscribe btn btn-primary btn-block">Enregistrer mes informations</button></div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- <div class="container">
     <mat-form-field>
         <input matInput placeholder="Nom">
     </mat-form-field>

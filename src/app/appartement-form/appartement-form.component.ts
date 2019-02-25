@@ -64,7 +64,7 @@ export class AppartementFormComponent implements OnInit {
   onUpload() {
     const fd = new FormData();
     fd.append('image', this.selectedFile, this.selectedFile.name);
-      this.appartementService.uploadImage(this.selectedFile);
+    this.appartementService.uploadImage(this.selectedFile);
   }
 
   onSubmitAppartement() {
@@ -110,7 +110,7 @@ export class AppartementFormComponent implements OnInit {
             (response: {}) =>
               console.log(response),
             (error) => console.log(error));
-        this.router.navigate(['/', 'appartement-detail']);
+        this.router.navigate(['/', 'appartement-detail', this.appartementForm.get('nom').value]);
       }
     }, errorCode => console.log(errorCode));
   }
