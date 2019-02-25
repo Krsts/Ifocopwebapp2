@@ -96,8 +96,8 @@ export class AppComponent implements OnInit {
 
   VerifyUser(userName, password) {
     this.userLoggingService.getUserByUserNameAndPassword({ userName, password }).subscribe((data: {}) => {
-      console.log('verified data : ' + JSON.stringify(data));
-      console.log(data[0].reservations);
+      // console.log('verified data : ' + JSON.stringify(data));
+      // console.log(data[0].reservations);
       this.reservations = data[0].reservations;
       this.userService.setLocalCart(this.reservations);
       console.log(this.reservations);
