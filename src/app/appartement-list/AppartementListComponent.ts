@@ -18,12 +18,16 @@ export class AppartementListComponent implements OnInit {
   searchInput: string;
   order: string;
   appartements: AppartementJson[];
+  clock: Number;
   // appartementsList: AppartementJson[];
   appartementsList;
   // constructor(private appartementService: AppartementService) { }
-  constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router, private appartementService: AppartementService) {
+  // tslint:disable-next-line:max-line-length
+  constructor(private dataService: DataService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private appartementService: AppartementService, ) {
   }
-
   public searchData = this.dataService.getStorage();
 
   filterAppartements() {
@@ -85,15 +89,15 @@ export class AppartementListComponent implements OnInit {
     // this.appartements = [];
     setInterval(() => {
       // if (this.dataService.getStorage() !== '') {
-        try {
-      this.filterAppartements();
-    } catch{}
+      try {
+        this.filterAppartements();
+      } catch { }
       // } else {
       //   this.appartements = this.appartementsList;
       //   console.log(typeof (this.appartements));
       //   console.log(this.appartements);
       // }
-    }, 100);
+    }, Number(this.dataService.getClock()));
 
 
 

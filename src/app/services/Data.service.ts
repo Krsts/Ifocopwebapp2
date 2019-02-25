@@ -10,13 +10,22 @@ export class DataService {
     storage: string;
     storageList: string[];
     enterKey: boolean;
+    clock: Number;
 
-    constructor(private router: Router, private userService: UserService, private userLoggingService: UserLoggingService) {
+    constructor(private router: Router,
+        private userService: UserService,
+        private userLoggingService: UserLoggingService) {
     }
 
     setStorage(x) {
         this.storage = x;
         this.setList();
+    }
+    setClock(v: Number) {
+        this.clock = v;
+    }
+    getClock() {
+        return this.clock;
     }
 
     setList() {
@@ -35,8 +44,16 @@ export class DataService {
             try {
                 if (this.storageList[0] === '') {
                     return 'empty search';
+                    // tslint:disable-next-line:max-line-length
                 } else if (this.storageList[0] === '' && this.enterKey) {
                     this.router.navigate(['/', 'home']);
+                } else if (this.storageList[0] === '!clock' && this.storageList[1] !== '' && this.storageList[2] === '!s') {
+                    // tslint:disable-next-line:max-line-length
+                    if (Number(this.storageList[1]) > 100) {
+                        // tslint:disable-next-line:max-line-length
+                        this.setClock(Number(this.storageList[1])); console.log('clock updated : ' + this.getClock() + ' ms'); this.storage = '';
+                        this.storageList = [];
+                    }
                     // tslint:disable-next-line:max-line-length
                 } else if (this.storageList[0] === '!détail' && this.userService.getLocalCart().length > 0 && this.storageList.length === 2 && this.storageList[1] !== '') {
                     this.router.navigate(['/', 'appartement-detail', this.userService.getLocalCart()[Number(this.storageList[1])]]);

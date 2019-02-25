@@ -90,7 +90,7 @@
             Votre Appartement
           </button>
 
-          <a routerLink="/user-profile" routerLinkActive="active"><button mat-menu-item
+          <a routerLink="/user-profile/:nom" routerLinkActive="active"><button mat-menu-item
               [hidden]="!this.userService.getStatus()">
               <mat-icon class="mat-iconSize">pool</mat-icon>Réservations
             </button></a>
@@ -106,7 +106,7 @@
                 </span></mat-list-item>
             </mat-list>
           </div>
-          <button class="btn btn-success btn-sm" *ngIf="this.userService.checkLocalCart()" (click)="updateCart()">Upload Cart</button>
+          <button style="margin:0 auto" class="btn btn-success btn-sm" *ngIf="this.userService.checkLocalCart()" (click)="updateCart()">Upload Cart</button>
         </mat-menu>
         <!-- Mat Menu Close -->
 

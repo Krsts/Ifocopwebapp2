@@ -122,6 +122,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.userIcon = 'mood_bad';
+    this.dataService.setClock(1000);
     // this.userService.setUserName('Gilles');
 
     //   $(document).ready(function () {
