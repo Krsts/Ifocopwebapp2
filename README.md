@@ -10,8 +10,10 @@ Pour fonctionner l'application nécessite le lancement du serveur présent dans 
 ### Installation
 
 >~/backend **nodemon**
+
 >[MongoBase](https://google.com)
-**mongod --dbpath** ***<***emplacement de la base***>***
+**mongod --dbpath** ***<**emplacement de la base**>***
+
 >Exécuter **ng serve** à la racine du projet pour lancer l'application dans le navigateur.
 
 ### Utilisation
