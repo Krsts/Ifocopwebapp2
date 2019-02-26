@@ -9,11 +9,14 @@ Pour fonctionner l'application nécessite le lancement du serveur présent dans 
 
 ### Installation
 
+>Exécuter **npm install** dans le dossier backend
 >~/backend **nodemon**
 
->[MongoBase](https://google.com)
-**mongod --dbpath** ***<**emplacement de la base**>***
+>La base Mongo se trouve dans le dossier daymeetings DB
 
+Après importation de la base : **mongod --dbpath** ***<**emplacement de la base**>***
+
+>Exécuter **npm install** dans le dossier racine du projet
 >Exécuter **ng serve** à la racine du projet pour lancer l'application dans le navigateur.
 
 ### Utilisation

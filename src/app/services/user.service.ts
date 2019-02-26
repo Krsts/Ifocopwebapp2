@@ -82,7 +82,7 @@ export class UserService {
     return this.cart;
   }
 
-  setLocalCart(data: Array) {
+  setLocalCart(data: Array<String>) {
     this.cart = data;
   }
   addToLocalCart(id: String) {

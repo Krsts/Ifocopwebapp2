@@ -14,7 +14,7 @@ export class UserProfileComponent implements OnInit {
 
   edit = false;
   userName: string;
-  user;
+  user : any;
   name: string;
   firstName: string;
   address: string;
@@ -89,7 +89,6 @@ export class UserProfileComponent implements OnInit {
         this.email = this.user.email;
         this.phone = this.user.phone;
         this.password = this.user.password;
-        
 
         console.log(this.userName);
         console.log(this.phone);
