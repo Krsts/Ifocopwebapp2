@@ -1,4 +1,5 @@
 <div class="container-fluid" *ngIf="this.userService.getStatus() && !edit">
+    <h1>Données Utilisateur</h1>
     <ul>
         <li>nom d'utilisateur {{userName}}</li>
         <li>nom {{name}}</li>
@@ -8,14 +9,20 @@
         <li>phone {{phone}}</li>
         <li>mot de passe {{password}}</li>
     </ul>
-    <button (click)="EditMode()">Modifier Profil</button>
+    <h1>Réservations</h1>
+    <ul *ngFor="let res of reservations">
+        <li>{{res}}</li>
+    </ul>
 </div>
+
+<button *ngIf="access" class="btn btn-danger" (click)="EditMode()">{{ButtonText}}</button>
 
 <div *ngIf="edit" class="container">
 
     <form [formGroup]="uSerFOrm" (ngSubmit)="onFormSubmit()">
         Username: <input formControlName="userName" /> Courriel : <input formControlName="email" /> Nom: <input formControlName="name" /> Prénom: <input formControlName="firstName" /> Addresse: <input formControlName="address" /> Téléphone: <input formControlName="phone"
         /> Mot de passe: <input formControlName="password" />
-        <button type="submit">Submit</button> <button (click)="updateCustomer()">Send Update</button>
+        <button type="submit" class="btn btn-warning">Mettre à jour l'utlisatateur</button>
+        <!-- <button (click)="updateCustomer()">Send Update</button> -->
     </form>
 </div>

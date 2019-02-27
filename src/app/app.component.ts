@@ -26,28 +26,33 @@ export class AppComponent implements OnInit {
   user;
 
   // tslint:disable-next-line:max-line-length
-  constructor(private router: Router, private dataService: DataService, private userService: UserService, private userLoggingService: UserLoggingService, private formBuilder: FormBuilder) {
+  constructor(
+    private router: Router,
+    private dataService: DataService,
+    private userService: UserService,
+    private userLoggingService: UserLoggingService,
+    private formBuilder: FormBuilder) {
     this.createForm();
   }
 
   onDeleteRes(i) {
     this.reservations.splice(i, 1);
+    this.updateCart();
   }
   updateCart() {
     try {
       this.userLoggingService.getUserByUserName({ 'userName': this.userService.getUserName() }).subscribe((data: {}) => {
         this.user = data[0];
-        // this.user['reservations'] = this.user['reservations'];
-        console.log('data : ' + JSON.stringify(data));
-        console.log('_id : ', this.user['_id']);
-        console.log('this.user : ' + JSON.stringify(this.user));
-      }, errorCode => console.log(errorCode),
-      ); this.userLoggingService.updateUser(this.user, this.user['_id']).subscribe((res) => {
-        console.log('Updated customer');
-      });
+        this.user['reservations'] = this.userService.getLocalCart();
+      }, errorCode => console.log(errorCode)
+      )
+      setTimeout(() => {
+        this.userLoggingService.updateUser(this.user, this.user['_id']).subscribe((res) => {
+          console.log('Updated customer');
+        })
+      }, 1000);
     } catch { }
   }
-
   // tslint:disable-next-line:use-life-cycle-interface
   ngAfterContentChecked(): void {
     this.userName = this.userService.getUserName();
@@ -56,16 +61,20 @@ export class AppComponent implements OnInit {
     if (this.userService.getStatus() === true) {
       this.userIcon = 'mood';
       this.reservations = this.userService.getLocalCart();
+      // console.log(this.reservations)
+      // console.log(this.userService.getLocalCart());
+      // if (this.userService.getLocalCart() !== this.userService.getdbCart()) {
+      //   this.updateCart();
+      //   this.userService.setdbCart(this.userService.getLocalCart())
+      // }
     } else {
       this.userIcon = 'mood_bad';
       this.userService.clearLocalCart();
     }
   }
-
   clearStorage() {
     this.dataService.clearStorage();
   }
-
   createForm() {
     this.userLoginForm = this.formBuilder.group({
       userName: ['', [
@@ -89,12 +98,11 @@ export class AppComponent implements OnInit {
       // console.log(data[0].reservations);
       this.reservations = data[0].reservations;
       this.userService.setLocalCart(this.reservations);
-      console.log(this.reservations);
-
+      this.userService.setdbCart(this.reservations);
+      // console.log(this.reservations);
       try {
         if (data[0].userName.length > 0) {
           this.userService.setUserName(data[0].userName);
-
         } else { }
       } catch { }
     }, errorCode => console.log('errorCode'));

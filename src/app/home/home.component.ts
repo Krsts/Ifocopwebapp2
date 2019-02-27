@@ -9,6 +9,7 @@ import { UserService } from '../services/user.service';
 })
 export class HomeComponent implements OnInit {
 
+  ready = false;
   appartements;
   appartement_1;
   appartement_2;
@@ -30,14 +31,15 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.appartementService.getAllappartements().subscribe((data: {}) => {
       this.appartements = data['appartements'];
-      try{
-      this.appartement_1 = this.appartements[Math.floor(Math.random() * this.appartements.length)];
-      this.appartement_2 = this.appartements[Math.floor(Math.random() * this.appartements.length)];
-      this.appartement_3 = this.appartements[Math.floor(Math.random() * this.appartements.length)];
-      this.appartement_4 = this.appartements[Math.floor(Math.random() * this.appartements.length)];
-      this.appartement_5 = this.appartements[Math.floor(Math.random() * this.appartements.length)];
-      this.appartement_6 = this.appartements[Math.floor(Math.random() * this.appartements.length)];
-    } catch{}
+      try {
+        this.appartement_1 = this.appartements[Math.floor(Math.random() * this.appartements.length)];
+        this.appartement_2 = this.appartements[Math.floor(Math.random() * this.appartements.length)];
+        this.appartement_3 = this.appartements[Math.floor(Math.random() * this.appartements.length)];
+        this.appartement_4 = this.appartements[Math.floor(Math.random() * this.appartements.length)];
+        this.appartement_5 = this.appartements[Math.floor(Math.random() * this.appartements.length)];
+        this.appartement_6 = this.appartements[Math.floor(Math.random() * this.appartements.length)];
+        this.ready = true;
+      } catch{ }
     }
     )
   }

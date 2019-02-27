@@ -32,7 +32,7 @@ export class DataService {
     setList() {
         this.storageList = this.storage.split(' ');
         // console.log(`Storage list : ${this.storageList}`);
-        console.log(this.storageList);
+        // console.log(this.storageList);
     }
 
     clearStorage() {
@@ -72,7 +72,7 @@ export class DataService {
                 } else if (this.storageList[0] === '!u' && this.storageList[2] === '!p' && this.storageList[1] !== '' && this.storageList[3] !== '' && this.storageList[4] === '!s') {
                     // tslint:disable-next-line:max-line-length
                     this.userLoggingService.getUserByUserNameAndPassword({ 'userName': this.storageList[1].toString(), 'password': this.storageList[3].toString() }).subscribe((data: {}) => {
-                        console.log(data); try {
+                         try {
                             if (data[0].userName.length > 0) {
                                 this.userService.setUserName(data[0].userName);
                                 this.userService.setLocalCart(data[0].reservations);

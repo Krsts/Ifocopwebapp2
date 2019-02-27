@@ -61,8 +61,7 @@ Dans la barre de recherche :
 >Sur la page de détail il est possible de naviguer vers la page de paiment. La page de paiement n'implémente aucune fonctionnalité signifiante.
 
 > Pour supprimer une réservation, il suffit d'appuyer sur la croix présente à côté du nom du produit dans le menu utilisateur.
->Il est possible d'envoyer les réservations vers la base de données en appuyant sur le bouton **upload cart**.
->Le cart envoyé vers la base est récupéré à la prochine connexion de l'utilisateur.
+>Le cart envoyé vers la base est récupéré à la prochaine connexion de l'utilisateur.
 
 >**!détail** ***<**Index**>*** | Pour voir le détail du produit présent dans le menu des réservations en se basant sur l'index des réservations.
 

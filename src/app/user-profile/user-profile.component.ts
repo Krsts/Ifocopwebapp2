@@ -4,6 +4,7 @@ import { UserLoggingService } from '../services/user-logging.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User } from '../shared/user.model';
+import { DataService } from '../services/Data.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -24,24 +25,28 @@ export class UserProfileComponent implements OnInit {
   id: string;
   userChecker: string;
   uSerFOrm;
+  reservations;
+  ButtonText: String;
+  access: boolean;
 
-  onFormSubmit() {
-    this.user = {
-      userName: this.uSerFOrm.get('userName').value,
-      name: this.uSerFOrm.get('name').value,
-      firstName: this.uSerFOrm.get('firstName').value,
-      address: this.uSerFOrm.get('address').value,
-      email: this.uSerFOrm.get('email').value,
-      phone: this.uSerFOrm.get('phone').value,
-      password: this.uSerFOrm.get('password').value
-    };
+  ModifCheck() {
+    if (this.userService.getUserName() === this.userName) {
+      this.access = true;
+    } else { this.access = false }
   }
+
+
   EditMode() {
+    if (!this.edit) {
+      this.ButtonText = "Revenir";
+    } else {
+      this.ButtonText = "Modifier les données de l'utlisateur";
+    }
     return this.edit = !this.edit;
   }
   updateCustomer() {
     this.userLoggingService.getUserByUserName({ 'userName': this.userChecker }).subscribe(data => {
-      console.log('data :' + data);
+      // console.log('data :' + data);
       this.id = data['_id'];
     }, error => console.log(error));
     if (this.user.userName.length > 0) {
@@ -54,24 +59,46 @@ export class UserProfileComponent implements OnInit {
     } console.log('userName Empty');
   }
 
+  onFormSubmit() {
+    this.user = {
+      userName: this.uSerFOrm.get('userName').value,
+      name: this.uSerFOrm.get('name').value,
+      firstName: this.uSerFOrm.get('firstName').value,
+      address: this.uSerFOrm.get('address').value,
+      email: this.uSerFOrm.get('email').value,
+      phone: this.uSerFOrm.get('phone').value,
+      password: this.uSerFOrm.get('password').value
+    };
+    this.updateCustomer();
+  }
+
   // tslint:disable-next-line:max-line-length
-  constructor(private userLoggingService: UserLoggingService, private userService: UserService, private router: Router, private route: ActivatedRoute) {
+  constructor(private userLoggingService: UserLoggingService,
+    private userService: UserService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private dataService: DataService) {
   }
   ngOnInit() {
+    this.access = false;
+    this.dataService.clearStorage();
     this.userChecker = this.userService.getUserName();
-    console.log(this.userChecker);
+    // console.log(this.userChecker);
     this.route.params
       // tslint:disable-next-line:max-line-length
-      .subscribe(userName => { console.log(userName); this.userChecker = userName['userName']; }, errorCode => console.log(errorCode));
+      .subscribe(userName => {
+        // console.log(userName);
+        this.userChecker = userName['userName'];
+      }, errorCode => console.log(errorCode));
 
     if (!this.userService.getStatus()) {
       this.router.navigate(['/', 'home']);
     } else {
       console.log('userChecker : ' + this.userChecker);
       this.userLoggingService.getUserByUserName({ 'userName': this.userChecker.toString() }).subscribe(data => {
-        console.log(data[0]);
+        // console.log(data[0]);
         this.user = data[0];
-        console.log('this.user : ' + this.user);
+        // console.log('this.user : ' + this.user);
         this.id = this.user._id;
         this.userName = this.user.userName;
         this.name = this.user.name;
@@ -90,9 +117,12 @@ export class UserProfileComponent implements OnInit {
           phone: new FormControl(this.phone),
           password: new FormControl(this.password, [Validators.required])
         });
+        this.ButtonText = "Modifier les données de l'utlisateur";
 
-        console.log(this.userName);
-        console.log(this.phone);
+        // console.log(this.userName);
+        // console.log(this.phone);
+        this.reservations = this.userService.getLocalCart();
+        this.ModifCheck();
       },
         errorCode => console.log(errorCode));
     }

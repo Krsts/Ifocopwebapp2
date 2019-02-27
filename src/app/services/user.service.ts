@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 // import { DataService } from './Data.service';
+import { UserLoggingService } from './user-logging.service';
 
 
 @Injectable({
@@ -12,12 +13,27 @@ export class UserService {
   // userName = this.userData.userName;
   userName: string;
   cart: Array<String>;
+  user;
+  dbCart: Array<String>;
 
+  setdbCart(cart) {
+    this.dbCart = cart;
+  }
+  getdbCart() {
+    return this.dbCart;
+  }
+  getUserFromDB() {
+    this.userLoggingService.getUserByUserName({ 'userName': this.getUserName() }).subscribe((data: {}) => {
+      this.user = data[0];
+    })
+  }
 
+  getLocalUser() {
+    return this.user;
+  }
   getStatus() {
     return this.status;
   }
-
   getLoginStatus() {
     if (this.status) {
       return 'connecté';
@@ -25,7 +41,6 @@ export class UserService {
       return 'déconnecté';
     }
   }
-
   toggleStatus(toStatus: boolean) {
     this.status = toStatus;
     // this.setLoginStatus(toStatus);
@@ -51,7 +66,7 @@ export class UserService {
 
   goToSignUp() {
     // this.dataService.clearStorage();
-      this.router.navigate(['/', 'user-sign-up']);
+    this.router.navigate(['/', 'user-sign-up']);
   }
 
   leaveProfile() {
@@ -89,6 +104,18 @@ export class UserService {
   }
   addToLocalCart(id: String) {
     this.cart.push(id);
+    try {
+      this.userLoggingService.getUserByUserName({ 'userName': this.getUserName() }).subscribe((data: {}) => {
+        this.user = data[0];
+        this.user['reservations'] = this.getLocalCart();
+      }, errorCode => console.log(errorCode)
+      )
+      setTimeout(() => {
+        this.userLoggingService.updateUser(this.user, this.user['_id']).subscribe((res) => {
+          console.log('Updated customer');
+        })
+      }, 1000);
+    } catch { }
   }
 
   clearLocalCart() {
@@ -98,9 +125,10 @@ export class UserService {
   getUserName() {
     return this.userName;
   }
-  constructor(private router: Router)
-    // private dataService: DataService) 
-    { }
+  constructor(private router: Router,
+    private userLoggingService: UserLoggingService)
+  // private dataService: DataService) 
+  { }
 
 }
 
