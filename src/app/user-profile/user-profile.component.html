@@ -9,10 +9,12 @@
         <li>phone {{phone}}</li>
         <li>mot de passe {{password}}</li>
     </ul>
-    <h1>Réservations</h1>
-    <ul *ngFor="let res of reservations">
-        <li>{{res}}</li>
-    </ul>
+    <div *ngIf="access">
+        <h1>Réservations</h1>
+        <ul *ngFor="let res of reservations">
+            <li>{{res}}</li>
+        </ul>
+    </div>
 </div>
 
 <button *ngIf="access" class="btn btn-danger" (click)="EditMode()">{{ButtonText}}</button>
