@@ -37,18 +37,7 @@ export class AppComponent implements OnInit {
     try {
       this.userLoggingService.getUserByUserName({ 'userName': this.userService.getUserName() }).subscribe((data: {}) => {
         this.user = data[0];
-        // {
-        // '_id': data['_id'],
-        // 'userName': data['userName'],
-        // 'name': data['name'],
-        // 'firstName': data['firstName'],
-        // 'address': data['address'],
-        // 'email': data['email'],
-        // 'phone': data['phone'],
-        // 'password': data['password'],
-        // 'reservations': this.userService.getLocalCart()
-        // };
-        this.user['reservations'] = this.userService.getLocalCart();
+        // this.user['reservations'] = this.user['reservations'];
         console.log('data : ' + JSON.stringify(data));
         console.log('_id : ', this.user['_id']);
         console.log('this.user : ' + JSON.stringify(this.user));
@@ -101,20 +90,11 @@ export class AppComponent implements OnInit {
       this.reservations = data[0].reservations;
       this.userService.setLocalCart(this.reservations);
       console.log(this.reservations);
-      // for (let i = 0; i < this.data[0].reservations.length; i++) {
-      //   this.userService.addToLocalCart(this.data[0].reservations[i]);
-      //   this.reservations.push(this.data[0].reservations[i]);
-      // }
 
       try {
         if (data[0].userName.length > 0) {
           this.userService.setUserName(data[0].userName);
 
-          //   for (let i = 0; i< this.data[0].reservations.length; i++){
-          //   this.userService.addToLocalCart(this.data[0].reservations[i]);
-          //   this.reservations.push(this.data[0].reservations[i]);
-          // }
-          //   console.log("Reservations : " + this.reservations);
         } else { }
       } catch { }
     }, errorCode => console.log('errorCode'));
@@ -123,26 +103,5 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.userIcon = 'mood_bad';
     this.dataService.setClock(100);
-    // this.userService.setUserName('Gilles');
-
-    //   $(document).ready(function () {
-    //     console.log('Document ready');
-
-    //     $('#button').click(function () {
-    //       $('#item').toggle();
-    //     });
-    //   });
-    // }
-
-    // searchfetch($event: any) {
-    //   this.dataService.setStorage($event);
-    //   console.log($event);
-    //   this.query = $event;
-    //   if ($event === '') {
-    //   this.router.navigate(['./home'], $event);
-    // } else {
-    //   this.router.navigate(['./appartement-list'], $event);
-    // }
-    // }
   }
 }

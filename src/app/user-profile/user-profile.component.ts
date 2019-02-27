@@ -25,9 +25,6 @@ export class UserProfileComponent implements OnInit {
   userChecker: string;
   uSerFOrm;
 
-
-
-
   onFormSubmit() {
     this.user = {
       userName: this.uSerFOrm.get('userName').value,

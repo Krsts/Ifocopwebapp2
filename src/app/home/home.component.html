@@ -1,41 +1,4 @@
-<!-- <img src="../../assets/logo/logo-site.PNG" class="img-fluid"/> -->
-<!-- <div class="menuFive">
-    <span></span>
-    <span></span>
-</div> -->
 <script src="home.component.js"></script>
-
-
-<!-- <nav id="sideNav">
-    <button class="fa fa-times" id="close"></button>
-    <div>
-        <a href="#">home</a>
-        <a href="#">mens</a>
-        <a href="#">womens</a>
-        <a href="#">goods</a>
-        <a href="#">brands</a>
-        <a href="#">blog</a>
-        <a href="#">about</a>
-        <a href="#">contact</a>
-        <a href="#">shipping</a>
-    </div>
-</nav>
-<div id="container">
-    <header>
-        <nav id="mainNav">
-            <button class="fa fa-bars open"></button>
-            <div>
-                <a routerLink="/appartement-list" routerLinkActive="active">appartement-list</a>
-                <span style="margin-left: 1em; margin-right: 1em;"><a routerLink="/home" routerLinkActive="active">home</a></span>
-                <a href="#"><i class="fa fa-search"></i></a>
-                <a href="#"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-        </nav>
-        <div class="cta">
-            <h1>Explorez vos opportunités</h1>
-            <button>Réservez dès maintenant</button>
-        </div>
-    </header> -->
 
 <div class="container">
 
@@ -84,78 +47,62 @@
             <div class="card text-center bg-light mb-3">
                 <img class="img-fluid card-img-top" src="../../assets/img/9.jpg" alt="Card image cap" height="42">
                 <div class="card-body">
-                    <h5 class="card-title">{{nom}}</h5>
-                    <p class="card-text">{{descriptif}}</p>
-                    <a [routerLink]="['/paiement']" routerLinkActive="router-link-active" class="btn btn-primary">Réserver</a>
+                    <h5 class="card-title">{{appartement_1.nom}}</h5>
+                    <p class="card-text">{{appartement_1.descriptif}}</p>
+                    <!-- <a [routerLink]="['/paiement']" routerLinkActive="router-link-active" class="btn btn-primary">Réserver</a> -->
+                    <button class="btn btn-warning" (click)="onReserver(appartement_1.nom)">Réserver</button>
                 </div>
             </div>
             <div class="card text-center bg-light mb-3">
                 <img class="img-fluid card-img-top" src="../../assets/img/11.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">{{nom}}</h5>
-                    <p class="card-text">{{descriptif}}</p>
-                    <a [routerLink]="['/paiement']" routerLinkActive="router-link-active" class="btn btn-primary">Réserver</a>
+                    <h5 class="card-title">{{appartement_2.nom}}</h5>
+                    <p class="card-text">{{appartement_2.descriptif}}</p>
+                    <!-- <a [routerLink]="['/paiement']" routerLinkActive="router-link-active" class="btn btn-primary">Réserver</a> -->
+                    <button class="btn btn-warning" (click)="onReserver(this.appartement_2.nom)">Réserver</button>
                 </div>
             </div>
             <div class="card text-center bg-light mb-3">
                 <img class="img-fluid card-img-top" src="../../assets/img/8.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">{{nom}}</h5>
-                    <p class="card-text">{{descriptif}}</p>
-                    <a [routerLink]="['/paiement']" routerLinkActive="router-link-active" class="btn btn-primary">Réserver</a>
+                    <h5 class="card-title">{{appartement_3.nom}}</h5>
+                    <p class="card-text">{{appartement_3.descriptif}}</p>
+                    <!-- <a [routerLink]="['/paiement']" routerLinkActive="router-link-active" class="btn btn-primary">Réserver</a> -->
+                    <button class="btn btn-warning" (click)="onReserver(this.appartement_3.nom)">Réserver</button>
                 </div>
             </div>
 
             <div class="card text-center bg-light mb-3">
                 <img class="img-fluid card-img-top" src="../../assets/img/7.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">{{nom}}</h5>
-                    <p class="card-text">{{descriptif}}</p>
-                    <a [routerLink]="['/paiement']" routerLinkActive="router-link-active" class="btn btn-primary">Réserver</a>
+                    <h5 class="card-title">{{appartement_4.nom}}</h5>
+                    <p class="card-text">{{appartement_4.descriptif}}</p>
+                    <!-- <a [routerLink]="['/paiement']" routerLinkActive="router-link-active" class="btn btn-primary">Réserver</a> -->
+                    <button class="btn btn-warning" (click)="onReserver(this.appartement_4.nom)">Réserver</button>
                 </div>
             </div>
 
         </div>
         <hr>
         <hr>
-        <!-- <a href="#"> -->
-        <!-- <figure class="col-md-3 col-sm-6"> -->
-        <!-- <figure class=""> -->
-        <!-- <img src="https://www.stormykromer.com/images/55210-305_L.png" class="img-fluid" /> -->
-
-        <!-- <figcaption>
-                        <a href="#">Appartements <i></i></a> -->
-        <!-- <a href="#">Appartements <i class="fa fa-long-arrow-right"></i></a> -->
-        <!-- </figcaption>
-                </figure>
-            </a>
-            <a href="#"> -->
-        <!-- <figure class="col-md-3 col-sm-6"> -->
-        <!-- <figure class="col"> -->
-        <!-- <img src="http://pngimg.com/upload_small/boots/boots_PNG7815.png" class="img-fluid" /> -->
-        <!-- <figcaption>
-                        <a href="#">Salles <i></i></a>
-                    </figcaption>
-                </figure> -->
-        <!-- </a> -->
-
-
         <div class="row">
             <div class="card-deck">
                 <div class="card text-center bg-light mb-3">
                     <img class="img-fluid card-img-top" src="../../assets/img/5.jpg" alt="Card image cap" height="42">
                     <div class="card-body">
                         <h5 class="card-title">Notre offre du moment</h5>
-                        <p class="card-text">Salon convivialité</p>
-                        <a href="#" class="btn btn-primary">Réserver</a>
+                        <p class="card-text">{{appartement_5.nom}}</p>
+                        <!-- <a href="#" class="btn btn-primary">Réserver</a> -->
+                        <button class="btn btn-warning" (click)="onReserver(appartement_5.nom)">Réserver</button>
                     </div>
                 </div>
                 <div class="card text-center bg-light mb-3">
                     <img class="img-fluid card-img-top" src="../../assets/img/2.jpg" alt="Card image cap" height="42">
                     <div class="card-body">
                         <h5 class="card-title">Nouveauté</h5>
-                        <p class="card-text">Grenier festif</p>
-                        <a href="#" class="btn btn-primary">Réserver</a>
+                        <p class="card-text">{{appartement_6.nom}}</p>
+                        <!-- <a href="#" class="btn btn-primary">Réserver</a> -->
+                        <button class="btn btn-warning" (click)="onReserver(appartement_6.nom)">Réserver</button>
                     </div>
                 </div>
 

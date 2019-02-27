@@ -11,6 +11,7 @@ export class DataService {
     storageList: string[];
     enterKey: boolean;
     clock: Number;
+    appartements;
 
     constructor(private router: Router,
         private userService: UserService,
@@ -111,5 +112,10 @@ export class DataService {
             return 0;
         }
     }
-
+    setAppartements(appartements) {
+        this.appartements = appartements;
+    }
+    getAppartements() {
+        return this.appartements;
+    }
 }
