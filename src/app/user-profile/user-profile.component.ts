@@ -14,7 +14,7 @@ export class UserProfileComponent implements OnInit {
 
   edit = false;
   userName: string;
-  user : any;
+  user: any;
   name: string;
   firstName: string;
   address: string;
@@ -23,17 +23,10 @@ export class UserProfileComponent implements OnInit {
   phone: string;
   id: string;
   userChecker: string;
+  uSerFOrm;
 
 
-  uSerFOrm = new FormGroup({
-    userName: new FormControl(this.userName, [Validators.required, Validators.minLength(3)]),
-    name: new FormControl(this.name, [Validators.required, Validators.minLength(1)]),
-    firstName: new FormControl(this.firstName, [Validators.minLength(3)]),
-    address: new FormControl(this.address, [Validators.minLength(5)]),
-    email: new FormControl(this.email, [Validators.required, Validators.email]),
-    phone: new FormControl(this.phone),
-    password: new FormControl(this.password, [Validators.required])
-  });
+
 
   onFormSubmit() {
     this.user = {
@@ -57,7 +50,8 @@ export class UserProfileComponent implements OnInit {
     if (this.user.userName.length > 0) {
       this.user['reservations'] = this.userService.getLocalCart();
       this.userLoggingService.updateUser(this.user, this.id).subscribe((res) => {
-      console.log('Updated the customer');
+        console.log('Updated the customer');
+        this.userService.setUserName(this.user.userName);
         this.router.navigate(['/', 'home']);
       }, errorCode => console.log(errorCode));
     } console.log('userName Empty');
@@ -89,6 +83,16 @@ export class UserProfileComponent implements OnInit {
         this.email = this.user.email;
         this.phone = this.user.phone;
         this.password = this.user.password;
+
+        this.uSerFOrm = new FormGroup({
+          userName: new FormControl(this.userName, [Validators.required, Validators.minLength(3)]),
+          name: new FormControl(this.name, [Validators.required, Validators.minLength(1)]),
+          firstName: new FormControl(this.firstName, [Validators.minLength(3)]),
+          address: new FormControl(this.address, [Validators.minLength(5)]),
+          email: new FormControl(this.email, [Validators.required, Validators.email]),
+          phone: new FormControl(this.phone),
+          password: new FormControl(this.password, [Validators.required])
+        });
 
         console.log(this.userName);
         console.log(this.phone);

@@ -5,6 +5,7 @@ import { User } from '../shared/user.model';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
+import { DataService } from '../services/Data.service';
 
 
 
@@ -16,7 +17,11 @@ import { UserService } from '../services/user.service';
 })
 export class UserSignUpComponent implements OnInit {
     // tslint:disable-next-line:max-line-length
-    constructor(private userLoggingService: UserLoggingService, http: HttpClient, private router: Router, private userService: UserService) {
+    constructor(private userLoggingService: UserLoggingService,
+         private http: HttpClient, 
+         private router: Router, 
+         private userService: UserService,
+         private dataService: DataService) {
     }
     user: User;
 
@@ -57,7 +62,7 @@ export class UserSignUpComponent implements OnInit {
         }, errorCode => console.log(errorCode));
     }
     ngOnInit() {
-
+        this.dataService.clearStorage();
         this.user = {
             userName: 'Babar',
             name: 'Durand',

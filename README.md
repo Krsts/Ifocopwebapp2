@@ -40,10 +40,21 @@ Dans la barre de recherche :
 
 >**!clock** ***<**Number**>*** **!s** | Pour mettre à jour la vitesse de mise à jour de la recherche. [>100ms]
 
-#### Réserver un appartement :
+#### Créer / Modifier Profile
 
 >Créer un nouvel utilisateur en choisissant l'option s'enregistrer dans l'icône dans le coin supérieur droit de la page.
+
 >L'authentification doit être automatique, toutefois il est possible de se connecter en suivant la méthode d'authentification de la barre de recherche ou en se loggant en suivant les instructions du menu situé dnas le coin supérieur droit de l'application.
+
+> Pour accéder au porfil : cliquer sur le bouton profil présent dans le menu utilisateur.
+
+> La page générée renvoie les donénées enregistrées lors de la création du profil.
+
+>Le bouton Modifier permet de changer les données utilisateur.
+
+
+#### Réserver un appartement :
+
 >> Dans la barre de recherche il est possible d'ajouter un appartement en clickant sur l'image qui l'accompagne. Un message doit apparaître disant que l'appartement a bien été ajouté. Il peut être retrouvé en clickant sur le menu présent dans le coin supérieur droit de l'application.
 
 > En clickant sur le nom de l'objet ajouté, vous êtes redirigé vers le détail du produit.
@@ -54,6 +65,18 @@ Dans la barre de recherche :
 >Le cart envoyé vers la base est récupéré à la prochine connexion de l'utilisateur.
 
 >**!détail** ***<**Index**>*** | Pour voir le détail du produit présent dans le menu des réservations en se basant sur l'index des réservations.
+
+#### Créer un objet Appartement :
+
+>Se connecter en tant qu'utilisateur
+
+>Choisir l'option Ajouter Appartement dans le menu utilisateur.
+
+>Remplir le formulaire.
+
+>Submit
+
+>Le nouvel objet appartement devrait être créer dans la base et sera visible dans la liste des appartements.
 
 >**!loggout** | Pour se déconnecter.
 

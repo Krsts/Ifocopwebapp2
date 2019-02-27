@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+// import { DataService } from './Data.service';
 
 
 @Injectable({
@@ -49,7 +50,8 @@ export class UserService {
   }
 
   goToSignUp() {
-    this.router.navigate(['/', 'user-sign-up']);
+    // this.dataService.clearStorage();
+      this.router.navigate(['/', 'user-sign-up']);
   }
 
   leaveProfile() {
@@ -96,7 +98,9 @@ export class UserService {
   getUserName() {
     return this.userName;
   }
-  constructor(private router: Router) { }
+  constructor(private router: Router)
+    // private dataService: DataService) 
+    { }
 
 }
 

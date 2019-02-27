@@ -18,6 +18,7 @@ import { PaiementComponent } from './paiement/paiement.component';
 
 const routes: Routes = [
 
+
   { path: 'home', component: HomeComponent },
   { path: 'appartement-list', component: AppartementListComponent },
   { path: 'appartement-detail/:name', component: AppartementDetailComponent },
@@ -34,7 +35,7 @@ const routes: Routes = [
   //   {path: 'user-profile', component: UserProfileComponent},
   { path: 'user-sign-up', component: UserSignUpComponent },
   { path: 'appartement-form', component: AppartementFormComponent },
-  { path: '', redirectTo: 'appartement-list', pathMatch: 'full' },
+  { path: '', redirectTo: 'home  ', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
   //   { path: 'home', component: HomeComponent },
   //   { path: 'appartement-list', component: AppartementListComponent },

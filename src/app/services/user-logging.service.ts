@@ -45,7 +45,7 @@ export class UserLoggingService {
   findAll(): User[] {
     return this.users;
   }
-  
+
   find(userName: string): User {
     return this.users[this.getSelectedIndex(userName)];
   }
