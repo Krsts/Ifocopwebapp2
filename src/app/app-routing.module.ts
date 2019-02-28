@@ -35,7 +35,7 @@ const routes: Routes = [
   //   {path: 'user-profile', component: UserProfileComponent},
   { path: 'user-sign-up', component: UserSignUpComponent },
   { path: 'appartement-form', component: AppartementFormComponent },
-  { path: '', redirectTo: 'home  ', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
   //   { path: 'home', component: HomeComponent },
   //   { path: 'appartement-list', component: AppartementListComponent },
